@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMapper="http://www.talend.org/mapper" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
+  <context confirmationNeeded="false" name="Default">
+    <contextParameter comment="" name="Entrepot_de_donnees_AdditionalParams" prompt="Entrepot_de_donnees_AdditionalParams?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Login" prompt="Entrepot_de_donnees_Login?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="root"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Port" prompt="Entrepot_de_donnees_Port?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Server" prompt="Entrepot_de_donnees_Server?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Password" prompt="Entrepot_de_donnees_Password?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Database" prompt="Entrepot_de_donnees_Database?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="formation_cible"/>
+    <contextParameter comment="" name="Gestion_de_commande_Server" prompt="Gestion_de_commande_Server?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Gestion_de_commande_Login" prompt="Gestion_de_commande_Login?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="root"/>
+    <contextParameter comment="" name="Gestion_de_commande_Port" prompt="Gestion_de_commande_Port?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Gestion_de_commande_AdditionalParams" prompt="Gestion_de_commande_AdditionalParams?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Gestion_de_commande_Database" prompt="Gestion_de_commande_Database?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="formation_source"/>
+    <contextParameter comment="" name="Gestion_de_commande_Password" prompt="Gestion_de_commande_Password?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+  </context>
+  <context confirmationNeeded="false" name="DEV">
+    <contextParameter comment="" name="Entrepot_de_donnees_AdditionalParams" prompt="Entrepot_de_donnees_AdditionalParams?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Login" prompt="Entrepot_de_donnees_Login?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="root"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Port" prompt="Entrepot_de_donnees_Port?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Server" prompt="Entrepot_de_donnees_Server?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Password" prompt="Entrepot_de_donnees_Password?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Database" prompt="Entrepot_de_donnees_Database?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="formation_cible"/>
+    <contextParameter comment="" name="Gestion_de_commande_Server" prompt="Gestion_de_commande_Server?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Gestion_de_commande_Login" prompt="Gestion_de_commande_Login?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="root"/>
+    <contextParameter comment="" name="Gestion_de_commande_Port" prompt="Gestion_de_commande_Port?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Gestion_de_commande_AdditionalParams" prompt="Gestion_de_commande_AdditionalParams?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Gestion_de_commande_Database" prompt="Gestion_de_commande_Database?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="formation_source"/>
+    <contextParameter comment="" name="Gestion_de_commande_Password" prompt="Gestion_de_commande_Password?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+  </context>
+  <context confirmationNeeded="false" name="PROD">
+    <contextParameter comment="" name="Entrepot_de_donnees_AdditionalParams" prompt="Entrepot_de_donnees_AdditionalParams?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Login" prompt="Entrepot_de_donnees_Login?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="root"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Port" prompt="Entrepot_de_donnees_Port?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Server" prompt="Entrepot_de_donnees_Server?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Password" prompt="Entrepot_de_donnees_Password?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Database" prompt="Entrepot_de_donnees_Database?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="formation_cible"/>
+    <contextParameter comment="" name="Gestion_de_commande_Server" prompt="Gestion_de_commande_Server?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Gestion_de_commande_Login" prompt="Gestion_de_commande_Login?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="root"/>
+    <contextParameter comment="" name="Gestion_de_commande_Port" prompt="Gestion_de_commande_Port?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Gestion_de_commande_AdditionalParams" prompt="Gestion_de_commande_AdditionalParams?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Gestion_de_commande_Database" prompt="Gestion_de_commande_Database?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="formation_source"/>
+    <contextParameter comment="" name="Gestion_de_commande_Password" prompt="Gestion_de_commande_Password?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+  </context>
+  <context confirmationNeeded="false" name="REC">
+    <contextParameter comment="" name="Entrepot_de_donnees_AdditionalParams" prompt="Entrepot_de_donnees_AdditionalParams?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Login" prompt="Entrepot_de_donnees_Login?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="root"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Port" prompt="Entrepot_de_donnees_Port?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Server" prompt="Entrepot_de_donnees_Server?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Password" prompt="Entrepot_de_donnees_Password?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Database" prompt="Entrepot_de_donnees_Database?" promptNeeded="false" repositoryContextId="_yRwWsC-TEemsT8mr1eixAg" type="id_String" value="formation_cible"/>
+    <contextParameter comment="" name="Gestion_de_commande_Server" prompt="Gestion_de_commande_Server?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Gestion_de_commande_Login" prompt="Gestion_de_commande_Login?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="root"/>
+    <contextParameter comment="" name="Gestion_de_commande_Port" prompt="Gestion_de_commande_Port?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Gestion_de_commande_AdditionalParams" prompt="Gestion_de_commande_AdditionalParams?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Gestion_de_commande_Database" prompt="Gestion_de_commande_Database?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_String" value="formation_source"/>
+    <contextParameter comment="" name="Gestion_de_commande_Password" prompt="Gestion_de_commande_Password?" promptNeeded="false" repositoryContextId="_7vpRAKxkEemZocuBS-7NbQ" type="id_Password" value="daH/q3VfyJoCunMjjPIIx0s8l0fSGqLL6d67NaCKaOg="/>
+  </context>
+  <parameters>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0" show="false"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" value="" show="false"/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="TEXT" name="PARALLELIZE_UNIT_SIZE" value="25000"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="k3WNzwEJ9MTsQqCStv4d5g==" show="false"/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="true"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="true"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="true"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;C:/talend/Talend-Studio-Cloud-V7.1.1/Talend-Studio-20181026_1147-V7.1.1/workspace/.metadata&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="true"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY_TYPE:REPOSITORY_PROPERTY_TYPE" value="_E9Ac0PfZEeiEc6VfAIzpfA" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="tMysqlOutput"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="TEXT" name="URL" value="" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;localhost&quot;"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;talend_monitoring&quot;"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;talend_monitoring&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;root&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="mFC7F37slvvwvKmv/DgJYgruCvg3hjKhwZuZnVNqvX4="/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;tstatcatcher&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;tlogcatcher&quot;"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;tflowmetercatcher&quot;"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
+    <routinesParameter id="_e6_g6uQ-EemZw83Z-s2nXA" name="DQTechnical"/>
+    <routinesParameter id="_e6sl8OQ-EemZw83Z-s2nXA" name="DataMasking"/>
+    <routinesParameter id="_d_F5UOQ-EemZw83Z-s2nXA" name="DataOperation"/>
+    <routinesParameter id="_e61v4OQ-EemZw83Z-s2nXA" name="DataQualityDependencies"/>
+    <routinesParameter id="_e6sl-uQ-EemZw83Z-s2nXA" name="DataQuality"/>
+    <routinesParameter id="_e6_g4OQ-EemZw83Z-s2nXA" name="DqStringHandling"/>
+    <routinesParameter id="_e7JR6eQ-EemZw83Z-s2nXA" name="MDM"/>
+    <routinesParameter id="_eypdMOQ-EemZw83Z-s2nXA" name="Mathematical"/>
+    <routinesParameter id="_eypdOuQ-EemZw83Z-s2nXA" name="Numeric"/>
+    <routinesParameter id="_eyzOMOQ-EemZw83Z-s2nXA" name="Relational"/>
+    <routinesParameter id="_e7Sb0OQ-EemZw83Z-s2nXA" name="SQLike"/>
+    <routinesParameter id="_e3kZeeQ-EemZw83Z-s2nXA" name="StringHandling"/>
+    <routinesParameter id="_e4wsQOQ-EemZw83Z-s2nXA" name="TalendDataGenerator"/>
+    <routinesParameter id="_e5pdGeQ-EemZw83Z-s2nXA" name="TalendDate"/>
+    <routinesParameter id="_e6i1AOQ-EemZw83Z-s2nXA" name="TalendStringUtil"/>
+    <routinesParameter id="_e6i09uQ-EemZw83Z-s2nXA" name="TalendString"/>
+  </parameters>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="256">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_cZig4PemEeiEc6VfAIzpfA" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="context.Gestion_de_commande_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.Gestion_de_commande_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.Gestion_de_commande_Database"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.Gestion_de_commande_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="OB/Tc4DjOIcqSt5pwpojhKftBrjqiHbVJxroT4Od1/gQTyi3ihKiFsrvy7xtwq/MYWzAsJSVivBeRm4CH/Czzg=="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_cZig4PemEeiEc6VfAIzpfA - src_orders" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;src_orders&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `src_orders`.`ORDER_ID`, &#xA;  `src_orders`.`STATUS`, &#xA;  `src_orders`.`CUST_ID`, &#xA;  `src_orders`.`ORDER_DATETIME`, &#xA;  `src_orders`.`CUSTOMER`&#xA;FROM `src_orders`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.Gestion_de_commande_AdditionalParams"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="ORDER_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="STATUS"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ORDER_DATETIME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUSTOMER"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>src_orders&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="src_orders" name="tMysqlInput_1">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="35" name="CUSTOMER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <node componentName="tFilterRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="256">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tFilterRow_8" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOGICAL_OP" value="&amp;&amp;"/>
+    <elementParameter field="TABLE" name="CONDITIONS">
+      <elementValue elementRef="INPUT_COLUMN" value="STATUS"/>
+      <elementValue elementRef="FUNCTION" value=""/>
+      <elementValue elementRef="OPERATOR" value="=="/>
+      <elementValue elementRef="RVALUE" value="&quot;CLO&quot;"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="USE_ADVANCED" value="false"/>
+    <elementParameter field="MEMO_JAVA" name="ADVANCED_COND" value="// code sample : use input_row to define the condition.&#xA;// input_row.columnName1.equals(&quot;foo&quot;) ||!(input_row.columnName2.equals(&quot;bar&quot;))&#xA;// replace the following expression by your own filter condition &#xA;input_row.columnName1.equals(input_row.columnName2)&#xA;&#x9;&#x9;&#x9;" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>filter_CLO&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="src_orders" name="tFilterRow_8">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="35" name="CUSTOMER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <metadata connector="FILTER" label="src_orders" name="FILTER">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="35" name="CUSTOMER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <metadata connector="REJECT" label="src_orders" name="REJECT">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="35" name="CUSTOMER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="448" posY="256">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_1" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_XsFv8PfKEeiEc6VfAIzpfA-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>lkp_order_lines&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="from_lkp_order_lines">
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="PRODUCT_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="QTY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AMOUNT" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="PROD_AVG_PRICE" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <outputTables sizeState="INTERMEDIATE" name="from_lkp_order_lines">
+        <mapperTableEntries name="CUST_ID" expression="to_lkp_orderlines.CUST_ID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ORDER_ID" expression="lkp_order_lines.ORDER_ID " type="id_Integer"/>
+        <mapperTableEntries name="PRODUCT_ID" expression="lkp_order_lines.PRODUCT_ID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FIRST_ORD_ID" expression="to_lkp_orderlines.ORDER_ID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FIRST_ORD_TIMESTAMP" expression="to_lkp_orderlines.ORDER_DATETIME " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="LAST_ORD_ID" expression="to_lkp_orderlines.ORDER_ID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="LAST_ORD_TIMESTAMP" expression="to_lkp_orderlines.ORDER_DATETIME " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="QTY" expression="lkp_order_lines.QTY " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="AMOUNT" expression="lkp_order_lines.AMOUNT " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="PROD_AVG_PRICE" expression="Relational.ISNULL( lkp_order_lines.QTY )?0:lkp_order_lines.AMOUNT /  lkp_order_lines.QTY " type="id_Integer" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="to_lkp_orderlines" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="ORDER_ID" type="id_Integer"/>
+        <mapperTableEntries name="STATUS" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CUST_ID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ORDER_DATETIME" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="CUSTOMER" type="id_String" nullable="true"/>
+      </inputTables>
+      <inputTables sizeState="INTERMEDIATE" name="lkp_order_lines" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
+        <mapperTableEntries name="ORDER_ID" expression="to_lkp_orderlines.ORDER_ID " type="id_Integer" operator="="/>
+        <mapperTableEntries name="LORDER_ID" type="id_Integer"/>
+        <mapperTableEntries name="PRODUCT_ID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="QTY" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="AMOUNT" type="id_Integer" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="448" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_2" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_cZig4PemEeiEc6VfAIzpfA" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="context.Gestion_de_commande_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.Gestion_de_commande_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.Gestion_de_commande_Database"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.Gestion_de_commande_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="OB/Tc4DjOIcqSt5pwpojhKftBrjqiHbVJxroT4Od1/gQTyi3ihKiFsrvy7xtwq/MYWzAsJSVivBeRm4CH/Czzg=="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_cZig4PemEeiEc6VfAIzpfA - src_order_lines" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;src_order_lines&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `src_order_lines`.`ORDER_ID`, &#xA;  `src_order_lines`.`LORDER_ID`, &#xA;  `src_order_lines`.`PRODUCT_ID`, &#xA;  `src_order_lines`.`QTY`, &#xA;  `src_order_lines`.`AMOUNT`&#xA;FROM `src_order_lines`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.Gestion_de_commande_AdditionalParams"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="ORDER_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LORDER_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="QTY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>src_order_lines&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="src_order_lines" name="tMysqlInput_2">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="true" length="10" name="LORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="PRODUCT_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="QTY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="AMOUNT" nullable="true" pattern="" precision="2" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="704" posY="256">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_2" show="false"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_XsFv8PfKEeiEc6VfAIzpfA-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true" show="false"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" value="0" show="false"/>
+    <elementParameter field="TEXT" name="JACCARD" value="0" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>lkp_customer,product&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="to_aggregate">
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="PRODUCT_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="QTY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AMOUNT" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="PROD_AVG_PRICE" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables sizeState="INTERMEDIATE" name="Var" minimized="true"/>
+      <outputTables sizeState="INTERMEDIATE" name="to_aggregate">
+        <mapperTableEntries name="CUST_ID" expression="from_lkp_order_lines.CUST_ID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ORDER_ID" expression="from_lkp_order_lines.ORDER_ID " type="id_Integer"/>
+        <mapperTableEntries name="PRODUCT_ID" expression="from_lkp_order_lines.PRODUCT_ID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FIRST_ORD_ID" expression="from_lkp_order_lines.FIRST_ORD_ID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FIRST_ORD_TIMESTAMP" expression="from_lkp_order_lines.FIRST_ORD_TIMESTAMP " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="LAST_ORD_ID" expression="from_lkp_order_lines.LAST_ORD_ID " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="LAST_ORD_TIMESTAMP" expression="from_lkp_order_lines.LAST_ORD_TIMESTAMP " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="QTY" expression="from_lkp_order_lines.QTY " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="AMOUNT" expression="from_lkp_order_lines.AMOUNT " type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="PROD_AVG_PRICE" expression="from_lkp_order_lines.PROD_AVG_PRICE " type="id_Integer" nullable="true"/>
+      </outputTables>
+      <inputTables sizeState="INTERMEDIATE" name="from_lkp_order_lines" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="CUST_ID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="ORDER_ID" type="id_Integer"/>
+        <mapperTableEntries name="PRODUCT_ID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FIRST_ORD_ID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="FIRST_ORD_TIMESTAMP" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="LAST_ORD_ID" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="LAST_ORD_TIMESTAMP" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="QTY" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="AMOUNT" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="PROD_AVG_PRICE" type="id_Integer" nullable="true"/>
+      </inputTables>
+      <inputTables sizeState="INTERMEDIATE" name="lkp_customer" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
+        <mapperTableEntries name="CUST_ID" expression="from_lkp_order_lines.CUST_ID " type="id_Integer" operator="="/>
+        <mapperTableEntries name="DEAR" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CUST_NAME" type="id_String" nullable="true"/>
+        <mapperTableEntries name="ADDRESS" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CITY_ID" type="id_Integer"/>
+        <mapperTableEntries name="PHONE" type="id_String" nullable="true"/>
+        <mapperTableEntries name="AGE" type="id_Integer" nullable="true"/>
+        <mapperTableEntries name="AGE_RANGE" type="id_String" nullable="true"/>
+        <mapperTableEntries name="SALES_PERS" type="id_String" nullable="true"/>
+        <mapperTableEntries name="CRE_TIMESTAMP" type="id_Date" nullable="true"/>
+        <mapperTableEntries name="UPD_TIMESTAMP" type="id_Date" nullable="true"/>
+      </inputTables>
+      <inputTables sizeState="INTERMEDIATE" name="lkp_product" activateCondensedTool="true" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE" innerJoin="true">
+        <mapperTableEntries name="PRODUCT_ID" expression="from_lkp_order_lines.PRODUCT_ID " type="id_Integer" operator="="/>
+        <mapperTableEntries name="FAMILY_ID" type="id_String"/>
+        <mapperTableEntries name="PRICE" type="id_BigDecimal" nullable="true"/>
+        <mapperTableEntries name="PRODUCT" type="id_String" nullable="true"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="960" posY="256">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tAggregateRow_1" show="false"/>
+    <elementParameter field="TABLE" name="GROUPBYS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="INPUT_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="INPUT_COLUMN" value="PRODUCT_ID"/>
+    </elementParameter>
+    <elementParameter field="TABLE" name="OPERATIONS">
+      <elementValue elementRef="OUTPUT_COLUMN" value="FIRST_ORD_ID"/>
+      <elementValue elementRef="FUNCTION" value="min"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FIRST_ORD_ID"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="FIRST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="FUNCTION" value="min"/>
+      <elementValue elementRef="INPUT_COLUMN" value="FIRST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="LAST_ORD_ID"/>
+      <elementValue elementRef="FUNCTION" value="max"/>
+      <elementValue elementRef="INPUT_COLUMN" value="LAST_ORD_ID"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="LAST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="FUNCTION" value="max"/>
+      <elementValue elementRef="INPUT_COLUMN" value="LAST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="QTY"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="QTY"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="FUNCTION" value="sum"/>
+      <elementValue elementRef="INPUT_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+      <elementValue elementRef="OUTPUT_COLUMN" value="PROD_AVG_PRICE"/>
+      <elementValue elementRef="FUNCTION" value="avg"/>
+      <elementValue elementRef="INPUT_COLUMN" value="PROD_AVG_PRICE"/>
+      <elementValue elementRef="IGNORE_NULL" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LIST_DELIMITER" value="&quot;,&quot;"/>
+    <elementParameter field="CHECK" name="USE_FINANCIAL_PRECISION" value="true"/>
+    <elementParameter field="CHECK" name="CHECK_TYPE_OVERFLOW" value="false"/>
+    <elementParameter field="CHECK" name="CHECK_ULP" value="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>agg_kpi&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tAggregateRow_1">
+      <column comment="" key="true" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="true" length="10" name="PRODUCT_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="QTY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AMOUNT" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="PROD_AVG_PRICE" nullable="true" pattern="" precision="-1" sourceType="" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1184" posY="256">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlOutput_1" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_URSx8PenEeiEc6VfAIzpfA" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="context.Entrepot_de_donnees_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.Entrepot_de_donnees_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.Entrepot_de_donnees_Database"/>
+    <elementParameter field="TEXT" name="USER" value="context.Entrepot_de_donnees_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="OB/Tc4DjOIdSX9YcK3Z9uB+CXNMr+hsngnro+dMyrKs7dIAWD9AaTKKZ7pwEzULiVY8J60PlGCQDoEH0sHx7Sg=="/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_sales&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="TRUNCATE"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.Entrepot_de_donnees_AdditionalParams"/>
+    <elementParameter field="CHECK" name="EXTENDINSERT" value="true"/>
+    <elementParameter field="LABEL" name="NOTE" value="(Not compatible with reject links)"/>
+    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" value="100"/>
+    <elementParameter field="CHECK" name="USE_BATCH_SIZE" value="true" show="false"/>
+    <elementParameter field="TEXT" name="BATCH_SIZE" value="10000" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
+    <elementParameter field="TABLE" name="ADD_COLS"/>
+    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="true"/>
+    <elementParameter field="TABLE" name="FIELD_OPTIONS">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FIRST_ORD_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FIRST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_ORD_ID"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="QTY"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PROD_AVG_PRICE"/>
+      <elementValue elementRef="UPDATE_KEY" value="false"/>
+      <elementValue elementRef="DELETE_KEY" value="false"/>
+      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="true"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
+    <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
+    <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
+    <elementParameter field="CHECK" name="ON_DUPLICATE_KEY_UPDATE" value="false"/>
+    <elementParameter field="TABLE" name="DUPLICATED_KEYS" show="false"/>
+    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false" show="false"/>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>trg_sales&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tMysqlOutput_1">
+      <column comment="" key="true" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="true" length="10" name="PRODUCT_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="QTY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AMOUNT" nullable="true" pattern="" precision="2" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="PROD_AVG_PRICE" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" key="true" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="true" length="10" name="PRODUCT_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="FIRST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_ID" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="LAST_ORD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="-1" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="10" name="QTY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AMOUNT" nullable="true" pattern="" precision="2" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="PROD_AVG_PRICE" nullable="true" pattern="" precision="-1" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="608" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_3" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_URSx8PenEeiEc6VfAIzpfA" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="context.Entrepot_de_donnees_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.Entrepot_de_donnees_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.Entrepot_de_donnees_Database"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.Entrepot_de_donnees_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="OB/Tc4DjOIdSX9YcK3Z9uB+CXNMr+hsngnro+dMyrKs7dIAWD9AaTKKZ7pwEzULiVY8J60PlGCQDoEH0sHx7Sg=="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_URSx8PenEeiEc6VfAIzpfA - trg_customer" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_customer&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `trg_customer`.`CUST_ID`, &#xA;  `trg_customer`.`DEAR`, &#xA;  `trg_customer`.`CUST_NAME`, &#xA;  `trg_customer`.`ADDRESS`, &#xA;  `trg_customer`.`CITY_ID`, &#xA;  `trg_customer`.`PHONE`, &#xA;  `trg_customer`.`AGE`, &#xA;  `trg_customer`.`AGE_RANGE`, &#xA;  `trg_customer`.`SALES_PERS`, &#xA;  `trg_customer`.`CRE_TIMESTAMP`, &#xA;  `trg_customer`.`UPD_TIMESTAMP`&#xA;FROM `trg_customer`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.Entrepot_de_donnees_AdditionalParams"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DEAR"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUST_NAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ADDRESS"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CITY_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PHONE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_RANGE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="SALES_PERS"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CRE_TIMESTAMP"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="UPD_TIMESTAMP"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>trg_customer&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="trg_customer" name="tMysqlInput_3">
+      <column comment="" key="true" length="10" name="CUST_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="4" name="DEAR" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="CUST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="ADDRESS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CITY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="PHONE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AGE" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="AGE_RANGE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="SALES_PERS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="CRE_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="UPD_TIMESTAMP" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="800" posY="32">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_4" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_URSx8PenEeiEc6VfAIzpfA" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="context.Entrepot_de_donnees_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.Entrepot_de_donnees_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.Entrepot_de_donnees_Database"/>
+    <elementParameter field="TEXT" name="TYPE" value="MYSQL" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="context.Entrepot_de_donnees_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="OB/Tc4DjOIdSX9YcK3Z9uB+CXNMr+hsngnro+dMyrKs7dIAWD9AaTKKZ7pwEzULiVY8J60PlGCQDoEH0sHx7Sg=="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" value="REPOSITORY" show="false"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" value="_URSx8PenEeiEc6VfAIzpfA - trg_product" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_product&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#xA;  `trg_product`.`PRODUCT_ID`, &#xA;  `trg_product`.`FAMILY_ID`, &#xA;  `trg_product`.`PRICE`, &#xA;  `trg_product`.`PRODUCT`&#xA;FROM `trg_product`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" value="mysql_id" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.Entrepot_de_donnees_AdditionalParams"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FAMILY_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRICE"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="&lt;b>trg_product&lt;/b>&lt;br>__UNIQUE_NAME__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="trg_product" name="tMysqlInput_4">
+      <column comment="" key="true" length="10" name="PRODUCT_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="FAMILY_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="PRICE" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="PRODUCT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <connection connectorName="FLOW" label="from_src_orders" lineStyle="0" metaname="tMysqlInput_1" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_1" target="tFilterRow_8">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="from_src_orders" show="false"/>
+  </connection>
+  <connection connectorName="FILTER" label="to_lkp_orderlines" lineStyle="0" metaname="tFilterRow_8" offsetLabelX="0" offsetLabelY="0" source="tFilterRow_8" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="to_lkp_orderlines" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="from_lkp_order_lines" lineStyle="0" metaname="from_lkp_order_lines" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tMap_2">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="from_lkp_order_lines" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="lkp_order_lines" lineStyle="8" metaname="tMysqlInput_2" offsetLabelX="0" offsetLabelY="0" source="tMysqlInput_2" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="lkp_order_lines" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="to_aggregate" lineStyle="0" metaname="to_aggregate" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tAggregateRow_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="to_aggregate" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="to_trg_sales" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tMysqlOutput_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="LAST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FIRST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="LAST_ORD_ID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="ORDER_ID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="QTY"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="PROD_AVG_PRICE"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+      <elementValue elementRef="TRACE_COLUMN" value="FIRST_ORD_ID"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="to_trg_sales" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="lkp_customer" lineStyle="8" metaname="tMysqlInput_3" offsetLabelX="-19" offsetLabelY="-20" source="tMysqlInput_3" target="tMap_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="lkp_customer" show="false"/>
+  </connection>
+  <connection connectorName="FLOW" label="lkp_product" lineStyle="8" metaname="tMysqlInput_4" offsetLabelX="50" offsetLabelY="-34" source="tMysqlInput_4" target="tMap_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="lkp_product" show="false"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMysqlInput_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="92;131;150" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+</talendfile:ProcessType>
