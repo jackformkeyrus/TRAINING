@@ -251,20 +251,32 @@
     <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
     <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
     <elementParameter field="TABLE" name="LENGTHS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_MIN"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REGION_ID"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_MAX"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REGION"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_RANGE"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY_ID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="DATA_SRC_AGE_GROUP" name="tLogRow_1">
-      <column comment="" key="false" length="2" name="AGE_MIN" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="AGE_MAX" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="18" name="AGE_RANGE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    <metadata connector="FLOW" label="src_region" name="tLogRow_1">
+      <column comment="" key="true" length="10" name="REGION_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tLogRow_1">
@@ -276,13 +288,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4710fabf-edb7-40d5-9c19-60f7ee9c8789"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>eS5XTod7xpAKi9393AI0YScehc6rxUdHZ2uA99Mf1NRMW775xWZyejH9iY6I+484vKhrkf5ysrRu
-1v69Os3/3Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_a14bb1ab-2753-4a12-b8af-d06972cbd53c"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>/R+PA7xcpFPuQiyb80Yz1r2EYvlhcpduyApQyLdU7mhZP+CU93NBFTMUbJjIqaDCp1Di9YNAr1Wl
-WWAN/UXo/Q==</DigestValue></Reference></SignedInfo><SignatureValue>lWla1gGRKaNtzdOAGKBH66AysMfpZDAekkk1foKd7GSa+Qh73h47pSQjAlPsJMeVTL17sNIavQiZ
-1HvFwLFgySLM4GXnzRrVXUy8EgDDEoygle9NHH368yAb1aP9CkjwmBBE+dqjdn7GSaiK2F1CtpsZ
-+6vY1R7wgtReqbvuyG5RpgKJqf1ynAG92TZax81ZY26Ud6E37w6JukC36U/duuYdNDKqcjT1QLkh
-jf8WS/W+wvojwQueAIdlRNQjRV5P4tsAIc4S75cYkdTW6yrOyzxIAUUuPS8n7+dUcxIsvLPO053C
-gI52zFCFOpxYlSApDJADVcdTGbmBBocgcSVndw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4a1f2bc7-f756-4965-9561-9e28ef3d1b19"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>t+2lHD62/FD+2qjzwi75keegzpkoBjlmfIAzgJB13CCGrBFLFui2+3BT1ExAabF/6h4u8ZwN/74Y
+DKZ6HtPHeg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_07b6332f-9db6-462c-968b-577ac1793e20"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ZGDjkbmEfmnowaXoAdiS0LV1Fn3Eao9DTwlqV3mYhw0y4KrjLZyPQPXxSVk1Jfk1bPRhODhkACXN
+CW6TGk01WQ==</DigestValue></Reference></SignedInfo><SignatureValue>xz4Vyu+8l5999ZLj5MdpSZQcIArpKYlf00eeT8H521oMCJ9QTdFsTpoggRU2UYI1ILMT4AK6GazT
+RwUojnw+Y3bWy7tMKdkPuiQtrlt/XORiQkbHM13jcbDxBsUAfNcgso1WvVD9CvoR3aBd2ymA1DTh
+w0hhJ97P1n8Rv2Af8K288leQBB88F/UcCWycg/16H9UTI+28xljBi1Vpxs0SQ4OG+nQVxpQ7CfB2
+DwAxhf7ay8JeKdINiPQIb7lvW1OFr+QnLen2UWxhkmNDTLtfHTFvXss4OJznQAOXcwyobzO/6lin
+2i7eeXqI3KPRO1/vcfl9FuRIoCOSsxJ+5n42PQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -306,4 +318,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_a14bb1ab-2753-4a12-b8af-d06972cbd53c" Target="#_4710fabf-edb7-40d5-9c19-60f7ee9c8789"><Timestamp>2019-10-08 13:49:22</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_07b6332f-9db6-462c-968b-577ac1793e20" Target="#_4a1f2bc7-f756-4965-9561-9e28ef3d1b19"><Timestamp>2019-10-08 13:50:50</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
