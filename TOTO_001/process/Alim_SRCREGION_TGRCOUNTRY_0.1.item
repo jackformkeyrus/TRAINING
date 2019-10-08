@@ -260,29 +260,12 @@
       </column>
       <additionalProperties key="Comment" value=""/>
     </metadata>
-    <metadata comment="" connector="FLOW" label="trg_region" name="region" type="TABLE">
-      <column comment="" key="true" length="10" name="REGION_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="50" name="REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <additionalProperties key="Comment" value=""/>
-    </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables activateCondensedTool="true" id="_ocGoUOmwEemjBecgqORj2A - trg_country" name="unique" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row1.COUNTRY_ID" name="COUNTRY_ID" type="id_Integer"/>
         <mapperTableEntries expression="row1.COUNTRY" name="COUNTRY" nullable="true" type="id_String"/>
-      </outputTables>
-      <outputTables activateCondensedTool="true" id="_ocGoUOmwEemjBecgqORj2A - trg_region" name="region" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row1.REGION_ID" name="REGION_ID" type="id_Integer"/>
-        <mapperTableEntries expression="row1.COUNTRY_ID" name="COUNTRY_ID" type="id_Integer"/>
-        <mapperTableEntries expression="StringHandling.UPCASE(row1.REGION) " name="REGION" nullable="true" type="id_String"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row1" sizeState="INTERMEDIATE">
         <mapperTableEntries name="REGION_ID" type="id_Integer"/>
@@ -445,8 +428,108 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="704" posY="256">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_6"/>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="352">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_6"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_8bDfgOmvEemjBecgqORj2A"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
+    <elementParameter field="TEXT" name="HOST" value="context.Gestion_de_commande_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.Gestion_de_commande_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.Gestion_de_commande_Database"/>
+    <elementParameter field="TEXT" name="TYPE" show="false" value="MYSQL"/>
+    <elementParameter field="TEXT" name="USER" value="context.Gestion_de_commande_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kueKpWN+1aRBvPVPTZpvjODA68STWHMc+Q1IROVO9yiygw=="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_8bDfgOmvEemjBecgqORj2A - src_region"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;src_region&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `src_region`.`REGION_ID`, &#10;  `src_region`.`REGION`, &#10;  `src_region`.`COUNTRY_ID`, &#10;  `src_region`.`COUNTRY`&#10;FROM `src_region`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="mysql_id"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.Gestion_de_commande_AdditionalParams"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="REGION_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REGION"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="src_region" name="tDBInput_6">
+      <column comment="" key="true" length="10" name="REGION_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="352">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_2"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_nHpYAOnKEemjBecgqORj2A-tMap_2-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata comment="" label="trg_region" name="copyOfregion" type="TABLE">
+      <column comment="" key="true" length="10" name="REGION_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <outputTables activateCondensedTool="true" id="_ocGoUOmwEemjBecgqORj2A - trg_region" name="copyOfregion" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row4.REGION_ID" name="REGION_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row4.COUNTRY_ID" name="COUNTRY_ID" type="id_Integer"/>
+        <mapperTableEntries expression="StringHandling.UPCASE(row4.REGION) " name="REGION" nullable="true" type="id_String"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row4" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="REGION_ID" type="id_Integer"/>
+        <mapperTableEntries name="REGION" nullable="true" type="id_String"/>
+        <mapperTableEntries name="COUNTRY_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="COUNTRY" nullable="true" type="id_String"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="704" posY="352">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_8"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_ocGoUOmwEemjBecgqORj2A"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
@@ -504,7 +587,7 @@
     <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" show="false" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="trg_region" name="tDBOutput_6">
+    <metadata connector="FLOW" label="trg_region" name="tDBOutput_8">
       <column comment="" key="true" length="10" name="REGION_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -535,11 +618,10 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
   </connection>
-  <connection connectorName="FLOW" label="region" lineStyle="0" metaname="region" offsetLabelX="0" offsetLabelY="0" outputId="1" source="tMap_1" target="tDBOutput_6">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="region"/>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tDBInput_6">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk1"/>
   </connection>
-  <connection connectorName="FLOW" label="unique" lineStyle="0" metaname="unique" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMap_1" target="tUniqRow_1">
+  <connection connectorName="FLOW" label="unique" lineStyle="0" metaname="unique" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tUniqRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="unique"/>
   </connection>
@@ -551,18 +633,31 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row3"/>
   </connection>
+  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tDBInput_6" offsetLabelX="0" offsetLabelY="0" source="tDBInput_6" target="tMap_2">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row4"/>
+  </connection>
+  <connection connectorName="FLOW" label="copyOfregion" lineStyle="0" metaname="copyOfregion" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tDBOutput_8">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="copyOfregion"/>
+  </connection>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_2"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_13c72837-84b3-425a-86c8-78afcf3979cd"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>TD63oT0knxgUIDqMq9C1MilZPs6OmHi7vpWMkde/Jal8fZE98KCiutR7p3QXIclhqP/BArcp8jAS
-VQwTEe/Rrw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d6dacb16-d7c8-47de-b9a3-7ecaa67fbce6"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>PeqcR+WIdWPR9n24x3E2AkWoFgna9jcddK6IoEYxpZLhX1I6bdSev+AnkOmic33gG0fOzHOMaYsR
-LMDzmaaWyw==</DigestValue></Reference></SignedInfo><SignatureValue>cq4YgS3W1Fbc6pJSMFkVNhIbIJmvb3k0tvpb/vL8go03FnrhviObrjIEtGvcvclYxAMr22JAD0nm
-wcIQYeEduHSAEgMflWVgqTidbnKyD07ammJWEPa0F4FyNLoEG1uvHDYAmAEdA2t32+zwSQiUlFkb
-E+f8gmCuArgSoYAuNeR59nnm6T/KRinPulnfAPERkAmPvn5GAjtC+6oocyGSVLS9eYBUNg4xKVJ1
-9eAUgMKtdxrLbLsng0QErib+tbYa7VLSK4CqF2f9zBA22ZloqHO2Z2bNymIazn89uLLGYGnOaTIM
-emUt7FmpfFqyndtmjO7WevPvh0J3eF/rCb57Zw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_6"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_2271098e-e71c-4b89-9fcd-acb657890b2a"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>eGYir1BzUZRpMX3hqsxdIQRFuceV0/vgR4VZAL77qHaOAfjKfw6qCdRgkJ23Twbz0+jWFtxcTJB3
+QtKasVvnNA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_4ca4aaf3-2e2e-4933-ba12-1e3055eec2df"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>n6Asx2UowY+nq+UdhmLL8APgQ1us2qMwrWCYH9pBaj1KnzCUZi+rqoIB1nzpO9IG592Zydoc6Up1
+mafXCddojw==</DigestValue></Reference></SignedInfo><SignatureValue>MWCIlw0vMZLPMhirkLMrL0OQ/QUt4G+ie3p8/qR9MR4Lju3g1srQycrH/ev28qVg3l7Jvv6FUf9U
+mf07pbrsUDkdasu1vmd63N2JVCruoaBsJParyf+8OgqPNVB72GnIs7Oy8c/y/sM0acnBPOZvNXxj
+23WywH+6gchTjIZHAwjNbK9c+vA6hBlw6nISZBZZwkgW87gjXBjRlG0enCOIEeYzjs7DLucuQH8m
+GvyWx/19BJtI/Fq3dpATPRK7Y5zex+gRAHirLLiaxkvDL5Br3p3ni6DofnZxGxVibwfOLtB7Fa8y
+dqBWN+TrwMHpCNgNx36ENT1yR1pL06nZRZ6uCA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -586,4 +681,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d6dacb16-d7c8-47de-b9a3-7ecaa67fbce6" Target="#_13c72837-84b3-425a-86c8-78afcf3979cd"><Timestamp>2019-10-08 14:24:13</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_4ca4aaf3-2e2e-4933-ba12-1e3055eec2df" Target="#_2271098e-e71c-4b89-9fcd-acb657890b2a"><Timestamp>2019-10-08 14:27:52</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
