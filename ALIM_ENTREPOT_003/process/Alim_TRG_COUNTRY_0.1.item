@@ -310,64 +310,31 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="608" posY="160">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_7"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_MULJgO8wEemztaI1k8AZcQ"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
-    <elementParameter field="TEXT" name="TYPE" show="false" value="MYSQL"/>
-    <elementParameter field="TEXT" name="HOST" value="context.Cible_Server"/>
-    <elementParameter field="TEXT" name="PORT" value="context.Cible_Port"/>
-    <elementParameter field="TEXT" name="DBNAME" value="context.Cible_Database"/>
-    <elementParameter field="TEXT" name="USER" value="context.Cible_Login"/>
-    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kudS0aIdLNvRLBvhj6MJx/zd"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_country&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
-    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
-    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="mysql_id"/>
-    <elementParameter field="TEXT" name="PROPERTIES" value="context.Cible_AdditionalParams"/>
-    <elementParameter field="CHECK" name="EXTENDINSERT" value="true"/>
-    <elementParameter field="LABEL" name="NOTE" value="(Not compatible with reject links)"/>
-    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" value="100"/>
-    <elementParameter field="CHECK" name="USE_BATCH_SIZE" show="false" value="true"/>
-    <elementParameter field="TEXT" name="BATCH_SIZE" show="false" value="10000"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
-    <elementParameter field="TABLE" name="ADD_COLS"/>
-    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
-    <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY_ID"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="REGION"/>
-      <elementValue elementRef="UPDATE_KEY" value="false"/>
-      <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
-    <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
-    <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
-    <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
-    <elementParameter field="CHECK" name="ON_DUPLICATE_KEY_UPDATE" value="false"/>
-    <elementParameter field="TABLE" name="DUPLICATED_KEYS" show="false"/>
-    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="result" name="tDBOutput_7">
+    <metadata connector="FLOW" label="result" name="tLogRow_1">
       <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
@@ -377,21 +344,6 @@
       <column comment="" key="false" length="50" name="REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <additionalProperties key="Comment" value=""/>
-    </metadata>
-    <metadata connector="REJECT" label="result" name="REJECT">
-      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="50" name="REGION" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
-      <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tDBConnection_2">
@@ -413,7 +365,7 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="result"/>
   </connection>
-  <connection connectorName="UNIQUE" label="row2" lineStyle="0" metaname="UNIQUE" offsetLabelX="0" offsetLabelY="0" source="tUniqRow_1" target="tDBOutput_7">
+  <connection connectorName="UNIQUE" label="row2" lineStyle="0" metaname="UNIQUE" offsetLabelX="0" offsetLabelY="0" source="tUniqRow_1" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row2"/>
   </connection>
@@ -444,13 +396,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_63639b7b-d84a-4c9c-913d-f2587ccd2f2c"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>LVD3H3tLae+v72R7eD26pksdir/kr/Bw2S4ie4SqxzMEjIjlNsFva2ySYfqGTX9RbHIiOIc8lw3w
-bbQ22xGRpg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0242e037-0852-4155-bc4c-ada52a2a7c35"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>OZHRie9SPxWKEcynHu3t5YaCr+BKEAPn3n5Tg0OD/U+oNS3IC5ue3N9x/HKbxp95eKI9kPxKSV85
-WtTxe2JlEw==</DigestValue></Reference></SignedInfo><SignatureValue>xaQbjS9VgN1oLI3aX3K0ZXYLjwjjVnl1XjWBsVK4Pq/2J+aWEsWw/AoC17H6KRGMVGs2b8OEmcpB
-k57oPCluyLf0rI/ch3MAu2a/lTcXfGk54EoPtSZcIYnLzc4Ab3vKlrktZ1po/hDoomqHJHAonZVh
-51zNl3DRCbDnQ2UkSi9Z3qtIVr1E97exCf51FlB/8sQZyF4Q1BgyMfaVr23dr7dQqXx0F62Cu5yq
-Ta+Mm9KTwxkTUB7/LhXsHm4ZsO1UZOrv20ttYYTij6xp8I/xqNOePX1IOXENxfem+eJlRQfmorXi
-LLOrKNAfpipFSp7G5AOwShEjKsKDPuvnjzXWXw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_15d22284-a17c-470d-b37a-729f72de66ba"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>H3A2IRx49hUqoWbINnew/737fXb5AKykJScvkPD8LuF6nhOyats5AMdHORJc7qSj/3G4L93CEBEP
+W0TqCNVvTw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c15e7a7b-fd77-4999-915f-4234090d96bd"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Be7X4nqhiv6kkcYyf2BHJz0KllVX7gDyNpeTS/vtg+880Q6uBBVzglBjJBJ4GChlh4QukyV4p7ly
+a6/xKjw3mQ==</DigestValue></Reference></SignedInfo><SignatureValue>IESb4/kqd7qNzKydd+80FV3u+qVgSguG38mSu0hVeHXL8S50UPjETUSneNFw9vnECMJ8QYmn1FWf
+YdjD9Te1WtmFrMMJa/LR61ADZqVbJxMdG09Qy6dtB8bDd5k+cIH7VE+PovnZfjVm/HNjovgptXCT
+eamBaFomM57qZwO5xHVfM27MWKx3pfQtvNN4cmGPezYjXTSbhECwh5ZkhDdYzrVS2K5fdnpnIsLu
+vDrHxZCMvwN66dj89SOgONF1fUfOnPwIbjnKivdNssi0Ym+FZL5iUxPiaT8Moo7UfwidUYnV4Tir
+vDrn2bvbejQeCHb+WfeldVv1YZthGnrxw20z3g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -474,4 +426,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0242e037-0852-4155-bc4c-ada52a2a7c35" Target="#_63639b7b-d84a-4c9c-913d-f2587ccd2f2c"><Timestamp>2019-10-15 12:53:33</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c15e7a7b-fd77-4999-915f-4234090d96bd" Target="#_15d22284-a17c-470d-b37a-729f72de66ba"><Timestamp>2019-10-15 12:54:31</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
