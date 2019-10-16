@@ -226,27 +226,24 @@
     <elementParameter field="TABLE" name="LENGTHS" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="ORDER_ID"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="ORDER_ID1"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="STATUS"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="LORDER_ID"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUST_ID"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ORDER_DATETIME"/>
       <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="QTY"/>
-      <elementValue elementRef="LENGTH" value="10"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUSTOMER"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="metadata" name="tLogRow_1">
-      <column comment="" key="false" length="2" name="ORDER_ID" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="ORDER_ID1" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="LORDER_ID" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="2" name="PRODUCT_ID" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="5" name="QTY" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="6" name="AMOUNT" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="ORDER_ID" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="CUST_ID" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="16" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="4" name="CUSTOMER" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
   <node componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="448" posY="288">
@@ -430,13 +427,13 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
     <elementParameter field="CHECK" name="SUBJOB_DISPLAYED" show="false" value="false"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_25f708e2-7876-4968-b3ad-ce095102be95"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>/Td945LKxcjaFkZOfnYYO4mDJlkE5paIgWa8cgM1KTi52hfzsMieXDlZBm7JpAuZbnQIHJLImU5o
-WS1PSYrIBg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_b6075b1c-651b-44f4-8776-d9148dda83fe"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>QXL2naASIzUUBChq2c8VgCqm5t6IEeKgXHiQwmxszNO10P+BkXe94zL48ltTN4WNK8g3YQpQ+dEK
-+JZ9wXt7dQ==</DigestValue></Reference></SignedInfo><SignatureValue>jGgPqAmybJeDnrFxZE22h8LwpVIMoGyqnqJxJs0RVwlsnHgfzOHXXadRUE+IpybaHIR3Ye4RRNXe
-k+R/dxeW9CtO8yaIe51CIwiy0ByCpdnI7MVpmV6+WnrRVKzGSJSSrMic57U0nUXFZ7yRroZVNO17
-ka7MjE0yNIDlXJ7imnGbJnavTidRF9XRhSjDVK5Q6vz7pW6nDefWC+P4JiZplHuFAr4uVrCVq8WH
-j2+Nobgpdrtxy+naihn5rNnL34Y5mlSuoGLzL6SvlXD695a/MUTXeGm3KAacmYhi7oBjxTEqcZIq
-/PySudo16PLppdQ6yOuLGbyBnx+P8Ou+UQtaHg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_214eded6-ed69-4d23-bb16-aeaec0b85e91"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hmX6dCwWeeRfN0T8bms/NU+nuW/fzNx/5+E+X1mvO+mWmwUkssewpNkf250BYZkEp0rK9/cykZU2
+Gu/VCbL4sA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0fd716a6-5070-4c63-98e9-fb052660e571"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Z+QgmBA5D6SZ6kmoVCF7hI5uS9K6xYo+g1fsuTtHG17QY4S29vsh1Vgtpp0C541TH7GUn2Xc5W54
+Pe0iXVOMhA==</DigestValue></Reference></SignedInfo><SignatureValue>tjW29zj9E/by+V17tlP/PNmPxF1yF/xy8LyZYdnVqVHlsviFmNgLEUV5BHj1oZCMnrGdmisgmejp
+4qe/7+5aC/pU33iA0rSn13yPINVDSk7ztSEnRr3c4lPFtCvNd1WjHL2zvx18fu5X39JfFnNI225n
+F8OJoDwlsSIg0b1eHomFYokXrVNR/AG5tJqbtDRBGjK1ZzmVVRpU2Zw/yLHMe6KlfOekIFTHuv7s
+4bLGwxhZaTygudDPKZt1Vh+fCFLATmm/nsggvEvt1eKm4+q84WwUb7wHKN3z4JyVnv/oDp6MNKvk
+5XIKI5OCN6qg3VJM19p+L9HRq+1xuEEyN9EIqQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -460,4 +457,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_b6075b1c-651b-44f4-8776-d9148dda83fe" Target="#_25f708e2-7876-4968-b3ad-ce095102be95"><Timestamp>2019-10-16 09:31:56</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0fd716a6-5070-4c63-98e9-fb052660e571" Target="#_214eded6-ed69-4d23-bb16-aeaec0b85e91"><Timestamp>2019-10-16 09:32:15</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
