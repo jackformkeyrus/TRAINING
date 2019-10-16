@@ -4,32 +4,24 @@
     <contextParameter comment="" name="Repertoire_CibleOrder" prompt="Repertoire_CibleOrder?" promptNeeded="false" type="id_String" value="C:/Formation/ETL_Projet_DEV/Workspace/"/>
     <contextParameter comment="" name="NomFichierCibleOrder" prompt="NomFichierCibleOrder?" promptNeeded="false" type="id_String" value="All_Orders.csv"/>
     <contextParameter comment="" name="NomFichierCibleOrderLines" prompt="NomFichierCibleOrderLines?" promptNeeded="false" type="id_String" value="All_OrdersLines.csv"/>
-    <contextParameter comment="" name="MaskOrders" prompt="MaskOrders?" promptNeeded="false" type="id_String" value="Orders_*"/>
-    <contextParameter comment="" name="MaskOrdersLines" prompt="MaskOrdersLines?" promptNeeded="false" type="id_String" value="OrdersLines_*"/>
   </context>
   <context confirmationNeeded="false" name="DEV">
     <contextParameter comment="" name="Repertoire_SourceOrder" prompt="Repertoire_SourceOrder?" promptNeeded="false" type="id_String" value="C:\Formation\ETL_Projet_DEV\FileSources"/>
     <contextParameter comment="" name="Repertoire_CibleOrder" prompt="Repertoire_CibleOrder?" promptNeeded="false" type="id_String" value="C:/Formation/ETL_Projet_DEV/Workspace/"/>
     <contextParameter comment="" name="NomFichierCibleOrder" prompt="NomFichierCibleOrder?" promptNeeded="false" type="id_String" value=""/>
     <contextParameter comment="" name="NomFichierCibleOrderLines" prompt="NomFichierCibleOrderLines?" promptNeeded="false" type="id_String" value=""/>
-    <contextParameter comment="" name="MaskOrders" prompt="MaskOrders?" promptNeeded="false" type="id_String" value=""/>
-    <contextParameter comment="" name="MaskOrdersLines" prompt="MaskOrdersLines?" promptNeeded="false" type="id_String" value=""/>
   </context>
   <context confirmationNeeded="false" name="PROD">
     <contextParameter comment="" name="Repertoire_SourceOrder" prompt="Repertoire_SourceOrder?" promptNeeded="false" type="id_String" value="C:\Formation\ETL_Projet_DEV\FileSources"/>
     <contextParameter comment="" name="Repertoire_CibleOrder" prompt="Repertoire_CibleOrder?" promptNeeded="false" type="id_String" value=""/>
     <contextParameter comment="" name="NomFichierCibleOrder" prompt="NomFichierCibleOrder?" promptNeeded="false" type="id_String" value=""/>
     <contextParameter comment="" name="NomFichierCibleOrderLines" prompt="NomFichierCibleOrderLines?" promptNeeded="false" type="id_String" value=""/>
-    <contextParameter comment="" name="MaskOrders" prompt="MaskOrders?" promptNeeded="false" type="id_String" value=""/>
-    <contextParameter comment="" name="MaskOrdersLines" prompt="MaskOrdersLines?" promptNeeded="false" type="id_String" value=""/>
   </context>
   <context confirmationNeeded="false" name="REC">
     <contextParameter comment="" name="Repertoire_SourceOrder" prompt="Repertoire_SourceOrder?" promptNeeded="false" type="id_String" value="C:\Formation\ETL_Projet_DEV\FileSources"/>
     <contextParameter comment="" name="Repertoire_CibleOrder" prompt="Repertoire_CibleOrder?" promptNeeded="false" type="id_String" value=""/>
     <contextParameter comment="" name="NomFichierCibleOrder" prompt="NomFichierCibleOrder?" promptNeeded="false" type="id_String" value=""/>
     <contextParameter comment="" name="NomFichierCibleOrderLines" prompt="NomFichierCibleOrderLines?" promptNeeded="false" type="id_String" value=""/>
-    <contextParameter comment="" name="MaskOrders" prompt="MaskOrders?" promptNeeded="false" type="id_String" value=""/>
-    <contextParameter comment="" name="MaskOrdersLines" prompt="MaskOrdersLines?" promptNeeded="false" type="id_String" value=""/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
@@ -150,7 +142,7 @@
     <elementParameter field="CHECK" name="ERROR" value="false"/>
     <elementParameter field="CHECK" name="GLOBEXPRESSIONS" value="true"/>
     <elementParameter field="TABLE" name="FILES">
-      <elementValue elementRef="FILEMASK" value="context.MaskOrders"/>
+      <elementValue elementRef="FILEMASK" value="&quot;Orders_*&quot;"/>
     </elementParameter>
     <elementParameter field="RADIO" name="ORDER_BY_NOTHING" value="true"/>
     <elementParameter field="RADIO" name="ORDER_BY_FILENAME" value="false"/>
@@ -282,7 +274,6 @@
   </node>
   <node componentName="tFileList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileList_2"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="DIRECTORY" name="DIRECTORY" value="context.Repertoire_SourceOrder"/>
     <elementParameter field="CLOSED_LIST" name="LIST_MODE" value="FILES"/>
     <elementParameter field="CHECK" name="INCLUDSUBDIR" value="false"/>
@@ -290,7 +281,7 @@
     <elementParameter field="CHECK" name="ERROR" value="false"/>
     <elementParameter field="CHECK" name="GLOBEXPRESSIONS" value="true"/>
     <elementParameter field="TABLE" name="FILES">
-      <elementValue elementRef="FILEMASK" value="context.MaskOrdersLines"/>
+      <elementValue elementRef="FILEMASK" value="&quot;OdersLines_*&quot;"/>
     </elementParameter>
     <elementParameter field="RADIO" name="ORDER_BY_NOTHING" value="true"/>
     <elementParameter field="RADIO" name="ORDER_BY_FILENAME" value="false"/>
@@ -305,7 +296,6 @@
   </node>
   <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="8" offsetLabelY="0" posX="288" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputDelimited_2"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_rNduoO_wEemztaI1k8AZcQ - metadata"/>
     <elementParameter field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
@@ -389,7 +379,6 @@
   </node>
   <node componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="480" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileOutputDelimited_2"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="USESTREAM" value="false"/>
     <elementParameter field="TEXT" name="STREAMNAME" show="false" value="outputStream"/>
     <elementParameter field="FILE" name="FILENAME" value="context.Repertoire_CibleOrder+context.NomFichierCibleOrderLines"/>
@@ -435,7 +424,6 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="iterate1"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tFileList_1" offsetLabelX="0" offsetLabelY="0" source="tFileList_1" target="tFileList_2">
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk1"/>
   </connection>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tFileInputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_1" target="tFileOutputDelimited_1">
@@ -445,12 +433,10 @@
   <connection connectorName="ITERATE" label="Iterate" lineStyle="7" metaname="tFileList_2" offsetLabelX="0" offsetLabelY="0" source="tFileList_2" target="tFileInputDelimited_2">
     <elementParameter field="CHECK" name="ENABLE_PARALLEL" value="false"/>
     <elementParameter field="TEXT" name="NUMBER_PARALLEL" show="false" value="2"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="iterate3"/>
   </connection>
   <connection connectorName="FLOW" label="row2" lineStyle="0" metaname="tFileInputDelimited_2" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_2" target="tFileOutputDelimited_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row2"/>
   </connection>
   <subjob>
@@ -463,13 +449,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_cbf0e61f-84ba-4e2a-9ed0-7451fd09f07a"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>O5/12uVzRZXXrFPFARG7/Lk+7QaoWHEifdK2oQjD4rSHyfRDN9iBiUH224NDzbYfZuU6Sasr16JT
-J/nJ1DSE3Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_db60fac1-4abe-4ac7-bb31-af9b6fdfa23e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>pJo/6gMhtyRv3lVDLdZs+p6mSvQXvAVgKsT30CuV349SfO0Pywe9M+P4DyuAqkR0EGt3zHs5Z0Sz
-l8JN5EuiXw==</DigestValue></Reference></SignedInfo><SignatureValue>FinNRafJVKgDVRQUQCc7wQgQa6w6sQM/jc+tJBk9VoLLfBKZOaGjxmDJ8pjQjw4FHK56f6NsTzlU
-OKEw3NM1K1o8RmUPmPGyUASVf8fua6E1I2ppxKnc731ncLmnHzsPEQcK08i76MWcyWnyzPMGHaFh
-qdo0mnDauDSmscQ1Uui1u90ptzAZFezGxQL5o/E4WNxNJcICFc9k06uxROQpPr2KVOj/Rk+alk4F
-lOS1ri9ZCPggAOx4ctOMvJg4MR2q8B0p+E7Nxpj+0paQPI4c68dEsOFsSg7On/NaHfAruNRabmR3
-4vsBrUzPLZg7Nkp6bT6a0aZvoKac1KlVahbeFg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b93dcdd8-b863-4022-ad53-4a2860951660"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>uu6oqJsEtBigspni3Dd7TFYKW9lCrzFWxtDTLX/xmkI2pKBD8sE+zY/oFvQuVuIy2ETUUcxg0sId
+SzXDTc4GyQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_8e3df8f9-4944-4e76-abc7-98e84a9a9e3c"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>wXvEYVbj4tqMJh5Dj9D02t7ZxgBcbKheiT+JIlL4qjX5BpDd2kG5zST+ZuUpjYv2IzqN/SZFyXDp
+CNrEwpEW2A==</DigestValue></Reference></SignedInfo><SignatureValue>Aduh1/YDri6qrQIljxh0ZgUgVr8rK3tYBxsHH/IA0GWZ4KCgF46WtGj/OyperslvZ41LhJje75tK
+KaCIt8/AwGA1xBRAPvvhEuj/bVuaW9ofSAFxgA7AM//VZWUXxVpGpNp7YWi7A+s+9buOoYdCaH5A
+68IvBCGO6Q3uQcfgf3rpIagc+JKCyjCvrq0rH/areYdUtXcwfSgvxV+Zs9lSmKc5sYgiWZ94YWJc
+YCEttFJS11/2x3wY+a2YDAUf7dBkIOS0HNXwmS4WJs6KzV/QRDvkyWTx6U2KTD7DDgzHsQGtOXn4
+sd3nekMi6grChH7cLVjV8ySdVVgkTTyycsbn6w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -493,4 +479,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_db60fac1-4abe-4ac7-bb31-af9b6fdfa23e" Target="#_cbf0e61f-84ba-4e2a-9ed0-7451fd09f07a"><Timestamp>2019-10-16 09:29:55</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_8e3df8f9-4944-4e76-abc7-98e84a9a9e3c" Target="#_b93dcdd8-b863-4022-ad53-4a2860951660"><Timestamp>2019-10-16 11:44:01</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
