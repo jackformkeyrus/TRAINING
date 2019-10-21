@@ -1193,7 +1193,7 @@
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="StringHandling.LEFT(row10.Familyname,3) " name="var1" type="id_String"/>
+        <mapperTableEntries expression="StringHandling.LEFT(row11.Familyname,3)  row11.FAMILY_NAME " name="var1" type="id_String"/>
       </varTables>
       <outputTables name="ok22" sizeState="INTERMEDIATE">
         <mapperTableEntries name="FAMILY_ID" type="id_String"/>
@@ -1206,57 +1206,12 @@
         <mapperTableEntries name="PRICE" nullable="true" type="id_BigDecimal"/>
         <mapperTableEntries name="FAMILY_NAME" nullable="true" type="id_String"/>
       </inputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row10" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row9.FAMILY_NAME " name="Familyname" nullable="true" operator="=" type="id_String"/>
-        <mapperTableEntries name="Flag" nullable="true" type="id_Integer"/>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row11" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="FAMILY_ID" type="id_String"/>
+        <mapperTableEntries expression="row9.FAMILY_NAME " name="FAMILY_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="FAMILY_MAIN_ACTIVITY" nullable="true" type="id_Integer"/>
       </inputTables>
     </nodeData>
-  </node>
-  <node componentName="tFileInputXML" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="288">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputXML_1"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_zUZDQPPyEem8O9UwT1CK3Q"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_zUZDQPPyEem8O9UwT1CK3Q - MAIN_ACTIVITY"/>
-    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Formation/ETL_Projet_DEV/FileSources/MainActivity.xml&quot;"/>
-    <elementParameter field="TEXT" name="LOOP_QUERY" value="&quot;/Main/Activity&quot;"/>
-    <elementParameter field="TABLE" name="MAPPING">
-      <elementValue elementRef="SCHEMA_COLUMN" value="Familyname"/>
-      <elementValue elementRef="QUERY" value="&quot;Familyname&quot;"/>
-      <elementValue elementRef="NODECHECK" value=""/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="Flag"/>
-      <elementValue elementRef="QUERY" value="&quot;Flag&quot;"/>
-      <elementValue elementRef="NODECHECK" value=""/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LIMIT" value="50"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" show="false" value="_zUZDQPPyEem8O9UwT1CK3Q - MAIN_ACTIVITY"/>
-    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
-    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" show="false" value="&quot;,&quot;"/>
-    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" show="false" value="&quot;.&quot;"/>
-    <elementParameter field="CHECK" name="IGNORE_NS" value="false"/>
-    <elementParameter field="CHECK" name="IGNORE_DTD" value="false"/>
-    <elementParameter field="FILE" name="TMP_FILENAME" show="false" value="&quot;C:/Formation/ETL_Projet_DEV/Workspace/temp.xml&quot;"/>
-    <elementParameter field="CHECK" name="USE_SEPARATOR" value="false"/>
-    <elementParameter field="TEXT" name="FIELD_SEPARATOR" show="false" value="&quot;,&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="GENERATION_MODE" value="Dom4j"/>
-    <elementParameter field="CHECK" name="CHECK_DATE" value="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-1&quot;"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
-    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
-    <elementParameter field="TEXT" name="LABEL" value="MAIN_ACTIVITY"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="MAIN_ACTIVITY" name="tFileInputXML_1">
-      <column comment="" key="false" length="3" name="Familyname" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="Flag" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-    </metadata>
-    <metadata connector="REJECT" label="MAIN_ACTIVITY" name="REJECT">
-      <column comment="" key="false" length="3" name="Familyname" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="1" name="Flag" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
-      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
-    </metadata>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="448" posY="384">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_24"/>
@@ -1341,6 +1296,59 @@
       </column>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="448">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_29"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_zwEkkPPwEem8O9UwT1CK3Q"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;localhost&quot;"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;3306&quot;"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;Formation_Cible&quot;"/>
+    <elementParameter field="TEXT" name="TYPE" show="false" value="MYSQL"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;talend&quot;"/>
+    <elementParameter field="PASSWORD" name="PASS" value="n5NEa/MvLhZOOHZybzS4iQ=="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_zwEkkPPwEem8O9UwT1CK3Q - trg_prod_family"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_prod_family&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `trg_prod_family`.`FAMILY_ID`, &#10;  `trg_prod_family`.`FAMILY_NAME`, &#10;  `trg_prod_family`.`FAMILY_MAIN_ACTIVITY`&#10;FROM `trg_prod_family`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="mysql_id"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;noDatetimeStringSync=true&quot;"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="FAMILY_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FAMILY_NAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FAMILY_MAIN_ACTIVITY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="trg_prod_family" name="tDBInput_29">
+      <column comment="" key="true" length="3" name="FAMILY_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="FAMILY_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="FAMILY_MAIN_ACTIVITY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
@@ -1436,9 +1444,9 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="ok22"/>
   </connection>
-  <connection connectorName="FLOW" label="row10" lineStyle="8" metaname="tFileInputXML_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputXML_1" target="tMap_3">
+  <connection connectorName="FLOW" label="row11" lineStyle="8" metaname="tDBInput_29" offsetLabelX="0" offsetLabelY="0" source="tDBInput_29" target="tMap_3">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row10"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row11"/>
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tDBConnection_24" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_24" target="tFileExist_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk1"/>
@@ -1485,13 +1493,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_64af8264-3e15-42f5-a7f3-cc185dcd582b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>mobT45Mm28PYv8MVOdH5PvD48Z9BVgUQMOKjpmSfjsy0rRim+1TkGLDKYhL4SgiOTxASNGvi7h88
-QqN4VHgOJQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9470ac3a-c97f-40e1-a806-afad9118d547"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>+XPQKP69hWYnPnkPpUxjfKUItdhu1l3JLpIWuUsPvu2wfMWdM7lbsbjadBiVzdQ7rTQEJBpGWjc4
-XA5CnZQc0A==</DigestValue></Reference></SignedInfo><SignatureValue>fkIq6sc0UMSX59g7VNNmOjS9p6zlnRZ2wHUewv8GBlwYfkSLRTlu/BtPYGVuzPMwCB0axTyPJ6/W
-2Sv2yHzCKbDUeLKKDNrXc0vmahTWt5abvvagm7eWhQYZDDuAsqunDJxGnoKl5oTHo7F6QB+YeH2+
-WeML6pBzoXWUux1MFP6fpqG9PyV/fET9z2VmrKYH2lZhEbK9rqCKJuiijkZiXL0Uh30boDqzrQni
-tqVpJCoRgSUmtQX27PAW3yg2JQ9MZIf35ZINMaXkGjpgi4J3/6F2/fGo0FT1pLdE3xqPLsC5MFJc
-VvxEbeg+JCN+anyMWqJnMQP2vXs61qnPmOm7ug==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4e8e1ed1-5e17-49c8-80a3-0ff15c91f876"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>4obdh650TwFzIM7PHxnZX5ASmnyxynxRxh0JVVWrpNaGVOxMjL3dcLqq5NA3JJ/CMY/A5bbbdUlt
+Y5d6tnG/eg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_81daf898-213f-48e7-917c-00b308294176"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>r1VP9/Vc3e26wR+uYfRktRYqkSro59S3HW4ej3u+pQUtnW3le5LuJ7/9T2vHCALKjUN5kZlcRs0p
+zXLFK4p8Ww==</DigestValue></Reference></SignedInfo><SignatureValue>vC7/hNaG8EGZbNR3jhweNGgyJAqTAW6w30vdL0vpyEkpnExm4YDh02s4bs9L44QhM+UTYJ2IZlF+
+Z50SDLCg6OZt8xJrXH/NM+sQ/sHvciHFzMxwfieawPifpsa/mK9Ouav1tJSgGcy+zpcs9CCME8Sc
+RlxyahCQLFz0Lqudn8qDztEKjQgQuBlzGA5oo9Hdc7hSNtAo26xKF/nqx9qK5pPRUSeLo723f/BQ
+2970e4FBEaKSFx8Cx/T8rD5BKve2VgPnU14kbrfPlom+1daj8f2LmOExHyIFX5wXSbQPwIrmHgad
+YbicRTwgZt6zFJ60qpIPGbtt00uvg7zPVbkHMw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1515,4 +1523,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9470ac3a-c97f-40e1-a806-afad9118d547" Target="#_64af8264-3e15-42f5-a7f3-cc185dcd582b"><Timestamp>2019-10-21 16:05:24</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_81daf898-213f-48e7-917c-00b308294176" Target="#_4e8e1ed1-5e17-49c8-80a3-0ff15c91f876"><Timestamp>2019-10-21 16:09:40</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
