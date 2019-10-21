@@ -218,16 +218,20 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="alim_trg_country">
-      <column comment="" defaultValue="" key="false" length="11" name="COUNTRY_ID" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
-      <outputTables name="alim_trg_country" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="COUNTRY_ID" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="COUNTRY" nullable="true" type="id_String"/>
+      <outputTables activateCondensedTool="true" id="_71UdIPPfEemx65_MtYSU4Q - trg_country" name="alim_trg_country" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="lecture_src_region.COUNTRY_ID" name="COUNTRY_ID" type="id_Integer"/>
+        <mapperTableEntries expression="lecture_src_region.COUNTRY" name="COUNTRY" nullable="true" type="id_String"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="lecture_src_region" sizeState="INTERMEDIATE">
         <mapperTableEntries name="COUNTRY_ID" nullable="true" type="id_Integer"/>
@@ -248,8 +252,8 @@
     <elementParameter field="TEXT" name="DBNAME" value="context.Entrepot_de_donnees_Database"/>
     <elementParameter field="TEXT" name="USER" value="context.Entrepot_de_donnees_Login"/>
     <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kufCCdTsVo03YTrk3eF8WeH+cpovNcauh1essc7l8ieMlA=="/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;&quot;"/>
-    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_country&quot;"/>
+    <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="TRUNCATE"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
@@ -288,13 +292,21 @@
     <elementParameter field="TEXT" name="LABEL" value="Cible TRG_COUNTRY"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tDBOutput_1">
-      <column comment="" defaultValue="" key="false" length="11" name="COUNTRY_ID" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
-      <column comment="" defaultValue="" key="false" length="11" name="COUNTRY_ID" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
@@ -329,13 +341,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_1d9ddc7e-a484-4d16-964f-296a7ef717dd"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>+h5l+naRPAJa318yLRVdhxggmEy7BEdesIgYeU+7nYPRAt+fVkQxPh49xY9ZY1WzjLcRWYg84VZi
-iSh/hU+zmQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_e77a86c2-82ea-4554-b7e6-64089f2b0c29"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>jooE/HlXnQk5pWiYJ/YLZ3eY0BtYb+Lu3J1rv0yH5CNCFjMFiK1M/rkFW1kNRELyWsqojaJF4ny1
-2IsXyIZgvg==</DigestValue></Reference></SignedInfo><SignatureValue>hPSoKnO0INn0MYtdc7G18bRwGoQ78XdpmEPpo3BXUdvY6XGrlbDzR1vyvMbi1ZT14Px0cY+n3ed7
-kXSu8YQ2dgt78S/DDiBDk74L+LsXvdajrcMgijEXNX0QDZfcdqCPsM5crX8Sm+MQnf4k61XXikUV
-Dbnt3p5FeKRUt3RdkQ5H0btPaxjYbb1Ur4BplOQh4+BMaxY+Olt2zHJjwkQQGFy5fcEE6GmY2nSA
-aJ6t1G2Mmrvz2SvazBzPDs5G96RdRcd1XakdwUfVotouVIzoKCNemrS9cJucfEqfpGAn2/v0Q1xX
-gCzV/LmGUHTSouU3QyxKP3iGol+8IA2zsp8qLw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e0472d12-510c-470e-a1af-279235cf9c98"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>bN9cIMyLwDG2m7RlQr2iGuCOS+ljt2Ph/ABVT2qaU18cOp/uCal5wq20k3sLSubRHrEC2//eu2Hj
+7lUDgMHpYQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_e953dce0-d605-4c9c-b52a-895ef32f1759"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>sZdjllFaFhdjk6rH8t34S59oeacfopixh0BDEMkhWUfDP4G/ZOg9ukwoa0g0qNWIYKpWExNhWnbM
+IK+hg+jmPQ==</DigestValue></Reference></SignedInfo><SignatureValue>oIBwo/l7vJn3WH9qqDZC9Zk1w+yGRbVXnVs+OEN9bwxPy5jL8JVG0egpJKbeJKf6VP4sChrOeG2g
+Vy/YNpk9BLsLTmrrXmhNlsqJSRjqaTTm0Y95iWisF/jGwCQmAvkoSOV5FcHkJFQfTVRrErXvJSlF
+ChvH7PBSHTPjGw7uNLVvl1MPc/6Be6nCvdkuQVh876e1rcQ9yjr+ijYjPeBEOAoV6yboJYZqoVKR
+/aX3xzX1/aL1+nDNMIIhh1zqR01yQY+kamk8ZEnsUCn7bDnA1K34kflkfRGEgwgblPtQuH07df7l
+AyL97I7UK64cesjAgFXmhyQaCIvaYkMsYSpMdg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -359,4 +371,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_e77a86c2-82ea-4554-b7e6-64089f2b0c29" Target="#_1d9ddc7e-a484-4d16-964f-296a7ef717dd"><Timestamp>2019-10-21 11:37:24</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_e953dce0-d605-4c9c-b52a-895ef32f1759" Target="#_e0472d12-510c-470e-a1af-279235cf9c98"><Timestamp>2019-10-21 11:39:56</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
