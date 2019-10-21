@@ -183,7 +183,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="pre&quot;SELECT &#10;  `src_region`.`COUNTRY_ID`, &#10;  `src_region`.`COUNTRY`&#10;FROM `src_region`&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `src_region`.`REGION_ID`, &#10;  `src_region`.`REGION`, &#10;  `src_region`.`COUNTRY_ID`, &#10;  `src_region`.`COUNTRY`&#10;FROM `src_region`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -236,7 +236,7 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="src_region" name="country_data_from_src_regions">
-      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -245,20 +245,26 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
       <outputTables name="country_data_from_src_regions" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="all_from_src_regions.COUNTRY_ID" name="COUNTRY_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="all_from_src_regions.COUNTRY" name="COUNTRY" nullable="true" type="id_String"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="all_from_src_regions" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="REGION_ID" type="id_Integer"/>
+        <mapperTableEntries name="REGION" nullable="true" type="id_String"/>
         <mapperTableEntries name="COUNTRY_ID" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="COUNTRY" nullable="true" type="id_String"/>
-      </outputTables>
+      </inputTables>
     </nodeData>
   </node>
   <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tUniqRow_1"/>
     <elementParameter field="TABLE" name="UNIQUE_KEY">
       <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY_ID"/>
-      <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
+      <elementValue elementRef="KEY_ATTRIBUTE" value="true"/>
+      <elementValue elementRef="CASE_SENSITIVE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="COUNTRY"/>
       <elementValue elementRef="KEY_ATTRIBUTE" value="false"/>
       <elementValue elementRef="CASE_SENSITIVE" value="false"/>
@@ -270,7 +276,7 @@
     <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="src_region" name="tUniqRow_1">
-      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -279,7 +285,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <metadata connector="UNIQUE" label="src_region" name="UNIQUE">
-      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -288,7 +294,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <metadata connector="DUPLICATE" label="src_region" name="DUPLICATE">
-      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -313,6 +319,8 @@
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_country&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
     <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="UPDATE_OR_INSERT"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:REPOSITORY_SCHEMA_TYPE" show="false" value="_hZB2cPPdEemwvNs0ZbfrPA - trg_country"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -349,8 +357,8 @@
     <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="Insert countries"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="src_region" name="tDBOutput_1">
-      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+    <metadata connector="FLOW" label="trg_country" name="tDBOutput_1">
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -358,8 +366,8 @@
       </column>
       <additionalProperties key="Comment" value=""/>
     </metadata>
-    <metadata connector="REJECT" label="src_region" name="REJECT">
-      <column comment="" key="false" length="10" name="COUNTRY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+    <metadata connector="REJECT" label="trg_country" name="REJECT">
+      <column comment="" key="true" length="10" name="COUNTRY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="50" name="COUNTRY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -379,6 +387,10 @@
   </connection>
   <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tDBConnection_2" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_2" target="tDBInput_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk1"/>
+  </connection>
+  <connection connectorName="FLOW" label="all_from_src_regions" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="all_from_src_regions"/>
   </connection>
   <connection connectorName="FLOW" label="country_data_from_src_regions" lineStyle="0" metaname="country_data_from_src_regions" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tUniqRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -404,23 +416,18 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" show="false" value="true"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPrejob_1"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="230;100;0"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="255;220;180"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_04c68ef7-a116-4297-b542-bfa8b9c1be24"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NWLH4LrAshKnWs/TWK0+rDnr8Zf4niiINH1AYKVE/8TonTCS9qSshcZC27CGdsNFMchscXy6OVlw
-EtT31q6LkQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_78c8b763-7cef-4206-b96c-2c7d69947674"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>722gfk3KaeD3K/RC00hXo2eEQnjidUoEnFUgUyWHOVYoWH36rj0L9BQpbcYL47T2EW84QAZ4QNDI
-BgvnolS/9Q==</DigestValue></Reference></SignedInfo><SignatureValue>DUgbxasov60d5Kn/xV2o6uUfNVf2Mjo+2sowLQkydxSDU/qb/cnam5pUI6VAssAj/aaHKkZ+7bND
-JX1eNSmtN97IJbsFzFtlg5oT5E/QH7WRdBgILObowFh4kh7IJmnSMZw9rYKZVB3TJezSxRoo/yJX
-thDb1DllF2MN83NbMIXzuKlH1QFFmFArMAlqcca+Y+2MmJbTf84Inyf9UcZR/TBvus4l0VQsJ7Io
-xUiZOf4Zbhi9bKEHBeVLrvk+4hhNsUrF9aNBnd8BJbj4h0bBeuP47PIl2k3qmdLDTuDhBLHOacfP
-IjO8hehSLCM//AcWl82wcJM1fXhcrDvmivTT9A==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_72c5ca54-47b0-4fcf-b4f1-27731fb95e3d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2ZvDk1qze/rP35WsjlElBJDZVq6HDMEmp/YjUtdqhxDfj3csD69NLU5wEl2mm+l/rDaT7psOxhvw
+XPMET5TZ5Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_1ddb8267-b847-477f-830a-f7f3338c9b33"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>E3JkTjc2Mr7pNnX3hRObjk4ce1md+7c80BtEHbBLGVcCBZ53EQJk+7+9SqJ74wghe9a+vEA4PA8l
+jvniKIYpRQ==</DigestValue></Reference></SignedInfo><SignatureValue>CFg7isuDaJQ4oJy3dow4A7iHIid9yx/A61RxxDpUeA0fSkfaw3gDa8lKDGTVTfCxmEu8cXkZApzr
+CW+rxx9TeUJ7S41R8Z13V8CG7Ja7WssAEvRdzJPn1bSb8wuqTgwAy2xrPYMA/kqhqQlClHLGUa16
+Cop6eTpnj8sAtIbl+w3zmCcD2/ITqPQCCNZJOuA+lxSpp7ustYo7k81bqy1CC10PMPuuTo8YMMhq
+nR0/sbO3DYANMGF12R1mCzgnX92sFraDFg+qkIryWRSlxDBwsqCGgorsrI1CeixmHN25M6ZjHo0d
+DUwJYafLYDBLk17g7dtLlFCuvUcdq8Jzg6BCHQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -444,4 +451,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_78c8b763-7cef-4206-b96c-2c7d69947674" Target="#_04c68ef7-a116-4297-b542-bfa8b9c1be24"><Timestamp>2019-10-21 11:51:48</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_1ddb8267-b847-477f-830a-f7f3338c9b33" Target="#_72c5ca54-47b0-4fcf-b4f1-27731fb95e3d"><Timestamp>2019-10-21 11:54:22</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
