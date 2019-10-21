@@ -406,6 +406,7 @@
   </node>
   <node componentName="tReplace" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="416" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplace_1"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="CHECK" name="SIMPLE_MODE" value="true"/>
     <elementParameter field="LABEL" name="SIMPLEMODE_OLDLABLE" show="false" value="Simple mode works with regex expression(in last version)"/>
     <elementParameter field="TABLE" name="SUBSTITUTIONS">
@@ -468,6 +469,7 @@
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="544" posY="288">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -509,6 +511,7 @@
   </node>
   <node componentName="tFileInputRaw" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputRaw_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_CENy4PPhEemx65_MtYSU4Q - DATA_SRC_SALES_PERSON"/>
     <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Formation/ETL_Projet_DEV/FileSources/DATA_SRC_SALES_PERSON.txt&quot;"/>
@@ -527,7 +530,7 @@
       <column comment="" key="false" length="-1" name="DOB" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tFileInputRaw" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="640" posY="160">
+  <node componentName="tFileInputRaw" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="704" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputRaw_1"/>
     <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
@@ -553,6 +556,9 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBConnection_1" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_1" target="tDBConnection_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk2"/>
   </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tDBConnection_2" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_2" target="tDBInput_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnSubjobOk1"/>
+  </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostjob_1" offsetLabelX="0" offsetLabelY="0" source="tPostjob_1" target="tDBClose_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk3"/>
   </connection>
@@ -569,10 +575,12 @@
   </connection>
   <connection connectorName="FLOW" label="mapDear" lineStyle="0" metaname="tReplace_1" offsetLabelX="0" offsetLabelY="0" source="tReplace_1" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="mapDear"/>
   </connection>
   <connection connectorName="FLOW" label="sales_person" lineStyle="8" metaname="tFileInputRaw_2" offsetLabelX="0" offsetLabelY="0" source="tFileInputRaw_2" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="sales_person"/>
   </connection>
   <connection connectorName="FLOW" label="row1" lineStyle="8" metaname="tFileInputRaw_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputRaw_1" target="tMap_1">
@@ -622,13 +630,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_5c71fada-e475-48f4-9397-170260844dff"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>mau4knkgT/fS8agbnx8O+R7kr20ENRkOFHIwj9PuX+EqM+aOoNiz/cVgoyZv1SRIMQGrMqzuv7Cf
-kIMBdlSJwA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_05e51826-1197-4bbb-9997-b79618bb203a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>fLNHI6Lp36/ldHQZOSMCzmtmYUSQStL/uV3eWW7gvP3dnDL1raec2fxMv28jB9KC35JA7HnGoj2q
-AsdcyDgSeg==</DigestValue></Reference></SignedInfo><SignatureValue>yG4hnOJwdQ+5F3Igb9dTtJl4yRw9RoC4ezScSXrrX1nSBr0Wb0azRMgapf2Iw9QlaLyVAov1xmjq
-nAX5PqDytLcSTsHtDckgJVk/C+XC+gY+ktdo6mw5njZ2HcVvnWVxZ6exZeI0/6+DjSG80hcxvXng
-2jEInWkyXxRle50pne3sZ6q2qk5bJ1uc3CZn1xOJ387AGgaoSlSzQrhpaHXmxUbvppOQJ2oO7Vdd
-F67MwprCe694nyU6dxJnUSZD7TIa4CTIPRIaKf9GAkcA9vkY4kPZmQBJvaqnZZpZ3W1+fqNMqcCk
-ZPVjTttBJiu9dJuVTbphRpjq3r/LVeuA0HWmfA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_dc0e1ff5-dbe2-425f-ab4c-9d46248aecda"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>4BEVbFywthd5FRJNXGmGpal1w9kccUX2Kj58iGiUUjgXnPuKEFIUF4dAWQ21h62L2f1lFnQgpUgJ
+9e50NDHFuw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_740e3f22-363e-4cbb-9a99-c1f820a2f926"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>0vjhKKXUYTgdQrr5+sFmX/7LSz//iEm2LU3M+KUfwAEDrTSkC34QtQUcmOGjaWuvjJhPxDVlnpoP
+WYfyt925yQ==</DigestValue></Reference></SignedInfo><SignatureValue>YM4NEllHk6ivBtLvusf/zw54nVvJo+OlU//fB+FLX9Zp5TpCyVhKeVQnpwOelGcxTL33blrtvumP
+pjYtU/ZCqplksuNSkH0XrahCT8fWVmPkl0A0qf6pmWoXMmT1xQgiFr0xc+XAX0Ukt9th+1E8PsYX
+YD84PaV5r9C85CJ2QRZYiGFUlIL68B+AiUYalP8MZHg3UKeiWoWHriM/ztckcQ1w3wmH95ZJQPdU
+TvvM7aKuu4Fwa/GhqTFBL0WGReHJe5klSkbZWE6l3oGlllIaV9H6Z4Q8+1WMJotAhm8bvL+w5v+O
+jYtuyshxDNRzJ+A7oL272Yqdh+YmxmCXGnjqzg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -652,4 +660,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_05e51826-1197-4bbb-9997-b79618bb203a" Target="#_5c71fada-e475-48f4-9397-170260844dff"><Timestamp>2019-10-21 16:24:55</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_740e3f22-363e-4cbb-9a99-c1f820a2f926" Target="#_dc0e1ff5-dbe2-425f-ab4c-9d46248aecda"><Timestamp>2019-10-21 16:27:03</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
