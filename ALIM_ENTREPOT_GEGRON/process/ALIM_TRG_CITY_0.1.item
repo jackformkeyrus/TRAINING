@@ -285,16 +285,10 @@
         <mapperTableEntries name="REGION_ID" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="POPULATION" nullable="true" type="id_Integer"/>
       </inputTables>
-      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="trg_region" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="" name="REGION_ID" type="id_Integer"/>
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="trg_region" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="src_city.REGION_ID " name="REGION_ID" operator="=" type="id_Integer"/>
         <mapperTableEntries name="COUNTRY_ID" type="id_Integer"/>
         <mapperTableEntries name="REGION" nullable="true" type="id_String"/>
-      </inputTables>
-      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="trg_city" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="src_city.CITY_ID " name="CITY_ID" operator="=" type="id_Integer"/>
-        <mapperTableEntries expression="trg_region.REGION_ID " name="REGION_ID" operator="=" type="id_Integer"/>
-        <mapperTableEntries name="CITY" nullable="true" type="id_String"/>
-        <mapperTableEntries name="POPULATION" nullable="true" type="id_Integer"/>
       </inputTables>
     </nodeData>
   </node>
@@ -446,62 +440,6 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="384" posY="160">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_3"/>
-    <elementParameter field="CLOSED_LIST" name="DB_VERSION" show="false" value="MYSQL_5"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_2"/>
-    <elementParameter field="TEXT" name="HOST" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="PORT" show="false" value="&quot;3306&quot;"/>
-    <elementParameter field="TEXT" name="DBNAME" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="TYPE" show="false" value="MySQL"/>
-    <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" show="false" value="0RMsyjmybrE="/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_71UdIPPfEemx65_MtYSU4Q - trg_city"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_city&quot;"/>
-    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
-    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `trg_city`.`CITY_ID`, &#10;  `trg_city`.`REGION_ID`, &#10;  `trg_city`.`CITY`, &#10;  `trg_city`.`POPULATION`&#10;FROM `trg_city`&quot;"/>
-    <elementParameter field="LABEL" name="NOTE" show="false" value="This option only applies when deploying and running in the Talend Runtime"/>
-    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" show="false" value="false"/>
-    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
-    <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="mysql_id"/>
-    <elementParameter field="TEXT" name="PROPERTIES" show="false" value="&quot;noDatetimeStringSync=true&quot;"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
-    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
-    <elementParameter field="TABLE" name="TRIM_COLUMN">
-      <elementValue elementRef="SCHEMA_COLUMN" value="CITY_ID"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="REGION_ID"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="CITY"/>
-      <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="POPULATION"/>
-      <elementValue elementRef="TRIM" value="false"/>
-    </elementParameter>
-    <elementParameter field="TEXT" name="LABEL" value="TRG_CITY"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="trg_city" name="tDBInput_3">
-      <column comment="" key="true" length="10" name="CITY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="10" name="REGION_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="50" name="CITY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="10" name="POPULATION" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <additionalProperties key="Comment" value=""/>
-    </metadata>
-  </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tDBConnection_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk1"/>
   </connection>
@@ -533,10 +471,6 @@
   <connection connectorName="FLOW" label="trg_region" lineStyle="8" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="trg_region"/>
-  </connection>
-  <connection connectorName="FLOW" label="trg_city" lineStyle="8" metaname="tDBInput_3" offsetLabelX="0" offsetLabelY="0" source="tDBInput_3" target="tMap_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="trg_city"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" show="false" value="true"/>
@@ -575,13 +509,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_2a8dfde4-99e3-47b7-83dc-79c9757a2e5b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>cOl2RFFWcpyxHteRnSXGIuRFMdyKyzere+o1dLC+dNYG8Jc/Lq9eEI8v7sp22KMgXMfiqlLTH+AE
-4BYWTW1Hsg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_1d2abc63-7ce0-4b77-b427-c2e857155eb6"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>qbaPk7bqGvds2Svywdtytdt6iWzsWpGJRQMt3wRLtQod8Z5bcIyq5Eddq7RPi1wDWOmzl42heONI
-EqxyfFVg6w==</DigestValue></Reference></SignedInfo><SignatureValue>TgLdDa/5UPtoC5RHC/6Za6YAJ1SC0dC+a9Cg6Q0WJZhZxz6u9B/f06TiXbBkBtMMTsSEWeAeFrhT
-osxVMhiepLxveLp7jtSt9lrKjBO8kwU6oNYnKSLpEHwzM/jXtY0U7VXQhQh3nCcnAeMbOueGSrY/
-xpgSkmhxGQ8KaWvKuhUiAF3nXSq/kRXypGxAaXNIguX7p8yUzE03htfy77fATyVMpizrwZmPzQsz
-DY5zMDjYDi++cwPNzDybwoNMWgPTEuhLjEyajnbjzj4JQYvn/wwgpcYpMfQgcdbf8/qUeifdBH9U
-I+4uDMM2BCgocrhd0WjrLua6/kH2tar+sC5+jQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_472351e4-ab2d-4bc2-83cc-9f56b02c90f8"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NYu/ALaD8es1h9I5cBAfZLuQZEIEMYAUOCrDorEL6sqHToD6ZHiiDzNppeSTH7+lcSOWik+3t+iL
+yiI/yI28wQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_7e9ad98a-06fb-490e-a517-c38755e4876a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>5pY8ux8G8SpjnhOK7zqO88ZKTQFqC1I848Km6vBKpz37OCXHiwzN3NzHrCZcGGDfX5ULQsvapg1I
+2hU7Hl63EQ==</DigestValue></Reference></SignedInfo><SignatureValue>Th/Vwqqv2gGKYOlEX7x39DhjNbWTXbrCeET9aEqkfp1NkSg8TzRy2MpUoDKGh2Xjq012a7jxVcqk
+4K/qx34qQnv4JUFvDZKLhiqn5zGoqF20hP6MPVbg+8fnvvwiuSbJuY1oxYoFNDqbfWo5EB8pRqAM
+iPYujooHBe/Dy/sSy5+uxMMDvfnLWz1JHgemnJsk5gf8naZD1BDx9W5Sjns3zA6afasUmZYVxRAf
+hyZJvj60+Xe/zW1UJjI6Iax/KT8pnftxnUoOgv9hcLx49OgP1b2h+88KNpFCiMCcA1YFmsZzpJ1d
+IvYOVYmukWmAogTjsSFInbqrthQl95yAhIWCiQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -605,4 +539,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_1d2abc63-7ce0-4b77-b427-c2e857155eb6" Target="#_2a8dfde4-99e3-47b7-83dc-79c9757a2e5b"><Timestamp>2019-10-21 16:21:11</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_7e9ad98a-06fb-490e-a517-c38755e4876a" Target="#_472351e4-ab2d-4bc2-83cc-9f56b02c90f8"><Timestamp>2019-10-21 16:22:33</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
