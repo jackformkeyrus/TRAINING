@@ -249,6 +249,74 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
+  <node componentName="tFilterRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFilterRow_11"/>
+    <elementParameter field="CLOSED_LIST" name="LOGICAL_OP" value="&amp;&amp;"/>
+    <elementParameter field="TABLE" name="CONDITIONS">
+      <elementValue elementRef="INPUT_COLUMN" value="STATUS"/>
+      <elementValue elementRef="FUNCTION" value="$source == null? false : $source.matches($target) $operator true"/>
+      <elementValue elementRef="OPERATOR" value="=="/>
+      <elementValue elementRef="RVALUE" value="CLO"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="USE_ADVANCED" value="false"/>
+    <elementParameter field="MEMO_JAVA" name="ADVANCED_COND" show="false" value="// code sample : use input_row to define the condition.&#10;// input_row.columnName1.equals(&quot;foo&quot;) ||!(input_row.columnName2.equals(&quot;bar&quot;))&#10;// replace the following expression by your own filter condition &#10;input_row.columnName1.equals(input_row.columnName2)&#10;&#9;&#9;&#9;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="src_orders" name="tFilterRow_11">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="35" name="CUSTOMER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <metadata connector="FILTER" label="src_orders" name="FILTER">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="35" name="CUSTOMER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <metadata connector="REJECT" label="src_orders" name="REJECT">
+      <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="3" name="STATUS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="19" name="ORDER_DATETIME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="DATETIME" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="35" name="CUSTOMER" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+  </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="416" posY="288">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
@@ -331,7 +399,7 @@
         <mapperTableEntries expression="orders.ORDER_DATETIME " name="ORDER_DATETIME" nullable="true" type="id_Date"/>
         <mapperTableEntries expression="order_lines.QTY " name="QTY" nullable="true" type="id_Integer"/>
       </outputTables>
-      <inputTables columnNameFilter="" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="orders" sizeState="INTERMEDIATE">
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row2" sizeState="INTERMEDIATE">
         <mapperTableEntries name="ORDER_ID" type="id_Integer"/>
         <mapperTableEntries name="STATUS" nullable="true" type="id_String"/>
         <mapperTableEntries name="CUST_ID" nullable="true" type="id_Integer"/>
@@ -365,7 +433,7 @@
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `trg_prod_family`.`FAMILY_ID`, &#10;  `trg_prod_family`.`FAMILY_NAME`, &#10;  `trg_prod_family`.`FAMILY_MAIN_ACTIVITY`&#10;FROM `trg_prod_family`&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `src_order_lines`.`ORDER_ID`, &#10;  `src_order_lines`.`LORDER_ID`, &#10;  `src_order_lines`.`PRODUCT_ID`, &#10;  `src_order_lines`.`QTY`, &#10;  `src_order_lines`.`AMOUNT`&#10;FROM `src_order_lines`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" show="false" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" show="false" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -637,9 +705,13 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBClose_1" offsetLabelX="0" offsetLabelY="0" source="tDBClose_1" target="tDBClose_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk4"/>
   </connection>
-  <connection connectorName="FLOW" label="orders" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tMap_1">
+  <connection connectorName="FLOW" label="orders" lineStyle="0" metaname="tDBInput_1" offsetLabelX="0" offsetLabelY="0" source="tDBInput_1" target="tFilterRow_11">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="orders"/>
+  </connection>
+  <connection connectorName="FILTER" label="row2" lineStyle="0" metaname="FILTER" offsetLabelX="0" offsetLabelY="0" source="tFilterRow_11" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row2"/>
   </connection>
   <connection connectorName="FLOW" label="aggregation" lineStyle="0" metaname="aggregation" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tAggregateRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -691,13 +763,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_fec061af-5014-475e-a9f1-19a1fb5c5a0d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>qN0xhR7A/bKo8hG90+3/Y/+3EwlQ+SchTpPFBNW2RJVRNDM/9PwfJsGM6InUlaTGbTNBJiQwPNjy
-RX8I78Aohg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_f61692c3-22ec-480d-a1a8-0d9bb64f66bb"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>ob7pdUe/L7siB9R71CGO1mhc5hNJEhzzB8BpKRrsPjmj7R3syNggORQiO3Qf/fDulQXWZXSscSdB
-AS2zRreU5g==</DigestValue></Reference></SignedInfo><SignatureValue>Z5lvSxfRMKpL8OGAqIokdGZoyfd6IyoSkZyp9pIleTR7ReFeNkT1xBUqtOUedp0tX9QXHSnT6ce4
-mqajkNJyuGsZ+l/yVNZGxEiS3PzKHVOfnYEyFtt6OC50Qc5JHO0CCoSuJP+OKhNYdPmxBUdDoa2Q
-g43lvBJI/xdgokq1LecSCVKktoKfMXoqbAcabXP5sEt6lHfqT5eh3ifdxfJwRTiP1TAjmvkq59IS
-e5xRkFepDhDfBemXVlhsc3vYMGTSr3O1hCmazirXFaUdYwgeRnfv3Mt0cOmsNWpnWzS3DSvvSlkW
-cVFIZkbrVuYb2rmS1rJyVzR7lFMQKK3Sc9TNYw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_2c163f40-cbda-4124-a7f1-61b7a23b4be8"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>QD5E3ATZkK82rvucjTB8YQa3mYMjpCO7V1FmRs81rJPjzG4r2ZeR4xDEb5PI1BcUw4vlR3poahgn
+ulU/j124PQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_02d960e5-bd59-466e-aebd-f8a531daf69e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>rmfdK5B/Q3eyqGqkKT98iecERvZ9f57a68/+CxcCLtVzUmRbIqKIMnyOEVqdapMN3NkZKmXqmLtu
+K10vv9tudA==</DigestValue></Reference></SignedInfo><SignatureValue>aQhvCh2ht5UPOrRF7+5oaDRTwjRW/XAoFCw0iERmfy7r3b23IuzOib1VYpwPGf5HbbIHpCkgPgR9
+R3CDJquzAy1hDrlQDa5V6tG/xF2ZwV3AWMAtIhA1C+p3+B/XPJ6foF0FdKH15W4CNkErAvKBKPH/
+FTC+IWQkDV33EsIuU1x/PWZeHcgMEMHEshucvgJnmmPRmBo2GcGsgRMgq/3ir9M3fs+r4JJwDW/O
+nLrS1l5+A8Gw3ZyILR6TvrmfcComVQZ/L3q616HHu+7nVsKXUedskHW9FUwyIF4FPn+PFSEvSRW+
+M1YAJs+OX+9lS0y0txIJuBfZi99GAuY9bJsaCw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -721,4 +793,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_f61692c3-22ec-480d-a1a8-0d9bb64f66bb" Target="#_fec061af-5014-475e-a9f1-19a1fb5c5a0d"><Timestamp>2019-10-21 14:46:06</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_02d960e5-bd59-466e-aebd-f8a531daf69e" Target="#_2c163f40-cbda-4124-a7f1-61b7a23b4be8"><Timestamp>2019-10-21 14:48:53</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
