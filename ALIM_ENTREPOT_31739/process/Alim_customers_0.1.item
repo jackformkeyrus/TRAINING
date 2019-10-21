@@ -462,7 +462,7 @@
         <mapperTableEntries expression="customers2.CITY_ID" name="CITY_ID" type="id_Integer"/>
         <mapperTableEntries expression="customers2.PHONE" name="PHONE" nullable="true" type="id_String"/>
         <mapperTableEntries expression="customers2.AGE" name="AGE" nullable="true" type="id_Integer"/>
-        <mapperTableEntries expression="src_age_group.Age_Range" name="AGE_RANGE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="src_age_group.AGE_RANGE" name="AGE_RANGE" nullable="true" type="id_String"/>
         <mapperTableEntries expression="Var.SPFULLNAME " name="SALES_PERS" nullable="true" type="id_String"/>
         <mapperTableEntries expression="new Date() " name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
         <mapperTableEntries expression="new Date()" name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
@@ -478,10 +478,10 @@
         <mapperTableEntries name="AGE" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="SALES_PERS_ID" nullable="true" type="id_Integer"/>
       </inputTables>
-      <inputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="customers2.AGE &gt;= src_age_group.Age_Min &amp;&amp; customers2.AGE &lt;= src_age_group.Age_Max" lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="src_age_group" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="" name="Age_Min" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="Age_Max" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="Age_Range" nullable="true" type="id_String"/>
+      <inputTables activateCondensedTool="true" activateExpressionFilter="true" expressionFilter="customers2.AGE &gt;= src_age_group.AGE_MIN &amp;&amp; customers2.AGE &lt;= src_age_group.AGE_MAX" lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="src_age_group" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="" name="AGE_MIN" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="AGE_MAX" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="AGE_RANGE" nullable="true" type="id_String"/>
       </inputTables>
       <inputTables activateCondensedTool="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="src_sales_person" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="customers2.SALES_PERS_ID " name="SALES_PERS_ID" nullable="true" type="id_Integer"/>
@@ -501,25 +501,25 @@
   <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="224">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputDelimited_1"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_CGxs8PQIEemwvNs0ZbfrPA"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_YmpMQPQIEemwvNs0ZbfrPA"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_CGxs8PQIEemwvNs0ZbfrPA - metadata_Age"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_YmpMQPQIEemwvNs0ZbfrPA - metadataAge"/>
     <elementParameter field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
-    <elementParameter field="FILE" name="FILENAME" value="context.src_age_range_File"/>
+    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Formation/ETL_Projet_DEV/FileSources/DATA_SRC_AGE_GROUP.txt&quot;"/>
     <elementParameter field="CHECK" name="CSV_OPTION" value="false"/>
-    <elementParameter field="TEXT" name="ROWSEPARATOR" value="context.src_age_range_RowSeparator"/>
-    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" show="false" value="context.src_age_range_RowSeparator"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="context.src_age_range_FieldSeparator"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" show="false" value="&quot;\n&quot;"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;;&quot;"/>
     <elementParameter field="TEXT" name="ESCAPE_CHAR" show="false" value="&quot;&quot;&quot;"/>
     <elementParameter field="TEXT" name="TEXT_ENCLOSURE" show="false" value="&quot;&quot;&quot;"/>
-    <elementParameter field="TEXT" name="HEADER" value="0"/>
+    <elementParameter field="TEXT" name="HEADER" value="1"/>
     <elementParameter field="TEXT" name="FOOTER" value="0"/>
     <elementParameter field="TEXT" name="LIMIT" value=""/>
     <elementParameter field="CHECK" name="REMOVE_EMPTY_ROW" value="false"/>
     <elementParameter field="CHECK" name="UNCOMPRESS" value="false"/>
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" show="false" value="_CGxs8PQIEemwvNs0ZbfrPA - metadata_Age"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" show="false" value="_YmpMQPQIEemwvNs0ZbfrPA - metadataAge"/>
     <elementParameter field="DIRECTORY" name="TEMP_DIR" show="false" value="&quot;C:/Talend/workplace&quot;"/>
     <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
     <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" show="false" value="&quot;,&quot;"/>
@@ -528,40 +528,40 @@
     <elementParameter field="TEXT" name="NB_RANDOM" show="false" value="10"/>
     <elementParameter field="CHECK" name="TRIMALL" value="false"/>
     <elementParameter field="TABLE" name="TRIMSELECT">
-      <elementValue elementRef="SCHEMA_COLUMN" value="Age_Min"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_MIN"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="Age_Max"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_MAX"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="Age_Range"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_RANGE"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="CHECK" name="CHECK_FIELDS_NUM" value="false"/>
     <elementParameter field="CHECK" name="CHECK_DATE" value="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="context.src_age_range_Encoding"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;US-ASCII&quot;"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
     <elementParameter field="CHECK" name="SPLITRECORD" value="false"/>
     <elementParameter field="CHECK" name="ENABLE_DECODE" value="false"/>
     <elementParameter field="TABLE" name="DECODE_COLS" show="false">
-      <elementValue elementRef="SCHEMA_COLUMN" value="Age_Min"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_MIN"/>
       <elementValue elementRef="DECODE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="Age_Max"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_MAX"/>
       <elementValue elementRef="DECODE" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="Age_Range"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AGE_RANGE"/>
       <elementValue elementRef="DECODE" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="DESTINATION" show="false" value=""/>
     <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
     <elementParameter field="TEXT" name="LABEL" value="Select src age group"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="metadata_Age" name="tFileInputDelimited_1">
-      <column comment="" key="false" length="2" name="Age_Min" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="Age_Max" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="18" name="Age_Range" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    <metadata connector="FLOW" label="metadataAge" name="tFileInputDelimited_1">
+      <column comment="" key="false" length="2" name="AGE_MIN" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="AGE_MAX" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="AGE_RANGE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
-    <metadata connector="REJECT" label="metadata_Age" name="REJECT">
-      <column comment="" key="false" length="2" name="Age_Min" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="3" name="Age_Max" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="18" name="Age_Range" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+    <metadata connector="REJECT" label="metadataAge" name="REJECT">
+      <column comment="" key="false" length="2" name="AGE_MIN" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="3" name="AGE_MAX" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="18" name="AGE_RANGE" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
@@ -1136,13 +1136,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_189d040d-7709-4ac9-a917-0c707cbe11e2"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>bqtGka12Kf/zN2+rBy5RKgcStXB7c2RUufMX5qEOqmx8X64Iwny7ruE4jkKw4L5y5q9OvO/sMPCu
-voijkRmGYQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_7f4248a7-c0e9-4701-bee4-dcea993b5dd9"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>rCjc9clr3KYQjtSFUkWUBsCE7R0c9VLi0s7yQCeqVxJKToLUxjilnRmdGzAJR9i1B3HjriTMOHHz
-JXLUc0Tlyg==</DigestValue></Reference></SignedInfo><SignatureValue>Pxqnns8r/2sFXT5x9uvpAF/fN2tQiYs2Yf4XZ5qassTTjTUx2UvcYCuW2NnTa6woirbSUb4gPu+p
-kCLRfhMng5wZGKCrd8kqmZIdORCy46hwjkqsWI+RuKumnvYLiID+paf0D5+qRlUumZEIDzYrJelA
-hOcfA8WlNjm6X/GBLm5ZuJYn2J/+pKTTila26/tOt6eczXp23WWsSlCv6ZpQQwNWuXJOHPGHuUJV
-s1URqnoqHhHHyDdmrcTi85yXjEURr5fsaltq8VtcI0vMsEOZbVlJZJ6eF/4IMgyCnuQWT4affR53
-pWef5F5VWpPVYMWNRySR7t5QBfyT5vIkxNPcfw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_fce07ab2-822d-44bb-b36b-9402e03fb32a"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>pUkLQSvnegKVOXXAZGpNl6utP38RhKcPpzM0baDRVo5dHZrO2kGAK+s3jEqA3UBq2C5lqvmFdb2D
+B2sNpSxTgQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_30716f00-6e61-4b53-9e3e-8413e7630e73"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>EfHscxkzX8HSCdoL4z0HlMtBX2PyvKQFL6px4xWWkWmfG5j4EWY1XSPW/s6k4QYPwP0jmYv5qjQl
+GZM32Pxx1g==</DigestValue></Reference></SignedInfo><SignatureValue>oyKXNXWOtYOlQwyhTlPH1tCIwH2Hile4cxLiObffk3ZzhG9ugvvmOkBM6Bz4sDBpGvD2ttLLXlhB
+g5aJbtolqYtAaTPaK4pPomOcwAJp3YPt/Ao6v70N+TaN9D58CuHB/9TO7zmZ2hl8SQlZ5XK24puB
+WipEo7+aH0aM2BbTKrM92E92KfGfESaLryIhPq8YyuPe28+omNC0DZLnSOb+rO8ffBAkO6DZU0Y0
+a4iohvCPMsSRZ12LsxhtZ75Zzf5r8XGwmvldP0MdVnR3UO9/Bt5fs/iTSguQmw5uwFiu+gFHckQj
+xCjKqXKe2hg7FZTWVdw3VQIADStQNKX8mZ8teg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -1166,4 +1166,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_7f4248a7-c0e9-4701-bee4-dcea993b5dd9" Target="#_189d040d-7709-4ac9-a917-0c707cbe11e2"><Timestamp>2019-10-21 13:38:28</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_30716f00-6e61-4b53-9e3e-8413e7630e73" Target="#_fce07ab2-822d-44bb-b36b-9402e03fb32a"><Timestamp>2019-10-21 13:41:00</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
