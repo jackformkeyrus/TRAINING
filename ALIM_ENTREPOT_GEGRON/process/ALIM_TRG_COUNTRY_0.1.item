@@ -319,6 +319,7 @@
   </node>
   <node componentName="tMysqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_5"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_71UdIPPfEemx65_MtYSU4Q"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
@@ -339,6 +340,64 @@
     <elementParameter field="CHECK" name="AUTO_COMMIT" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="Entrepot_de_donnees"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="512" posY="320">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_5"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_71UdIPPfEemx65_MtYSU4Q"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
+    <elementParameter field="TEXT" name="HOST" value="context.Entrepot_de_donnees_Server"/>
+    <elementParameter field="TEXT" name="PORT" value="context.Entrepot_de_donnees_Port"/>
+    <elementParameter field="TEXT" name="DBNAME" value="context.Entrepot_de_donnees_Database"/>
+    <elementParameter field="TEXT" name="TYPE" show="false" value="MYSQL"/>
+    <elementParameter field="TEXT" name="USER" value="context.Entrepot_de_donnees_Login"/>
+    <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kufCCdTsVo03YTrk3eF8WeH+cpovNcauh1essc7l8ieMlA=="/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_71UdIPPfEemx65_MtYSU4Q - trg_city"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_city&quot;"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `trg_city`.`CITY_ID`, &#10;  `trg_city`.`REGION_ID`, &#10;  `trg_city`.`CITY`, &#10;  `trg_city`.`POPULATION`&#10;FROM `trg_city`&quot;"/>
+    <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
+    <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
+    <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="mysql_id"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="context.Entrepot_de_donnees_AdditionalParams"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
+    <elementParameter field="CHECK" name="ENABLE_STREAM" value="false"/>
+    <elementParameter field="CHECK" name="TRIM_ALL_COLUMN" value="false"/>
+    <elementParameter field="TABLE" name="TRIM_COLUMN">
+      <elementValue elementRef="SCHEMA_COLUMN" value="CITY_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="REGION_ID"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CITY"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="POPULATION"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="trg_city" name="tDBInput_5">
+      <column comment="" key="true" length="10" name="CITY_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="REGION_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="CITY" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="POPULATION" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
   </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBConnection_2" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_2" target="tDBConnection_3">
     <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
@@ -378,13 +437,18 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_3a57d491-0541-4b0f-890d-388b0f733569"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>JLJzUpYqBtLH4/1v2jPlbedFjzp5GSSooQu/wstkyN74L1ucgRs7ZBO+InvL5M9gmRv1+tM+IDA6
-8NXxsCPNMQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c120fbf1-c84e-43d9-b5cd-0e4abd6581d6"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>k3DObjyC6WVUkFY5w0unFN/dIGuFiaK2tQLHCHVyGXxDg5d6xsrKyYSNBxN+sDgrbOBvsyg/t7fM
-hkAFMuvIBw==</DigestValue></Reference></SignedInfo><SignatureValue>EwInQMjNoE1xNS9KtGfVuwEqReg877Z5nkFxdxv5/3VjLmTciGqZ3b/lVVo8/0vEUyUZx7/n4OhI
-VVsEFcFdXhSDqdMN5DMCfP59OAq7sWpRBRNvYGQ55T5VesXqm/5RDCiohFQPWUSimoZoCewJAipw
-WnW6WXFAuBMer3bnVw2APlTxTvWdQWaHlmHBb6CdYE1c1f/OaIjhGiZNbCPH2eHfuQL1Hyug45AH
-pIXIIc3Y7VUGm2BvCZwdyrbR/MkPkBtFrrXhrw5LGgMt1H3jPJ+jNPeTjlIVL8k8c4lW1Fi1s/2h
-Cq/fpvWvRLnD5SxnaiVmHUpW0wSA8Gk6p9V/VA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_5"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_347c784c-cf91-439b-89a6-1c03e43ebff7"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>4T1Qscuav6Mx+mtJWpFv0xmTLVsd6Pfv4hQd/K911uj7RPGNN4wCVQ9rcn91N9mtJJeKrnQTl9Ax
+aNoW24R9Kw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0d02d188-398a-4300-b775-6cf597b458d9"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>3OCD03x1J9Q2Vp8MEeAXRVtnOyiH+dPy2oAdvezJdCImgPfw+EGW+4Tko1nQJtzMjYqy35cnhPGh
+kalXSyAHfA==</DigestValue></Reference></SignedInfo><SignatureValue>YIuejhMM5LUjBgRHBAYJF6fjcu9sCNRXva48CCBF1g3Vy3PzWVceZG9jxYumo39WUGOd5KRAS1bB
+6n8k+/Lo8FepULT2apwom9bE8CRNl1oBnZA7+kOrWH8qtsoOsEFZkQBQoJPds7Eo6FmsQGwzZuBa
+9aDsD8+OTTnB4zxRHODf1AjtZNJpm7E41ozrzqrYufWjd0W00LCPTKpQnP8rU0Cz5oa6hFR+BZMS
+NsL2OQZBA8gGKaNW0Xu20JW+125kp7QFQT8rT8oe/7KcsTH/3Mss3Fe3lFgNSMtHA9VcgdwR50Kd
+/ldGW8v8KJJ+D3dJXwI1nbX6DsM9Ejd0gTi+gQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -408,4 +472,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c120fbf1-c84e-43d9-b5cd-0e4abd6581d6" Target="#_3a57d491-0541-4b0f-890d-388b0f733569"><Timestamp>2019-10-21 11:54:26</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0d02d188-398a-4300-b775-6cf597b458d9" Target="#_347c784c-cf91-439b-89a6-1c03e43ebff7"><Timestamp>2019-10-21 11:55:33</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
