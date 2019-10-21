@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:xmi="http://www.omg.org/XMI" defaultContext="Default" jobType="Standard" xmi:version="2.0">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:TalendMapper="http://www.talend.org/mapper" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" defaultContext="Default" jobType="Standard" xmi:version="2.0">
   <context confirmationNeeded="false" name="Default">
     <contextParameter comment="" name="Gestion_de_commande_Login" prompt="Gestion_de_commande_Login?" promptNeeded="false" repositoryContextId="_qZam8PPfEemx65_MtYSU4Q" type="id_String" value="talend"/>
     <contextParameter comment="" name="Gestion_de_commande_Server" prompt="Gestion_de_commande_Server?" promptNeeded="false" repositoryContextId="_qZam8PPfEemx65_MtYSU4Q" type="id_String" value="localhost"/>
@@ -117,7 +117,7 @@
     <routinesParameter id="_7YXYMPPbEemwOv7wZvNcnA" name="TalendStringUtil"/>
     <routinesParameter id="_7VFasPPbEemwOv7wZvNcnA" name="TalendString"/>
   </parameters>
-  <node componentName="tMysqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="160">
+  <node componentName="tMysqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_2"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_Y3jSsPPfEemx65_MtYSU4Q"/>
@@ -140,7 +140,7 @@
     <elementParameter field="TEXT" name="LABEL" value="Connextion Formation_Source"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tMysqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="320">
+  <node componentName="tMysqlConnection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_3"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_71UdIPPfEemx65_MtYSU4Q"/>
@@ -202,6 +202,38 @@
       <column comment="" key="false" length="50" name="COUNTRY" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
       <additionalProperties key="Comment" value=""/>
     </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="608" posY="224">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_DLXGgPP0Eemx65_MtYSU4Q-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="alim_trg_country">
+      <column comment="" defaultValue="" key="false" length="11" name="COUNTRY_ID" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="COUNTRY" nullable="true" originalLength="-1" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties/>
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <outputTables name="alim_trg_country" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="COUNTRY_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="COUNTRY" nullable="true" type="id_String"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="lecture_src_region" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="COUNTRY_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="COUNTRY" nullable="true" type="id_String"/>
+      </inputTables>
+    </nodeData>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="384" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_1"/>
@@ -274,7 +306,11 @@
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tDBConnection_3" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_3" target="tDBInput_2">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk2"/>
   </connection>
-  <connection connectorName="FLOW" label="alim_trg_country" lineStyle="0" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tDBOutput_1">
+  <connection connectorName="FLOW" label="lecture_src_region" lineStyle="0" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tMap_1">
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="lecture_src_region"/>
+  </connection>
+  <connection connectorName="FLOW" label="alim_trg_country" lineStyle="0" metaname="alim_trg_country" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tDBOutput_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="alim_trg_country"/>
   </connection>
@@ -293,13 +329,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b13e3df6-99ef-41eb-a6dd-90cf15ac9971"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>3moq/ZpRPkgkyO1NKs38OwuHSr/YjFof1FGuEVC074GUlpwdziaY/7IvES1Mn8hwr5KUmAmjSpd/
-m6CGqrroBQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_aebabe88-0c93-4b66-86b8-cb89e3c6ca97"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Vzal9eKI/sVl9ESSu4OUpQ5H7a85fR9wrYNbsn/+nh/zbkBcmHuXoGHLO5hd0YYeawLZDYFB2Mw/
-bCfRFVVoVg==</DigestValue></Reference></SignedInfo><SignatureValue>QwEy2S6llSRwD9fzExWHhgh2Y3XQ7g6X74z9peb/hIFSqWIWOjkWZ9dUsRIWJXzFx/woj45fQOqB
-l/9/0teZrI4NMtToj6YWoE7qCpLL3LnTLDfVeMoBVCw4cwLsnNp0wkBZNqiIuvndoNPHQLUIdukK
-3lTzoZuAPYshzRHUSQnaI6/9cureKkOpUKvIuDqyvFZWnxdHGL9rTHiLe3pfAfJTWqAqR4fkFN9t
-NdVMyyaYWP6B2H1T1YC1txFv1Q2IQCyNJAgH1xC7RhQJL8kaT3ZHhnQZOOjnrq5hqIS85acOljzW
-7Y1R/jHhRySEHVMqzOou7AGY+7Dcpkjf3bHABw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_1d9ddc7e-a484-4d16-964f-296a7ef717dd"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>+h5l+naRPAJa318yLRVdhxggmEy7BEdesIgYeU+7nYPRAt+fVkQxPh49xY9ZY1WzjLcRWYg84VZi
+iSh/hU+zmQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_e77a86c2-82ea-4554-b7e6-64089f2b0c29"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>jooE/HlXnQk5pWiYJ/YLZ3eY0BtYb+Lu3J1rv0yH5CNCFjMFiK1M/rkFW1kNRELyWsqojaJF4ny1
+2IsXyIZgvg==</DigestValue></Reference></SignedInfo><SignatureValue>hPSoKnO0INn0MYtdc7G18bRwGoQ78XdpmEPpo3BXUdvY6XGrlbDzR1vyvMbi1ZT14Px0cY+n3ed7
+kXSu8YQ2dgt78S/DDiBDk74L+LsXvdajrcMgijEXNX0QDZfcdqCPsM5crX8Sm+MQnf4k61XXikUV
+Dbnt3p5FeKRUt3RdkQ5H0btPaxjYbb1Ur4BplOQh4+BMaxY+Olt2zHJjwkQQGFy5fcEE6GmY2nSA
+aJ6t1G2Mmrvz2SvazBzPDs5G96RdRcd1XakdwUfVotouVIzoKCNemrS9cJucfEqfpGAn2/v0Q1xX
+gCzV/LmGUHTSouU3QyxKP3iGol+8IA2zsp8qLw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -323,4 +359,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_aebabe88-0c93-4b66-86b8-cb89e3c6ca97" Target="#_b13e3df6-99ef-41eb-a6dd-90cf15ac9971"><Timestamp>2019-10-21 11:30:58</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_e77a86c2-82ea-4554-b7e6-64089f2b0c29" Target="#_1d9ddc7e-a484-4d16-964f-296a7ef717dd"><Timestamp>2019-10-21 11:37:24</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
