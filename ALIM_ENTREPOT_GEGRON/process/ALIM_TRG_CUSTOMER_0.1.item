@@ -12,6 +12,10 @@
     <contextParameter comment="" name="Entrepot_de_donnees_Login" prompt="Entrepot_de_donnees_Login?" promptNeeded="false" repositoryContextId="_Gb4zMPPgEemx65_MtYSU4Q" type="id_String" value="talend"/>
     <contextParameter comment="" name="Entrepot_de_donnees_Database" prompt="Entrepot_de_donnees_Database?" promptNeeded="false" repositoryContextId="_Gb4zMPPgEemx65_MtYSU4Q" type="id_String" value="Formation_Cible"/>
     <contextParameter comment="" name="Entrepot_de_donnees_Password" prompt="Entrepot_de_donnees_Password?" promptNeeded="false" repositoryContextId="_Gb4zMPPgEemx65_MtYSU4Q" type="id_Password" value="mGeXLdOUodROxMRgsx4WkA=="/>
+    <contextParameter comment="" name="DATA_SRC_SALES_PERSON_File" prompt="DATA_SRC_SALES_PERSON_File?" promptNeeded="false" repositoryContextId="_HN0J8PPhEemx65_MtYSU4Q" type="id_File" value="C:/Formation/ETL_Projet_DEV/FileSources/DATA_SRC_SALES_PERSON.txt"/>
+    <contextParameter comment="" name="DATA_SRC_SALES_PERSON_FieldSeparator" prompt="DATA_SRC_SALES_PERSON_FieldSeparator?" promptNeeded="false" repositoryContextId="_HN0J8PPhEemx65_MtYSU4Q" type="id_String" value="&quot;10,50,50,*&quot;"/>
+    <contextParameter comment="" name="DATA_SRC_SALES_PERSON_Encoding" prompt="DATA_SRC_SALES_PERSON_Encoding?" promptNeeded="false" repositoryContextId="_HN0J8PPhEemx65_MtYSU4Q" type="id_String" value="UTF-8"/>
+    <contextParameter comment="" name="DATA_SRC_SALES_PERSON_RowSeparator" prompt="DATA_SRC_SALES_PERSON_RowSeparator?" promptNeeded="false" repositoryContextId="_HN0J8PPhEemx65_MtYSU4Q" type="id_String" value="&quot;\n&quot;"/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
@@ -412,6 +416,7 @@
     </elementParameter>
     <elementParameter field="CHECK" name="USE_ADVANCED" value="false"/>
     <elementParameter field="MEMO_JAVA" name="ADVANCED_COND" show="false" value="// code sample : use input_row to define the condition.&#10;// input_row.columnName1.equals(&quot;foo&quot;) ||!(input_row.columnName2.equals(&quot;bar&quot;))&#10;// replace the following expression by your own filter condition &#10;input_row.columnName1.equals(input_row.columnName2)&#10;&#9;&#9;&#9;"/>
+    <elementParameter field="TEXT" name="LABEL" value="filter_age"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="src_customer" name="tFilterRow_6">
       <column comment="" key="true" length="10" name="CUSTID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
@@ -505,7 +510,160 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="512" posY="160">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="576" posY="288">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
+    <elementParameter field="EXTERNAL" name="MAP" value=""/>
+    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
+    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
+    <elementParameter field="IMAGE" name="PREVIEW" value="_YNB2kPQBEemx65_MtYSU4Q-tMap_1-PREVIEW.bmp"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
+    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
+    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
+    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
+    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
+    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="src_customer" name="customer_sales_person">
+      <column comment="" key="true" length="10" name="CUSTID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="DEAR" nullable="true" pattern="" precision="0" sourceType="INT" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="LAST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="FIRST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="ADDRESS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CITY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="PHONE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AGE" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="SALES_PERS_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="-1" name="ID_PERSON" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
+    <nodeData xsi:type="TalendMapper:MapperData">
+      <uiProperties shellMaximized="true"/>
+      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <outputTables name="customer_sales_person" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="age_inf_65.CUSTID " name="CUSTID" type="id_Integer"/>
+        <mapperTableEntries expression="age_inf_65.DEAR " name="DEAR" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="age_inf_65.LAST_NAME " name="LAST_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="age_inf_65.FIRST_NAME " name="FIRST_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="age_inf_65.ADDRESS " name="ADDRESS" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="age_inf_65.CITY_ID " name="CITY_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="age_inf_65.PHONE " name="PHONE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="age_inf_65.AGE " name="AGE" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="age_inf_65.SALES_PERS_ID " name="SALES_PERS_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="sales_person.ID_PERSON " name="ID_PERSON" nullable="true" type="id_Integer"/>
+      </outputTables>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="age_inf_65" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="CUSTID" type="id_Integer"/>
+        <mapperTableEntries name="DEAR" nullable="true" type="id_String"/>
+        <mapperTableEntries name="LAST_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="FIRST_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="ADDRESS" nullable="true" type="id_String"/>
+        <mapperTableEntries name="CITY_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="PHONE" nullable="true" type="id_String"/>
+        <mapperTableEntries name="AGE" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="SALES_PERS_ID" nullable="true" type="id_Integer"/>
+      </inputTables>
+      <inputTables activateCondensedTool="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="sales_person" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="age_inf_65.SALES_PERS_ID " name="ID_PERSON" nullable="true" operator="=" type="id_Integer"/>
+        <mapperTableEntries name="FIRSTNAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="LASTNAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="DOB" nullable="true" type="id_Date"/>
+      </inputTables>
+    </nodeData>
+  </node>
+  <node componentName="tFileInputPositional" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="576" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputPositional_1"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_CENy4PPhEemx65_MtYSU4Q"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_DYNAMIC" value="false"/>
+    <elementParameter field="COMPONENT_LIST" name="DYNAMIC" show="false" value=""/>
+    <elementParameter field="FILE" name="FILENAME" value="context.DATA_SRC_SALES_PERSON_File"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="context.DATA_SRC_SALES_PERSON_RowSeparator"/>
+    <elementParameter field="CHECK" name="ADVANCED_OPTION" value="false"/>
+    <elementParameter field="TEXT" name="PATTERN" value="context.DATA_SRC_SALES_PERSON_FieldSeparator"/>
+    <elementParameter field="CLOSED_LIST" name="PATTERN_UNITS" value="SYMBOLS"/>
+    <elementParameter field="TABLE" name="FORMATS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_PERSON"/>
+      <elementValue elementRef="SIZE" value=""/>
+      <elementValue elementRef="PADDING_CHAR" value="' '"/>
+      <elementValue elementRef="ALIGN" value="'L'"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FIRSTNAME"/>
+      <elementValue elementRef="SIZE" value="50"/>
+      <elementValue elementRef="PADDING_CHAR" value="' '"/>
+      <elementValue elementRef="ALIGN" value="'L'"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LASTNAME"/>
+      <elementValue elementRef="SIZE" value="50"/>
+      <elementValue elementRef="PADDING_CHAR" value="' '"/>
+      <elementValue elementRef="ALIGN" value="'L'"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DOB"/>
+      <elementValue elementRef="SIZE" value=""/>
+      <elementValue elementRef="PADDING_CHAR" value="' '"/>
+      <elementValue elementRef="ALIGN" value="'L'"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="REMOVE_EMPTY_ROW" value="false"/>
+    <elementParameter field="CHECK" name="UNCOMPRESS" value="false"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TEXT" name="HEADER" value="0"/>
+    <elementParameter field="TEXT" name="FOOTER" value="0"/>
+    <elementParameter field="TEXT" name="LIMIT" value=""/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_CENy4PPhEemx65_MtYSU4Q - DATA_SRC_SALES_PERSON"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA_REJECT:REPOSITORY_SCHEMA_TYPE" show="false" value="_CENy4PPhEemx65_MtYSU4Q - DATA_SRC_SALES_PERSON"/>
+    <elementParameter field="CHECK" name="PROCESS_LONG_ROW" value="false"/>
+    <elementParameter field="CHECK" name="ADVANCED_SEPARATOR" value="false"/>
+    <elementParameter field="TEXT" name="THOUSANDS_SEPARATOR" show="false" value="&quot;,&quot;"/>
+    <elementParameter field="TEXT" name="DECIMAL_SEPARATOR" show="false" value="&quot;.&quot;"/>
+    <elementParameter field="CHECK" name="TRIMALL" value="true"/>
+    <elementParameter field="CHECK" name="CHECK_DATE" value="false"/>
+    <elementParameter field="TABLE" name="TRIMSELECT" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_PERSON"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FIRSTNAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LASTNAME"/>
+      <elementValue elementRef="TRIM" value="false"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="DOB"/>
+      <elementValue elementRef="TRIM" value="false"/>
+    </elementParameter>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="context.DATA_SRC_SALES_PERSON_Encoding"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="CUSTOM"/>
+    <elementParameter field="TEXT" name="LABEL" value="SRC_SALES_PERSON"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="DATA_SRC_SALES_PERSON" name="tFileInputPositional_1">
+      <column comment="" key="false" length="-1" name="ID_PERSON" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="FIRSTNAME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="LASTNAME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="DOB" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="REJECT" label="DATA_SRC_SALES_PERSON" name="REJECT">
+      <column comment="" key="false" length="-1" name="ID_PERSON" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="FIRSTNAME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="50" name="LASTNAME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
+      <column comment="" key="false" length="-1" name="DOB" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+      <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="768" posY="288">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
@@ -536,6 +694,8 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="AGE"/>
       <elementValue elementRef="LENGTH" value="10"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="SALES_PERS_ID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="ID_PERSON"/>
       <elementValue elementRef="LENGTH" value="10"/>
     </elementParameter>
     <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
@@ -569,63 +729,12 @@
       <column comment="" key="false" length="10" name="SALES_PERS_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <additionalProperties key="Comment" value=""/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="640" posY="288">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
-    <elementParameter field="EXTERNAL" name="MAP" value=""/>
-    <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
-    <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
-    <elementParameter field="IMAGE" name="PREVIEW" value="_YNB2kPQBEemx65_MtYSU4Q-tMap_1-PREVIEW.bmp"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" show="false" value="true"/>
-    <elementParameter field="CHECK" name="LKUP_PARALLELIZE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="LEVENSHTEIN" show="false" value="0"/>
-    <elementParameter field="TEXT" name="JACCARD" show="false" value="0"/>
-    <elementParameter field="CHECK" name="ENABLE_AUTO_CONVERT_TYPE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="ROWS_BUFFER_SIZE" value="2000000"/>
-    <elementParameter field="CHECK" name="CHANGE_HASH_AND_EQUALS_FOR_BIGDECIMAL" value="true"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
-      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
-      <inputTables activateCondensedTool="true" lookupMode="LOAD_ONCE" matchingMode="ALL_MATCHES" name="sales_person" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="customer.SALES_PERS_ID " name="ID_PERSON" nullable="true" operator="=" type="id_Integer"/>
-        <mapperTableEntries name="FIRSTNAME" nullable="true" type="id_String"/>
-        <mapperTableEntries name="LASTNAME" nullable="true" type="id_String"/>
-        <mapperTableEntries name="DOB" nullable="true" type="id_Date"/>
-      </inputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="row1" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="AGE_MIN" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="AGE_MAX" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="AGE_RANGE" nullable="true" type="id_String"/>
-      </inputTables>
-    </nodeData>
-  </node>
-  <node componentName="tFileInputRaw" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="640" posY="160">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputRaw_2"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_CENy4PPhEemx65_MtYSU4Q - DATA_SRC_SALES_PERSON"/>
-    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Formation/ETL_Projet_DEV/FileSources/DATA_SRC_SALES_PERSON.txt&quot;"/>
-    <elementParameter field="RADIO" name="AS_STRING" value="true"/>
-    <elementParameter field="RADIO" name="AS_BYTEARRAY" value="false"/>
-    <elementParameter field="RADIO" name="AS_INPUTSTREAM" value="false"/>
-    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;ISO-8859-15&quot;"/>
-    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
-    <elementParameter field="TEXT" name="LABEL" value="SRC_SALES_PERSON"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="DATA_SRC_SALES_PERSON" name="tFileInputRaw_2">
       <column comment="" key="false" length="-1" name="ID_PERSON" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_Integer" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="FIRSTNAME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="50" name="LASTNAME" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
-      <column comment="" key="false" length="-1" name="DOB" nullable="true" pattern="&quot;dd/MM/yyyy&quot;" precision="0" type="id_Date" usefulColumn="true"/>
+      <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
   <node componentName="tFileInputRaw" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="800" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputRaw_1"/>
-    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_cfR8cPPhEemx65_MtYSU4Q - DATA_SRC_AGE_GROUP"/>
     <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Formation/ETL_Projet_DEV/FileSources/DATA_SRC_AGE_GROUP.txt&quot;"/>
@@ -670,19 +779,22 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="mapDear"/>
   </connection>
-  <connection connectorName="FILTER" label="age_inf_65" lineStyle="0" metaname="FILTER" offsetLabelX="0" offsetLabelY="0" source="tFilterRow_6" target="tLogRow_1">
+  <connection connectorName="FILTER" label="age_inf_65" lineStyle="0" metaname="FILTER" offsetLabelX="0" offsetLabelY="0" source="tFilterRow_6" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="age_inf_65"/>
   </connection>
-  <connection connectorName="FLOW" label="sales_person" lineStyle="8" metaname="tFileInputRaw_2" offsetLabelX="0" offsetLabelY="0" source="tFileInputRaw_2" target="tMap_1">
+  <connection connectorName="FLOW" label="customer_sales_person" lineStyle="0" metaname="customer_sales_person" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tLogRow_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="ID_PERSON"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="sales_person"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="customer_sales_person"/>
   </connection>
-  <connection connectorName="FLOW" label="row1" lineStyle="8" metaname="tFileInputRaw_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputRaw_1" target="tMap_1">
+  <connection connectorName="FLOW" label="sales_person" lineStyle="8" metaname="tFileInputPositional_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputPositional_1" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="sales_person"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" show="false" value="true"/>
@@ -722,17 +834,17 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputRaw_1"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_762971f2-773b-456f-ba46-914f3538e4b6"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>KLz5NOtWyGxJVQsNNE8sdh+waRaQbu8OlQ/4EshB4TQVJGwUTpw63yMm7Bq2rOHOO9jsGigWsjK4
-7AIoggND/w==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9c152f05-5894-4d0d-a1d9-af9958d2335b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>KDOoKuYJNK3M7YW2+6kfd2tSFPsFJhdTz2nSW74kFpm6ituZd6kzIeKzIVyvN4R4obPTuifN1cqQ
-4LSyum1RaA==</DigestValue></Reference></SignedInfo><SignatureValue>xfobQrRlBeI5C0POFWFG8t8gcgZcgoG9xkacDLY2f6os0qQorWKdSdkSe45uA2T/RET1LroJ4bSA
-Ms0ISFiCms6Ho1xJJBtwwmhlg1ZWqpW8Lzhpea8l9aOVA9JfqyYpvw6+E+2Q5ksA5yGJu5nN8SOW
-ZDoeSynuOKu3ymx2vx1hogvI0Xwi6kPjA3ZXIyK/wZv/xbvDOfGme4psXsujrZt/sm0yctuJKVRw
-vAC5knRY8ZdmII5Unlo2g4E8HhbtCG6IIjmrhUdphqTRO1D2FZ0A7IqDvouY669R8WP0PwSMrY4j
-y1f3mQNHXE0Nlgbq1W4gf2VQddLnUyc4qLkIwA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_d9b3c267-d5ea-44af-8ed9-92b2d07a35d1"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>AKhWDmoqyxiS0QR4KWYp/JTeYJmxdIR9alD5IcFYy7hIx86x3mVK1LFeaqh0WDDYEmiTTccGPRPN
+9EJFasLtEQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_eabb6525-135f-42cf-ba2d-a722704125b4"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>gQb1EZNsljQcc6kt3+AIrIgQ9RhDiDjjNlTtVCU9W+3n73y/kwmkSPL1pfK0MAZGR47+M9ajPbrS
+a2DkGYrQ1w==</DigestValue></Reference></SignedInfo><SignatureValue>F504PTCSsEMGZGMNfjqIjuWWzbMkPFWFGAzW6gLPJFQsRzyHjlpL2aosuAXAmukDM5PTrbHsBF0V
+3czo9dCY7lMyHwgiFxdwtXWGp0rPTb2KnAwk7aFlEiSW1ePxth1I6iISweM3hAlDyj9W9TiX92Xo
+Xn/8iIcjkVXEqvPiCmCPG9zDXhfs/bzHJUE5nODE30iOh0e2Y6QS7nSBa/YOtu1zVP6qm+cNlEw8
+XkKsaf4r2EaIhZOnSB5dy6SvRY6B5lId4in3bUitZmM3/1iubxM/PcwmRCpKwDMZeAFNTv5u/VTc
+E340I7G+y0O6375F+3ZcKvCyVLLWGAwZmbsx4Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -756,4 +868,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9c152f05-5894-4d0d-a1d9-af9958d2335b" Target="#_762971f2-773b-456f-ba46-914f3538e4b6"><Timestamp>2019-10-21 16:43:03</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_eabb6525-135f-42cf-ba2d-a722704125b4" Target="#_d9b3c267-d5ea-44af-8ed9-92b2d07a35d1"><Timestamp>2019-10-21 16:51:41</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
