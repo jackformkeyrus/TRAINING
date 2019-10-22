@@ -322,11 +322,11 @@
         <mapperTableEntries name="ORDER_DATETIME" nullable="true" type="id_Date"/>
         <mapperTableEntries name="CUSTOMER" nullable="true" type="id_String"/>
       </inputTables>
-      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="prods" sizeState="INTERMEDIATE">
+      <inputTables activateCondensedTool="true" innerJoin="true" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row2" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="orderLines.PRODUCT_ID " name="PRODUCT_ID" operator="=" type="id_Integer"/>
-        <mapperTableEntries name="PRODUCT" nullable="true" type="id_String"/>
+        <mapperTableEntries name="FAMILY_ID" type="id_String"/>
         <mapperTableEntries name="PRICE" nullable="true" type="id_BigDecimal"/>
-        <mapperTableEntries name="FAMILY_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="PRODUCT" nullable="true" type="id_String"/>
       </inputTables>
     </nodeData>
   </node>
@@ -692,7 +692,7 @@
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_NjCjcPPdEemwvNs0ZbfrPA"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" show="false" value="MYSQL_5"/>
     <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_2"/>
     <elementParameter field="TEXT" name="HOST" show="false" value="context.Gestion_de_commande1_Server"/>
     <elementParameter field="TEXT" name="PORT" show="false" value="context.Gestion_de_commande1_Port"/>
     <elementParameter field="TEXT" name="DBNAME" show="false" value="context.Gestion_de_commande1_Database"/>
@@ -700,13 +700,13 @@
     <elementParameter field="TEXT" name="USER" show="false" value="context.Gestion_de_commande1_Login"/>
     <elementParameter field="PASSWORD" name="PASS" show="false" value="8pW6Nmy2kueKpWN+1aRBvPVPTZpvjODAbespCfRcCGbYUUSkAc5G4g=="/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
-    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_NjCjcPPdEemwvNs0ZbfrPA - src_product"/>
-    <elementParameter field="DBTABLE" name="TABLE" value="&quot;src_product&quot;"/>
+    <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_hZB2cPPdEemwvNs0ZbfrPA - trg_product"/>
+    <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_product&quot;"/>
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" show="false" value=""/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
     <elementParameter field="GUESS_SCHEMA" name="GUESS_SCHEMA" value="&quot;&quot;"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `src_product`.`PRODUCT_ID`, &#10;  `src_product`.`PRODUCT`, &#10;  `src_product`.`PRICE`, &#10;  `src_product`.`FAMILY_NAME`&#10;FROM `src_product`&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;SELECT &#10;  `trg_product`.`PRODUCT_ID`, &#10;  `trg_product`.`FAMILY_ID`, &#10;  `trg_product`.`PRICE`, &#10;  `trg_product`.`PRODUCT`&#10;FROM `trg_product`&quot;"/>
     <elementParameter field="LABEL" name="NOTE" show="false" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" show="false" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" show="false" value="&quot;&quot;"/>
@@ -719,26 +719,26 @@
     <elementParameter field="TABLE" name="TRIM_COLUMN">
       <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT_ID"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FAMILY_ID"/>
       <elementValue elementRef="TRIM" value="false"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="PRICE"/>
       <elementValue elementRef="TRIM" value="false"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="FAMILY_NAME"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT"/>
       <elementValue elementRef="TRIM" value="false"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LABEL" value="Select products"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="src_product" name="tDBInput_3">
+    <metadata connector="FLOW" label="trg_product" name="tDBInput_3">
       <column comment="" key="true" length="10" name="PRODUCT_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="" key="false" length="50" name="PRODUCT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="" key="false" length="3" name="FAMILY_ID" nullable="false" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="10" name="PRICE" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_BigDecimal" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="" key="false" length="50" name="FAMILY_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+      <column comment="" key="false" length="50" name="PRODUCT" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <additionalProperties key="Comment" value=""/>
@@ -776,9 +776,9 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
   </connection>
-  <connection connectorName="FLOW" label="prods" lineStyle="8" metaname="tDBInput_3" offsetLabelX="0" offsetLabelY="0" source="tDBInput_3" target="tMap_1">
+  <connection connectorName="FLOW" label="row2" lineStyle="8" metaname="tDBInput_3" offsetLabelX="0" offsetLabelY="0" source="tDBInput_3" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="prods"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row2"/>
   </connection>
   <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBConnection_1"/>
@@ -817,13 +817,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_6bc79e13-5513-42b4-998f-6079c0072730"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>zDIa1jq34vt5aeFsFJveui2rd6OBMjt5DtHfmd4YEjSvDT1x5QhKXYkPLj8/J/JrA0xU6fpKuncv
-w0oR+4aqpw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_b84cb41c-f04c-413b-9f07-d7370d5abe22"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>xOjy3v/tkw/HIxLbFjZf8HR8+V/p/qzBwH0KfYjTxy0yMRokLkJu9q7fAJ0hIA7dk0+bZvjOHwb5
-l3O1ForiTQ==</DigestValue></Reference></SignedInfo><SignatureValue>OkHccCfcpc9OiK9sPsWATHTnTjJgo4TM2C5MYm/K7RMVqG2B64xQpcJBRPftaXIjnMXXCOVYhAQR
-dTWQVPWXhp3Fp2S7hAGFmm0VgPW9/oK/YAIj5CljwkwuRocTL0DLWN1Jaau5hWHD45uEZzFAU1gL
-Cg9gFOCdCIz/fLcCTPcoeAS5owksZHmNlYYFtquxxxWh0U57K2PlGij/ncHcH2ojH/dRckhDJ6kT
-zJEx2L8ecqpEVCtgR0ZoQwh49ICnBwNknMan8qdu4fIED+jw3d3tigs4fK3rkQNNmyV2pjHUi5jW
-0gbnDWOmRFBxeqNEbOnP8eMDqF5mr0eClaTJZg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_5df6456f-4e67-411b-b500-4d660f92a498"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>OFPPAz1MkeLPTH9zACdqMR9S/X1OV8fh4J7mzvW0DIHHI6HSsk8qZnJ79N/lWSkgrLBe1SewwBI8
+Y0YSzKzYgw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_f116dd84-e115-49a4-beca-55d9a72b3f8d"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>eiwgCqVWj/CBrh0PknWzogV71JOkyViuZtGLK8K9WaRGhvOrru8qn9mZpBkyQSHGEQ3Q7VgRkRKH
+DZZusq4+hQ==</DigestValue></Reference></SignedInfo><SignatureValue>BFAbknD8lTKBE7TlOgbjs8k7ZsNFwe+srrHSPvcpDhr7lCi16yzIFuuQrV1vCxc+2pHgfIO0KHJS
+raXqVQ0ak1Vl18BE7n/DBuQZnPWUyQy1U1m/rXb9Ck6Tu+SMSRn7v9el8VhXHAP1ABRrSj6ca/QU
+y7BBG1f2JjTznqfHCn4eZh+7slWhU9Cx/YY4vBeMlDVeE0sSOLJCA8vvK95dxLWBr/LH2L6F9Zgf
+omj4s9bNd0HZsxXK/Ykaklq4WMa9pZL144IudeiFQhMKejsFv9UQn5yCmL5fomFRbMYJME97tDZ1
+4C8217OcyVYQosda3XZFFLL97Scshdk+wFOEyQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -847,4 +847,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_b84cb41c-f04c-413b-9f07-d7370d5abe22" Target="#_6bc79e13-5513-42b4-998f-6079c0072730"><Timestamp>2019-10-22 07:11:11</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_f116dd84-e115-49a4-beca-55d9a72b3f8d" Target="#_5df6456f-4e67-411b-b500-4d660f92a498"><Timestamp>2019-10-22 07:13:07</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
