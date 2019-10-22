@@ -110,7 +110,7 @@
     <routinesParameter id="_7YXYMPPbEemwOv7wZvNcnA" name="TalendStringUtil"/>
     <routinesParameter id="_7VFasPPbEemwOv7wZvNcnA" name="TalendString"/>
   </parameters>
-  <node componentName="tFileList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="160">
+  <node componentName="tFileList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileList_1"/>
     <elementParameter field="DIRECTORY" name="DIRECTORY" value="&quot;C:/Formation/ETL_Projet_DEV/FileSources&quot;"/>
     <elementParameter field="CLOSED_LIST" name="LIST_MODE" value="FILES"/>
@@ -133,12 +133,12 @@
     <elementParameter field="TEXT" name="LABEL" value="Orders Files"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tFileExist" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="288" posY="32">
+  <node componentName="tFileExist" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="224" posY="32">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileExist_1"/>
     <elementParameter field="FILE" name="FILE_NAME" value="((String)globalMap.get(&quot;tFileList_1_CURRENT_FILEPATH&quot;))"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="352" posY="160">
+  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputDelimited_1"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_SFkQMPSdEemMLbu-Pooj5g - ORDERS"/>
@@ -216,7 +216,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tUnite" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="384" posY="320">
+  <node componentName="tUnite" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="320" posY="416">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tUnite_1"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_SFkQMPSdEemMLbu-Pooj5g - ORDERS"/>
@@ -229,7 +229,7 @@
       <column comment="" key="false" length="4" name="CUSTOMER" nullable="true" pattern="&quot;dd-MM-yyyy&quot;" precision="0" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="640" posY="160">
+  <node componentName="tFileOutputDelimited" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="512" posY="416">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileOutputDelimited_1"/>
     <elementParameter field="CHECK" name="USESTREAM" value="false"/>
     <elementParameter field="TEXT" name="STREAMNAME" show="false" value="outputStream"/>
@@ -278,7 +278,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tWarn_1"/>
   </node>
-  <node componentName="tDie" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="768" posY="64">
+  <node componentName="tDie" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="384" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDie_1"/>
     <elementParameter field="TEXT" name="MESSAGE" value="((String)globalMap.get(&quot;tFileInputDelimited_1_ERROR_MESSAGE&quot;))"/>
     <elementParameter field="TEXT" name="CODE" value="4"/>
@@ -287,7 +287,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tDie_1"/>
   </node>
-  <node componentName="tFileCopy" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="288">
+  <node componentName="tFileCopy" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="64" posY="256">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileCopy_1"/>
     <elementParameter field="FILE" name="FILENAME" value="((String)globalMap.get(&quot;tFileExist_1_FILENAME&quot;))"/>
     <elementParameter field="CHECK" name="ENABLE_COPY_DIRECTORY" value="false"/>
@@ -354,13 +354,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_07e6ebba-6c53-458c-9a48-57facf049974"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>+d9mB0g7UcNw7/Jn3vjysmTachB8aLd3dPcu8vS6hSfvjy6dE/WDIrDTJjhRgE1+anMirm0qPg4F
-rD4/IBP0RQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_528a2cb7-da22-4b54-ac2a-2e95a22be734"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>TP6SPQFgtdU8Yhfxjj3eYlShrr63j2Bg4WxJCPJC8OObOfJ3J7nOD9LfrkRnCd6FxlE/R69se0Zt
-wtepcIcE8w==</DigestValue></Reference></SignedInfo><SignatureValue>lct+POLfasT2U0t8xnoS4TG/7DUMSRUI8wqhFgU3a+IJj2bJywFvGtpsVd3uizFAjge86mq2si26
-UfJBj/0CD7nNZI+c6xEhg26YPND7JvonVRyOeyvZBbKJ9I1cc9sskQXhj4rp/69K5gTLOiUyUdo+
-X3jAQAaIJdgWlaMJ2iakVvHpdPqjo8JwkhAm1+2DUpg7iyTxlPa2iCqbQFbMTqvHRbrzBbIjanCs
-c7WKiOd/H1G2RLaxCY7RMpLV9bumyiDTLDPhQCE2AgfKBHpmqZWLqYsVdHV8C2kkuZahE7uv7DXT
-6K3djnuDZii7GIuxmF+xpajP9pTRPmXTFnGezg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_9a4d95df-164f-43e6-a7e9-27130559dc6d"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>GQX4crnPZbHSR0gOI7wneCSmru4HMgBmf76dcJpg2qkeQa373qIkOMKFejcLDH1+jWsFNijmQ6Vy
+kTEUUpME7g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_aae00d45-d068-4a40-ab1b-5d8fc7401b0e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>qa98TMBfvVERtIjGAH5+m9lRMEWsPrAQRkn5OoAwSZKWZm3YrS+49uT0hYwDbzD4pntGndwucRDU
+FDktVLoLjQ==</DigestValue></Reference></SignedInfo><SignatureValue>lRXiHDef6mYtEVfQepFC/f6L43v88QLjmRVVVbhVKz9j7X6V38BFfa51j3j2DTGnpL42AA4heqfK
+dAekLcRSrX9GE4AvXDrM7+ZAwwJpVHALKaCKSZ28TY/JfoGDsFj2GX/UIcEsDJIJRvoNuvh3/ipu
+J+lQWQ2F2+W+t9NYjA/uvwKHMTY0QTUZ8N1YWX+zKdIjnsDDSA997qU7UlokfbjS/igbkUT7UtWq
+igbZMElfFGNBu0YAGC/3YBvjgnNQHUL85JlT08uicqRLKVI3U+N65AU+jHnhcwJGcPRGnk+28xbq
+yNBoCiCsqGaxav4DXLzEHSSlvYkl/z27QgIl5w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -384,4 +384,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_528a2cb7-da22-4b54-ac2a-2e95a22be734" Target="#_07e6ebba-6c53-458c-9a48-57facf049974"><Timestamp>2019-10-22 14:25:36</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_aae00d45-d068-4a40-ab1b-5d8fc7401b0e" Target="#_9a4d95df-164f-43e6-a7e9-27130559dc6d"><Timestamp>2019-10-22 14:42:26</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
