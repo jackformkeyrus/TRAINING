@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:xmi="http://www.omg.org/XMI" defaultContext="Default" jobType="Standard" xmi:version="2.0">
   <context confirmationNeeded="false" name="Default">
-    <contextParameter comment="" name="ORDERS_File" prompt="ORDERS_File?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_File" value="C:/Formation/ETL_Projet_DEV/FileSources/Orders_A.csv"/>
-    <contextParameter comment="" name="ORDERS_RowSeparator" prompt="ORDERS_RowSeparator?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_String" value="&quot;\n&quot;"/>
+    <contextParameter comment="Répertoire contenant les fichiers d'entrée" name="Gestion_Fichier_SourceFolder" prompt="Gestion_Fichier_SourceFolder?" promptNeeded="false" repositoryContextId="_RqO64PSkEemMLbu-Pooj5g" type="id_String" value="C:/Formation/ETL_Projet_DEV/FileSources"/>
     <contextParameter comment="" name="ORDERS_Encoding" prompt="ORDERS_Encoding?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_String" value="US-ASCII"/>
     <contextParameter comment="" name="ORDERS_FieldSeparator" prompt="ORDERS_FieldSeparator?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_String" value="&quot;;&quot;"/>
+    <contextParameter comment="" name="ORDERS_File" prompt="ORDERS_File?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_File" value="C:/Formation/ETL_Projet_DEV/FileSources/Orders_A.csv"/>
     <contextParameter comment="" name="ORDERS_Header" prompt="ORDERS_Header?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_Integer" value="1"/>
+    <contextParameter comment="" name="ORDERS_RowSeparator" prompt="ORDERS_RowSeparator?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_String" value="&quot;\n&quot;"/>
+  </context>
+  <context confirmationNeeded="false" name="Prod">
+    <contextParameter comment="Répertoire contenant les fichiers d'entrée" name="Gestion_Fichier_SourceFolder" prompt="Gestion_Fichier_SourceFolder?" promptNeeded="false" repositoryContextId="_RqO64PSkEemMLbu-Pooj5g" type="id_String" value="C:/Formation/ETL_Projet_PROD/FileSources"/>
+    <contextParameter comment="" name="ORDERS_Encoding" prompt="ORDERS_Encoding?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_String" value="US-ASCII"/>
+    <contextParameter comment="" name="ORDERS_FieldSeparator" prompt="ORDERS_FieldSeparator?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_String" value="&quot;;&quot;"/>
+    <contextParameter comment="" name="ORDERS_File" prompt="ORDERS_File?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_File" value="C:/Formation/ETL_Projet_DEV/FileSources/Orders_A.csv"/>
+    <contextParameter comment="" name="ORDERS_Header" prompt="ORDERS_Header?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_Integer" value="1"/>
+    <contextParameter comment="" name="ORDERS_RowSeparator" prompt="ORDERS_RowSeparator?" promptNeeded="false" repositoryContextId="_OWtY0PSdEemMLbu-Pooj5g" type="id_String" value="&quot;\n&quot;"/>
   </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
@@ -112,7 +121,7 @@
   </parameters>
   <node componentName="tFileList" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="128" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileList_1"/>
-    <elementParameter field="DIRECTORY" name="DIRECTORY" value="&quot;C:/Formation/ETL_Projet_DEV/FileSources&quot;"/>
+    <elementParameter field="DIRECTORY" name="DIRECTORY" value="context.Gestion_Fichier_SourceFolder"/>
     <elementParameter field="CLOSED_LIST" name="LIST_MODE" value="FILES"/>
     <elementParameter field="CHECK" name="INCLUDSUBDIR" value="false"/>
     <elementParameter field="CLOSED_LIST" name="CASE_SENSITIVE" value="YES"/>
@@ -266,13 +275,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e6bb99af-9937-443b-a7e5-2f9562476c37"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>niJ1XFpk4s2JcZGL0bw6Vt+4Lo3wkmvB0spaz9JIPVy/W1Bsa0ZGiyMnkE9Y5962BO1Q6m8kucdb
-0iGK1vC7jg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_1bdb4c6b-7740-40a2-ad97-7517d3ae96a8"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>qZw4jZoe6HtEkNNnxwoko1965nfQ033CCAIYE6s9B4IjRFuepmFRAg169WxYLXRfGsjieSrXmbnO
-F4hK4IeihQ==</DigestValue></Reference></SignedInfo><SignatureValue>bsmMn2zdwoHlvnxQNaxvK2C3s/2rODj6rnS6yLlmB/PPOyrjso+CFX4I0LZ5KfUqbgYruVC1NpSC
-WIOeRXVUIj5Qj/x/cnwtRq4EB7IkZ6qG1RU0p0gZBwIhnutMEHNftVLl4SaqKElMiHxR/9NcsNWH
-/JQcQadExlAWAacl7hHp5Ive7ItQsftD75J8yAQxpQG8bT4VwTKQme20VzdDRDGEM1tQ+Gg9VEwS
-biBPAwtEax0tqxfm/EfyWzIcqn+/G+5vN4kU58d+7nBekaksJTgNIx3U67KS3/jonhkwjIwGEsYi
-LIe4EdXbNNRCVyMVmnwdi4fdGb3JLCE/jvxnVA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4163db90-dd90-4d83-b422-0912b2fd4324"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>hwdn0lpj5Flc3Wi3TkZ0sx+EgfgDIhZcmGiECge54U/TQnpUa15IdQtwsXPjVdxXopf253P3azwC
+LZCY+DFewQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_ae4ad0d1-693b-4981-bfcb-631ad3882ec2"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>WQUEbc4hBFS7wOqJgegZiRSPJqjANiscLGCCg/1TiLw26X9Mewom/0r81ay4gA+H8rUrWCnycsC7
+2QraZC/GJg==</DigestValue></Reference></SignedInfo><SignatureValue>ZhPmuwrIoeCQ66aUWsG1qrQkYpHyb1I62W4VjJ7vx/60JSvz56OQ6yz6lItUoVj0pF/eeIp/jJQU
+5I1LDp/f8t2/dVfJlHGmEgWHF/FHY0dBGPTvpUa2YUYeQ5sTBYuyj9u+Yx3PTD1gOckCLgJ0ZXKV
+hRQ8L66fiyQsjPUJGpd8T3L4shVz/XnWiNzxkZ5vM5ZnPgsvw+clogyHGqEu/mHZFHTLXRw4TwpY
++RD7//iwpPnXqGSsICUu6Kr/aBWcwgcuQTHuAoxYVpj1b9zd9iU1p91Zy534pSrnkMxJHEIGgBdX
+98UDU0+uLLjWmc6BO6SE49+YGb1UcwBPjfkjDQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -296,4 +305,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_1bdb4c6b-7740-40a2-ad97-7517d3ae96a8" Target="#_e6bb99af-9937-443b-a7e5-2f9562476c37"><Timestamp>2019-10-22 10:42:43</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_ae4ad0d1-693b-4981-bfcb-631ad3882ec2" Target="#_4163db90-dd90-4d83-b422-0912b2fd4324"><Timestamp>2019-10-22 10:45:50</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
