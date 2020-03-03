@@ -418,7 +418,9 @@
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
-      <varTables minimized="true" name="Var" sizeState="INTERMEDIATE"/>
+      <varTables name="Var" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="now()" name="date_sys" type="id_Date"/>
+      </varTables>
       <outputTables name="out_customer" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row3.CUSTID " name="CUST_ID" type="id_Integer"/>
         <mapperTableEntries expression="row3.DEAR " name="DEAR" nullable="true" type="id_String"/>
@@ -427,10 +429,10 @@
         <mapperTableEntries expression="row3.CITY_ID " name="CITY_ID" type="id_Integer"/>
         <mapperTableEntries expression="row3.PHONE " name="PHONE" nullable="true" type="id_String"/>
         <mapperTableEntries expression="row3.AGE " name="AGE" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="AGE_RANGE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="AG.AGE_RANGE " name="AGE_RANGE" nullable="true" type="id_String"/>
         <mapperTableEntries expression="StringHandling.UPCASE(SP.FIRSTNAME) + &quot; &quot; + StringHandling.UPCASE(SP.LASTNAME) " name="SALES_PERS" nullable="true" type="id_String"/>
-        <mapperTableEntries name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
-        <mapperTableEntries name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
+        <mapperTableEntries expression="Var.date_sys " name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
+        <mapperTableEntries expression="Var.date_sys " name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row3" sizeState="INTERMEDIATE">
         <mapperTableEntries name="CUSTID" type="id_Integer"/>
@@ -443,13 +445,13 @@
         <mapperTableEntries name="AGE" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="SALES_PERS_ID" nullable="true" type="id_Integer"/>
       </inputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="AG" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="AGE_MIN" nullable="true" type="id_Integer"/>
+      <inputTables columnNameFilter="" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="AG" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row3.AGE &gt;= AG.AGE_MIN &amp;&amp; row3.AGE &lt;= AG.AGE_MAX " name="AGE_MIN" nullable="true" operator="=" type="id_Integer"/>
         <mapperTableEntries name="AGE_MAX" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="AGE_RANGE" nullable="true" type="id_String"/>
       </inputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="SP" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="ID_PERSON" nullable="true" type="id_Integer"/>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="SP" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row3.SALES_PERS_ID " name="ID_PERSON" nullable="true" operator="=" type="id_Integer"/>
         <mapperTableEntries name="FIRSTNAME" nullable="true" type="id_String"/>
         <mapperTableEntries name="LASTNAME" nullable="true" type="id_String"/>
         <mapperTableEntries name="DOB" nullable="true" type="id_Date"/>
@@ -613,7 +615,7 @@
     <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kufCCdTsVo03YTrk3eF8WeH+cpovNcauh1essc7l8ieMlA=="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_customer&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
-    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT_OR_UPDATE"/>
     <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:REPOSITORY_SCHEMA_TYPE" show="false" value="_JkAuMF09Eeq8h7PLqGSymQ - trg_customer"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
@@ -622,9 +624,9 @@
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="mysql_id"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="context.Entrepot_de_donnees_AdditionalParams"/>
-    <elementParameter field="CHECK" name="EXTENDINSERT" value="true"/>
-    <elementParameter field="LABEL" name="NOTE" value="(Not compatible with reject links)"/>
-    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" value="100"/>
+    <elementParameter field="CHECK" name="EXTENDINSERT" show="false" value="true"/>
+    <elementParameter field="LABEL" name="NOTE" show="false" value="(Not compatible with reject links)"/>
+    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" show="false" value="100"/>
     <elementParameter field="CHECK" name="USE_BATCH_SIZE" show="false" value="true"/>
     <elementParameter field="TEXT" name="BATCH_SIZE" show="false" value="10000"/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
@@ -692,9 +694,9 @@
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
-    <elementParameter field="CHECK" name="ON_DUPLICATE_KEY_UPDATE" value="false"/>
+    <elementParameter field="CHECK" name="ON_DUPLICATE_KEY_UPDATE" show="false" value="false"/>
     <elementParameter field="TABLE" name="DUPLICATED_KEYS" show="false"/>
-    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" show="false" value="false"/>
+    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="trg_customer" name="tDBOutput_2">
@@ -801,13 +803,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_be0fb50a-b445-45dd-ad59-29f539378b6b"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Cgflq/XHwwTjFwkQMzrFlmQCospUEUevkPRGsvRBqWPF+/afMA7/As2I3sHfNL5n8Rkov5H33YSP
-M1wkZcJMIg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_c1d6eb65-52df-48fd-bc9d-fc1463915c89"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>n7dXb3TfFe97VZ82OIHWAp4vRsdI/xVXCj/HGhX5zVBXj9gWZkKCpF5oLVfHrCE1efhHkKxlk2tb
-P/G+qDKd1w==</DigestValue></Reference></SignedInfo><SignatureValue>07kXl5tFp/+KYry2h6amB1Ke2rVxxVIKTR/fyCUIiH+AUFsdPvvM6M0WwiksEI4vOowP4eZJ+9M1
-cIaPtYz3+VCT6NbXbPO4Fd7guOJb1EtVTQBFuSECouqc/ZTueG8yZsqnEvCLFL/5UQ4nuSIgFHeV
-0rXHe21xqDaF6dXjsja4MlogzHo8K0Yvd4nPatIyJoGMacM9LGXPjRiTlv4RdzZ5vaub6q6zQezU
-zlWL1buL/2U6SxKO72AtNna/JNwGQtQk1YZVLdzSWlkUbFbV6prU062r6SoTbsapB4hDVd0fLDQu
-mw7YDUXawlTxtGIB+ukarGucidbEwCUFDQM/Tg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_959a84d3-80e2-484a-aa16-de654ac7e7ae"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>OGpXOGj4W1lXgjIHQCW9pe4jhCTPYgd2GykfZEMTvgj/Gr4UCWAMuXB8I8J0cqTUF7oFUKyy4q4G
+ST72/VOu1w==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_16407683-3b1b-43dd-9da5-e73be402a5b8"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>JplbtfAMoqQ8kH0q/OrGSrUVdBbyARBpmDSZ9erVgyMSNY1tMsHXg5zrqtwzZomkJubTATxKfj4Q
+pS3eIYkzeA==</DigestValue></Reference></SignedInfo><SignatureValue>sguKicFU16SDnhRRSrj5qDzNl6Doydq3guyipdg/SGMYK2dOB4NS02/qoUjJxEy1etD+zOaPQ0W7
+U5pACi9YAzfmRrBUsUQPgGdBzrahf1pAyk4YEck21Tn1jGApu3C1qABv7lF8Stiu6bswpYQWIvcS
+xUw5R4qbuulpqt4xZ8tKKpvSVoYNm3XHmVJ+oQMSUylzXrRl6FCkfikBaUfzsEezUsH2FxWOLSoc
+WR8hP0K3P717a0UBKdOeGv7PY43+tRvBHLSjkr3+ztiX3OE+m+4WDuJ3ndyqOSMYRm/7V1XWaPmz
+xtTDCDM1j9y0lZska2WaYGOFautslzBynkSpqA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -831,4 +833,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_c1d6eb65-52df-48fd-bc9d-fc1463915c89" Target="#_be0fb50a-b445-45dd-ad59-29f539378b6b"><Timestamp>2020-03-03 14:38:27</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_16407683-3b1b-43dd-9da5-e73be402a5b8" Target="#_959a84d3-80e2-484a-aa16-de654ac7e7ae"><Timestamp>2020-03-03 14:50:49</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
