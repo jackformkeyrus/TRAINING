@@ -231,7 +231,36 @@
     <elementParameter field="CHECK" name="ADVANCED_MODE" value="false"/>
     <elementParameter field="TABLE" name="ADVANCED_SUBST" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tReplace_1"/>
+    <metadata connector="FLOW" label="src_customer" name="tReplace_1">
+      <column comment="" key="true" length="10" name="CUSTID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="DEAR" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="LAST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="FIRST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="100" name="ADDRESS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CITY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="50" name="PHONE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AGE" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="SALES_PERS_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <additionalProperties key="Comment" value=""/>
+    </metadata>
   </node>
   <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="448" posY="224">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
@@ -285,21 +314,34 @@
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
-      <varTables name="Var" sizeState="INTERMEDIATE"/>
+      <varTables name="Var" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row1.FIRST_NAME + StringHandling.UPCASE(row1.LAST_NAME) " name="custNameUpper" type="id_String"/>
+        <mapperTableEntries expression="row2.FIRST_NAME + StringHandling.UPCASE(row2.LAST_NAME) " name="SP_Pers" type="id_String"/>
+      </varTables>
       <outputTables name="out4" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="CUST_ID" type="id_Integer"/>
-        <mapperTableEntries name="DEAR" nullable="true" type="id_String"/>
-        <mapperTableEntries name="CUST_NAME" nullable="true" type="id_String"/>
-        <mapperTableEntries name="ADDRESS" nullable="true" type="id_String"/>
-        <mapperTableEntries name="CITY_ID" type="id_Integer"/>
-        <mapperTableEntries name="PHONE" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="" name="AGE" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="AGE_RANGE" nullable="true" type="id_String"/>
-        <mapperTableEntries name="SALES_PERS" nullable="true" type="id_String"/>
-        <mapperTableEntries name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
-        <mapperTableEntries name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
+        <mapperTableEntries expression="row3.CUSTID " name="CUST_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row3.DEAR " name="DEAR" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="Var.custNameUpper " name="CUST_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row3.ADDRESS " name="ADDRESS" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row3.CITY_ID " name="CITY_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row3.PHONE " name="PHONE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row3.AGE " name="AGE" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="row5.AGE_RANGE " name="AGE_RANGE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="Var.SP_Pers " name="SALES_PERS" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="" name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
+        <mapperTableEntries expression="" name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
       </outputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row3" sizeState="INTERMEDIATE"/>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row3" sizeState="INTERMEDIATE">
+        <mapperTableEntries name="CUSTID" type="id_Integer"/>
+        <mapperTableEntries name="DEAR" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="LAST_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="FIRST_NAME" nullable="true" type="id_String"/>
+        <mapperTableEntries name="ADDRESS" nullable="true" type="id_String"/>
+        <mapperTableEntries name="CITY_ID" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="PHONE" nullable="true" type="id_String"/>
+        <mapperTableEntries name="AGE" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="SALES_PERS_ID" nullable="true" type="id_Integer"/>
+      </inputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="row2" sizeState="INTERMEDIATE">
         <mapperTableEntries name="PERSON_ID" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="FIRST_NAME" nullable="true" type="id_String"/>
@@ -419,7 +461,18 @@
     <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
-    <elementParameter field="TABLE" name="ADD_COLS"/>
+    <elementParameter field="TABLE" name="ADD_COLS">
+      <elementValue elementRef="NAME" value="currentDate"/>
+      <elementValue elementRef="DATATYPE" value="VARCHAR(50)"/>
+      <elementValue elementRef="SQL" value="&quot;now()&quot;"/>
+      <elementValue elementRef="POS" value="BEFORE"/>
+      <elementValue elementRef="REFCOL" value="CRE_TIMESTAMP"/>
+      <elementValue elementRef="NAME" value="modifyDate"/>
+      <elementValue elementRef="DATATYPE" value="VARCHAR(50)"/>
+      <elementValue elementRef="SQL" value="&quot;now()&quot;"/>
+      <elementValue elementRef="POS" value="REPLACE"/>
+      <elementValue elementRef="REFCOL" value="UPD_TIMESTAMP"/>
+    </elementParameter>
     <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="CUST_ID"/>
@@ -687,13 +740,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_d2c8eb45-ae7e-42f0-92af-ea686dc4a076"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>wfoyPt3QkfAAG1tfBRtIUXVs35PzHq91C/Xh9Bu9WtsN7o+KaEChCfgZNDSARNCm8H1fl/Fu9HZX
-ubdJyyHtLg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_a3f87df1-8730-4251-ac82-9d5a0965eb7b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>D7El/ePURCrkmIJW4h8OUXYyR8RTvXeHk9Xg4fPERI+lZ3SzRKSt1P4EsNTplL4wyh/UGLmzgYEp
-4yl8Hs1lJg==</DigestValue></Reference></SignedInfo><SignatureValue>uzVl+xR1CIfvtn+0QlwMOe8EU38KLv0U3U1JjDrWmTBBgc312yl/b4Ly51InvMwK5bjdTFwDr8U/
-xG6h9A8GhzjSon/8+8hsKuASlkjgeAfFmNY8NDgHwhSs9YNWJQkE04ilOVJDKU/sGYGkKuBA4ACw
-DrrTpTjy0JWg2DT9Ga3+jdbMsbHUb6Uopgopi8YeCUT/3Qfz45loYfMD7sGWEHwSjT1ujHM+bmLP
-/imZWxmCwiAvatjFtlGcY4iUbJVNNvAXDcgAkbOTgm4nHwn/tLZqJyTyFSY0WQwcYaf9hU4XazVU
-w8RyC9CG9JEgPTCdBw/AI9xHF1TmnPJJYPlWkw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_f229d262-7963-4955-8019-a4958312372c"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>av5Ah+fHX6v8bF7fUD/VK2HsbAizHJirJD2nyfqFPlY/i844Cc6w3qKK3Ifs2yjwdE1pCy41N/00
+47yCd8S6aw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_9e966d61-ab74-48fd-b34f-9c55010dc624"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>iE9PCHI7hsOf+VYJVWyaQEaaI83Asuepgf/Pj5gmR3GTg2I1VYSqMqSVOGr8yuRZ6gf4zSwFwIZ7
+35fMLPUh4g==</DigestValue></Reference></SignedInfo><SignatureValue>JGzO53nyHIkeBOa0lr/Z6I07v1/P9oKucWpV8PHkMg0zcQcEObN0vTLvVcCgDtYY5rzNwAvP9rca
+Ts+UcW7/iyfnJn86KhStaneeIbGgCb+sB1ieAAurph7ulOpS2uh9i4rGU3ZMDmP4cY1n2wUfkKHw
+12P7l2eAQNRgv2HmI3cSz/0iFt2LLhuYd93b8Ut9pW1E7uzZjVwjAVn1r8H/HNgdvUqONpIrcjeG
+1j5akLQsCV28R3CKT670VITDFOCq/bmm3uHT2LIqwkIK772K3V6/XQONwCMa1MpRNhhUoCwYZZKF
+wzKelQbZxQM/rS0oPiSXG9+25JIpFJtqx9FQhw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -717,4 +770,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_a3f87df1-8730-4251-ac82-9d5a0965eb7b" Target="#_d2c8eb45-ae7e-42f0-92af-ea686dc4a076"><Timestamp>2020-03-03 15:37:12</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_9e966d61-ab74-48fd-b34f-9c55010dc624" Target="#_f229d262-7963-4955-8019-a4958312372c"><Timestamp>2020-03-03 16:00:10</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
