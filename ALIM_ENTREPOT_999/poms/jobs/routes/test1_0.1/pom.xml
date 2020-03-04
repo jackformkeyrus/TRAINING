@@ -6,12 +6,12 @@
     <groupId>org.example.alim_entrepot_999</groupId>
     <artifactId>code.Master</artifactId>
     <version>7.0.1</version>
-    <relativePath>../../../../</relativePath>
+    <relativePath>../../../</relativePath>
   </parent>
-  <groupId>org.example.alim_entrepot_999.job</groupId>
-  <artifactId>seq</artifactId>
+  <groupId>org.example.alim_entrepot_999.route</groupId>
+  <artifactId>test1</artifactId>
   <version>0.1.0</version>
-  <name>ALIM_ENTREPOT_999 seq-0.1.0 (0.1,Job Designs)</name>
+  <name>ALIM_ENTREPOT_999 test1-0.1.0 (0.1,Routes)</name>
   <properties>
     <output.resources.dir>${talend.job.name}/src/main/resources</output.resources.dir>
     <talend.job.applyContextToChildren>false</talend.job.applyContextToChildren>
@@ -19,11 +19,11 @@
     <current.int-resources.dir>${basedir}/src/main/resources</current.int-resources.dir>
     <talend.job.version>0.1</talend.job.version>
     <talend.project.name.lowercase>alim_entrepot_999</talend.project.name.lowercase>
-    <talend.job.path>alim_entrepot_999/seq_0_1</talend.job.path>
+    <talend.job.path>alim_entrepot_999/test1_0_1</talend.job.path>
     <maven.build.timestamp.format>yyyy-MM-dd HHmmssSSS</maven.build.timestamp.format>
     <talend.project.name>ALIM_ENTREPOT_999</talend.project.name>
     <talend.product.version>7.0.1.20180411_1414</talend.product.version>
-    <talend.job.finalName>seq_0_1</talend.job.finalName>
+    <talend.job.finalName>test1_0_1</talend.job.finalName>
     <talend.pigudf.groupid>org.example.alim_entrepot_999.pigudf</talend.pigudf.groupid>
     <talend.routine.groupid>org.example.alim_entrepot_999.code</talend.routine.groupid>
     <current.bundle.resources.dir>${basedir}/src/main/bundle-resources</current.bundle.resources.dir>
@@ -33,13 +33,68 @@
     <talend.job.stat>true</talend.job.stat>
     <talend.job.date>${maven.build.timestamp}</talend.job.date>
     <current.resources.dir>${basedir}/src/main/ext-resources</current.resources.dir>
-    <talend.job.name>seq</talend.job.name>
-    <talend.job.id>_cgSVcF4CEeqvSNrry5VnXA</talend.job.id>
+    <talend.job.name>test1</talend.job.name>
+    <talend.job.id>_Q1nwMF4lEeqvSNrry5VnXA</talend.job.id>
     <talend.project.id>0</talend.project.id>
     <talend.job.framework></talend.job.framework>
     <talend.job.type>Standard</talend.job.type>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>aopalliance-1.0</artifactId>
+      <version>6.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>camel-blueprint-2.20.1</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>camel-core-2.20.1</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>camel-spring-2.20.1</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.10</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-httpclient</groupId>
+      <artifactId>commons-httpclient</artifactId>
+      <version>3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.6</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-net</groupId>
+      <artifactId>commons-net</artifactId>
+      <version>3.3</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-pool</groupId>
+      <artifactId>commons-pool</artifactId>
+      <version>1.6</version>
+    </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
       <artifactId>dom4j-1.6.1</artifactId>
@@ -52,8 +107,53 @@
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
-      <artifactId>mysql-connector-java-5.1.30-bin</artifactId>
+      <artifactId>org.apache.commons.logging_1.2.0</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>org.apache.log4j_1.2.15.v201012070815</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>slf4j-api-1.7.5</artifactId>
       <version>6.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>slf4j-log4j12-1.7.5</artifactId>
+      <version>6.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>spring-aop-4.3.10.RELEASE</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>spring-beans-4.3.10.RELEASE</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>spring-context-4.3.10.RELEASE</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>spring-core-4.3.10.RELEASE</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>spring-expression-4.3.10.RELEASE</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.talend.libraries</groupId>
+      <artifactId>spring-tx-4.3.10.RELEASE</artifactId>
+      <version>6.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.talend.libraries</groupId>
@@ -64,16 +164,6 @@
       <groupId>org.example.alim_entrepot_999.code</groupId>
       <artifactId>routines</artifactId>
       <version>7.0.1</version>
-    </dependency>
-    <dependency>
-      <groupId>org.example.alim_entrepot_999.job</groupId>
-      <artifactId>ALIM_TRG_COUNTRY</artifactId>
-      <version>0.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>org.example.alim_entrepot_999.job</groupId>
-      <artifactId>Alim_Debug</artifactId>
-      <version>0.1.0</version>
     </dependency>
   </dependencies>
   <build>

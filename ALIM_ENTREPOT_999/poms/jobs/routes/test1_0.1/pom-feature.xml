@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example.alim_entrepot_999.route</groupId>
+  <artifactId>test1-Feature</artifactId>
+  <version>0.1.0</version>
+  <packaging>pom</packaging>
+  <name>ALIM_ENTREPOT_999 test1-0.1.0 (0.1,Routes) Feature</name>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>features-maven-plugin</artifactId>
+        <version>2.2.9</version>
+        <executions>
+          <execution>
+            <id>create-kar</id>
+            <goals>
+              <goal>create-kar</goal>
+            </goals>
+            <configuration>
+              <finalName>test1_0_1</finalName>
+              <resourcesDir>${project.build.directory}/bin</resourcesDir>
+              <featuresFile>${basedir}/src/main/bundle-resources/feature.xml</featuresFile>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
