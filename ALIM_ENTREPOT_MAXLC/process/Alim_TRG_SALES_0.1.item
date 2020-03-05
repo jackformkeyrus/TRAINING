@@ -13,6 +13,20 @@
     <contextParameter comment="" name="Gestion_de_commande_Database" prompt="Gestion_de_commande_Database?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_String" value="Formation_Source"/>
     <contextParameter comment="" name="Gestion_de_commande_Password" prompt="Gestion_de_commande_Password?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_Password" value="mGeXLdOUodROxMRgsx4WkA=="/>
   </context>
+  <context confirmationNeeded="false" name="Prod">
+    <contextParameter comment="" name="Gestion_de_commande_Server" prompt="Gestion_de_commande_Server?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Gestion_de_commande_Login" prompt="Gestion_de_commande_Login?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_String" value="talend"/>
+    <contextParameter comment="" name="Gestion_de_commande_Port" prompt="Gestion_de_commande_Port?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Gestion_de_commande_AdditionalParams" prompt="Gestion_de_commande_AdditionalParams?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Gestion_de_commande_Database" prompt="Gestion_de_commande_Database?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_String" value="Formation_Source"/>
+    <contextParameter comment="" name="Gestion_de_commande_Password" prompt="Gestion_de_commande_Password?" promptNeeded="false" repositoryContextId="_-DlQ0FygEeqEwpJS3fEwNg" type="id_Password" value="mGeXLdOUodROxMRgsx4WkA=="/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Server" prompt="Entrepot_de_donnees_Server?" promptNeeded="false" repositoryContextId="_aCOF8FyhEeqEwpJS3fEwNg" type="id_String" value="localhost"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Port" prompt="Entrepot_de_donnees_Port?" promptNeeded="false" repositoryContextId="_aCOF8FyhEeqEwpJS3fEwNg" type="id_String" value="3306"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Database" prompt="Entrepot_de_donnees_Database?" promptNeeded="false" repositoryContextId="_aCOF8FyhEeqEwpJS3fEwNg" type="id_String" value="Formation_Cible"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_AdditionalParams" prompt="Entrepot_de_donnees_AdditionalParams?" promptNeeded="false" repositoryContextId="_aCOF8FyhEeqEwpJS3fEwNg" type="id_String" value="noDatetimeStringSync=true"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Login" prompt="Entrepot_de_donnees_Login?" promptNeeded="false" repositoryContextId="_aCOF8FyhEeqEwpJS3fEwNg" type="id_String" value="talend"/>
+    <contextParameter comment="" name="Entrepot_de_donnees_Password" prompt="Entrepot_de_donnees_Password?" promptNeeded="false" repositoryContextId="_aCOF8FyhEeqEwpJS3fEwNg" type="id_Password" value="mGeXLdOUodROxMRgsx4WkA=="/>
+  </context>
   <parameters>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" show="false" value="0"/>
@@ -125,7 +139,7 @@
     <routinesParameter id="_GexDjlyYEeqEwpJS3fEwNg" name="TalendStringUtil"/>
     <routinesParameter id="_GexDhFyYEeqEwpJS3fEwNg" name="TalendString"/>
   </parameters>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="480">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_4"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_lJJtMFyYEeqEwpJS3fEwNg"/>
@@ -188,7 +202,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="736" posY="480">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="704" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -232,13 +246,13 @@
       </column>
       <additionalProperties key="Comment" value=""/>
     </metadata>
-    <metadata name="rejets">
+    <metadata connector="FLOW" name="rejets">
       <column comment="" key="true" length="10" name="ORDER_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties shellMaximized="true"/>
+      <uiProperties/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="OL.AMOUNT / OL.QTY" name="PROD_AVG_PRICE" nullable="true" type="id_Integer"/>
       </varTables>
@@ -272,7 +286,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="160">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_6"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_lJJtMFyYEeqEwpJS3fEwNg"/>
@@ -335,7 +349,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tConvertType" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="736" posY="160">
+  <node componentName="tConvertType" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="704" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tConvertType_1"/>
     <elementParameter field="CHECK" name="AUTOCAST" value="false"/>
     <elementParameter field="TABLE" name="MANUALTABLE"/>
@@ -381,7 +395,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1056" posY="480">
+  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1024" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tAggregateRow_1"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_IFn9gFyhEeqEwpJS3fEwNg - trg_sales"/>
@@ -455,7 +469,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1344" posY="480">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1312" posY="480">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_6"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_IFn9gFyhEeqEwpJS3fEwNg"/>
@@ -632,13 +646,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e3099b59-ca0d-400f-ae80-282070bde0f1"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>KwV3E92ZDbj5vFlLadRKUXEXQ2Uro2YgyGm9aHiFJZ5wJB1cf8jG7nzrd7T3xYvUjg249MvF/Z2A
-st5xJOGlHQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_11a76551-ce19-4119-86f3-79b46f572b28"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>onZju+tu6I2W2PnmoKom0yMezbRpvpfcSUGVCk4hx7/2Wce73FG4bJ9eEZVcI7QHrw/+AbvpwJh8
-wydks4KxFw==</DigestValue></Reference></SignedInfo><SignatureValue>4N8ag+f+Woc+zAZp0UDD9UoFr9YKKKzQGB36os/dTTDI9rBwO6j7t2eyNbiKk+gOzv91KRXrIyk4
-TcsXAAYBI+0yjFQN7i4nJ3OOhglWRv6h6nx2rWSUy/WGR9/9TcCKb36u3jyWRp4rI5VFh63CZySu
-RrejtbfWG0oqB9SqIwNS8G21bOfU2NO/4DNUnNX2pne/FrzvpwdLylAHJrQmU8ExK0AtSf+gHBFk
-K4Su8CJRbCIASPjSkM6UZjoz4GNGOLglYdolZUg7xt4zXuTDkQnv+Am0xU7b2YxmaoFgdoDL94OP
-pgYK5dYLp6OOfMI2ZdsEMvAKtSH5YShzgROaNw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_7c89cb32-e65f-4b06-9fbd-0c76d09a8ef2"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>zq3vhOVfSFZsSKvMJ3c2le+AcApels8Lxo4PQL8iMDrUWafvGRGc/n/e9psshC0jqDxar/2GEJyV
+v1azuLA5cg==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_b67aa319-bf10-4adf-8402-b9a239d4ac1e"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>WQlgc5hr8WiVJCBEVHahuhXJ7jsRjnL+D2O0g3TzGA6rIZNxq16GMNZHPsk3tpTg8hCTJkP6tmmy
+Z5LNiMxDjg==</DigestValue></Reference></SignedInfo><SignatureValue>Bd7FTfO1YYRlDKLiHMYMptJ5i7wRBbdF000Zn24Dz9K1VrMRG73SbIuGzL6F6HvHMeDwJtJKVHrS
+P8DfkbaNEPMta35YvhvvmOBgIzVOOR8a6Db+SqHriXTL/yZSw6KXEWUfKv0e8PykOYss9Q+y0Iqj
+JuOCeslBntwy9HwJdJeDk/aSMwdT2g3XxNnP9KvkGk2OZOlxycuAevPMikVGz94Y0zxnCPTxFZCF
+TLA1RGTTmFdFFU5YSNIY/BC0jJLFu9zMpQBNsZav6IoIC1ZB1b6nSMQVUsJCccqR42A9dDdZK89L
+OWdMy8GYl+iJRZQR725k1eXyA5OYk7DL1IWn1g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -662,4 +676,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_11a76551-ce19-4119-86f3-79b46f572b28" Target="#_e3099b59-ca0d-400f-ae80-282070bde0f1"><Timestamp>2020-03-05 10:17:26</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_b67aa319-bf10-4adf-8402-b9a239d4ac1e" Target="#_7c89cb32-e65f-4b06-9fbd-0c76d09a8ef2"><Timestamp>2020-03-05 12:50:53</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
