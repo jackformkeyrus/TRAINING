@@ -278,8 +278,8 @@
         <mapperTableEntries expression="row1.AGE" name="AGE" nullable="true" type="id_Integer"/>
         <mapperTableEntries expression="row2.AGE_RANGE" name="AGE_RANGE" nullable="true" type="id_String"/>
         <mapperTableEntries expression="Var.salesPers " name="SALES_PERS" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="" name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
-        <mapperTableEntries expression="" name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
+        <mapperTableEntries expression="TalendDate.getCurrentDate() " name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
+        <mapperTableEntries expression="TalendDate.getCurrentDate()" name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row1" sizeState="INTERMEDIATE">
         <mapperTableEntries name="CUSTID" type="id_Integer"/>
@@ -462,7 +462,7 @@
     <elementParameter field="PASSWORD" name="PASS" value="8pW6Nmy2kudVxaDW4+8SDw2nj8u4kNd4yrV7L3UFquk="/>
     <elementParameter field="DBTABLE" name="TABLE" value="&quot;trg_customer&quot;"/>
     <elementParameter field="CLOSED_LIST" name="TABLE_ACTION" value="NONE"/>
-    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT"/>
+    <elementParameter field="CLOSED_LIST" name="DATA_ACTION" value="INSERT_OR_UPDATE"/>
     <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA_FLOW:REPOSITORY_SCHEMA_TYPE" show="false" value="_S2cWQN_UEeumtqswlgNj0Q - trg_customer"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
@@ -471,17 +471,17 @@
     <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
     <elementParameter field="MAPPING_TYPE" name="MAPPING" show="false" value="mysql_id"/>
     <elementParameter field="TEXT" name="PROPERTIES" value="context.BDD_CIBLE_AdditionalParams"/>
-    <elementParameter field="CHECK" name="EXTENDINSERT" value="true"/>
-    <elementParameter field="LABEL" name="NOTE" value="(Not compatible with reject links)"/>
-    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" value="100"/>
+    <elementParameter field="CHECK" name="EXTENDINSERT" show="false" value="true"/>
+    <elementParameter field="LABEL" name="NOTE" show="false" value="(Not compatible with reject links)"/>
+    <elementParameter field="TEXT" name="NB_ROWS_PER_INSERT" show="false" value="100"/>
     <elementParameter field="CHECK" name="USE_BATCH_SIZE" show="false" value="true"/>
     <elementParameter field="TEXT" name="BATCH_SIZE" show="false" value="10000"/>
     <elementParameter field="ENCODING_TYPE" name="ENCODING" show="false" value="&quot;ISO-8859-15&quot;"/>
     <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15"/>
     <elementParameter field="TEXT" name="COMMIT_EVERY" value="10000"/>
     <elementParameter field="TABLE" name="ADD_COLS"/>
-    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="false"/>
-    <elementParameter field="TABLE" name="FIELD_OPTIONS" show="false">
+    <elementParameter field="CHECK" name="USE_FIELD_OPTIONS" value="true"/>
+    <elementParameter field="TABLE" name="FIELD_OPTIONS">
       <elementValue elementRef="SCHEMA_COLUMN" value="CUST_ID"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
@@ -530,20 +530,20 @@
       <elementValue elementRef="SCHEMA_COLUMN" value="CRE_TIMESTAMP"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
-      <elementValue elementRef="UPDATABLE" value="true"/>
+      <elementValue elementRef="UPDATABLE" value="false"/>
       <elementValue elementRef="INSERTABLE" value="true"/>
       <elementValue elementRef="SCHEMA_COLUMN" value="UPD_TIMESTAMP"/>
       <elementValue elementRef="UPDATE_KEY" value="false"/>
       <elementValue elementRef="DELETE_KEY" value="false"/>
       <elementValue elementRef="UPDATABLE" value="true"/>
-      <elementValue elementRef="INSERTABLE" value="true"/>
+      <elementValue elementRef="INSERTABLE" value="false"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
     <elementParameter field="CHECK" name="ENABLE_DEBUG_MODE" value="false"/>
-    <elementParameter field="CHECK" name="ON_DUPLICATE_KEY_UPDATE" value="false"/>
+    <elementParameter field="CHECK" name="ON_DUPLICATE_KEY_UPDATE" show="false" value="false"/>
     <elementParameter field="TABLE" name="DUPLICATED_KEYS" show="false"/>
-    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" show="false" value="false"/>
+    <elementParameter field="CHECK" name="SUPPORT_NULL_WHERE" value="false"/>
     <elementParameter field="TEXT" name="LABEL" value="__TABLE__"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" label="trg_customer" name="tDBOutput_3">
@@ -642,13 +642,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_7018f1d9-69ee-4d81-9bc2-6a0899cc5420"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>c9auHf4U8HYs6C/VXiYUB+lrdldLi71dYenVjr0bZ6Xmaf4WAdQS2n+mlniVxENlFnkjp64LyfC5
-dny4dHdgDA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_ff1617eb-765b-4c7a-8885-091d8218125f"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>3PJIgtJUayUauVDKMMNmgaPJ1a9W5m6lOkQwASYcXrsCgMHzSaYnitATlLjNwKihASHIKzUPwuuh
-qm/i1aCPDg==</DigestValue></Reference></SignedInfo><SignatureValue>wm3JcWLBs3bwk7PwAPdLJEiaMR0T7wwUPR4mIkLxu9k0vYzitFTW1Fw6ETdPecGfTfItWDXC/uMf
-V/FQn0bMFnKjBUSL4gUmt3jSd6CDWVxDMCLa5hFM1szE4gMkHNVwKFYftzZ9ahI5Sap5NTBW0f7m
-66BwqQ8RvjzW4tqzcRDVgIH0z+FeMNkih5TuPCJOCtRYP6Kt0eGBQMQmhsWodQdY/whQlRVOrj51
-+Y6HAjqpRpJEwpj6+T8uTtdMLZFmRsuuJkp3jn4945hcJMypuLKBDCN3zQcXu2MZh56WBqlNYMd1
-6oJgl9VNdomYS/8ZEpUq5SLtT3VhZilcaAu/ig==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_b5e1a1fc-670e-4e9d-893a-366b1f84ffff"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>rb8crHAqxwzrr8qyglWtatPUEUauP4rOKTLcdeRbgFy4UwDd/oqhhWFAwryvOEsbBnNTqA9sB68s
+pbad4fVg7g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_0f0ccaf9-0f8a-4af9-ab12-96b6ab8f4175"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>xYI9U+SYiPAkAFh+nm7djzzOQFt1ChPKVbluLp3WoZquZUNRBfQv6x0Nmxep24Zu9cFL0ZhMX2ex
+jSBvIIPgVQ==</DigestValue></Reference></SignedInfo><SignatureValue>ki/5IfJ0a/oPfmCAhmmYzaE0s8qCZ0XpUzyp9Ej5cbNuRhTI0UJGb5ysuHqsYpAXA/XJuxemOtBT
+0HV7le0ApkzXhDuk1R2DWVGKCS42xrncE9OO/LifAij/OkJgjSM2exKiSOUp8JkHtjQ8FGHoF43W
+NXlxPgvf1PY3g1zlHOmgtxsyKr63MNXYtvfcDKFLxBCVe+/svYcseRBhBznFnO0iBmPiwcIIhKEl
+6NqPEUPYkre0O6kaPZJyMR2FhbG6r2VqusKdKiN0b39Fp88az8lH92YWibfS3bG13kg3RhpRpW2q
+HgOmG5j9gKpsngiKtfzHhF8QYYMq+ADPTR0tEg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -672,4 +672,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_ff1617eb-765b-4c7a-8885-091d8218125f" Target="#_7018f1d9-69ee-4d81-9bc2-6a0899cc5420"><Timestamp>2021-07-09 08:41:03</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_0f0ccaf9-0f8a-4af9-ab12-96b6ab8f4175" Target="#_b5e1a1fc-670e-4e9d-893a-366b1f84ffff"><Timestamp>2021-07-09 08:45:01</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
