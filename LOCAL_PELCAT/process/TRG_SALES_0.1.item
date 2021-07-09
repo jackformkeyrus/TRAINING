@@ -426,8 +426,70 @@
       </column>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="768" posY="64">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="768" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_2"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" show="false" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" show="false" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" show="false" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" show="false" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false">
+      <elementValue elementRef="SCHEMA_COLUMN" value="FIRST_ORD_ID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="FIRST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_ORD_ID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="LAST_ORD_TIMESTAMP"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="QTY"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="LENGTH" value="10"/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" label="qqqq" name="tLogRow_2">
+      <column comment="" key="false" length="10" name="FIRST_ORD_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="FIRST_ORD_TIMESTAMP" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="INT" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="LAST_ORD_ID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="LAST_ORD_TIMESTAMP" nullable="false" pattern="&quot;dd-MM-yyyy&quot;" precision="0" sourceType="INT" type="id_Date" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="CUST_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="PRODUCT_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="QTY" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+      <column comment="" key="false" length="10" name="AMOUNT" nullable="true" pattern="" precision="2" sourceType="DECIMAL" type="id_Integer" usefulColumn="true">
+        <additionalField key="Comment" value=""/>
+      </column>
+    </metadata>
+  </node>
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="864" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
     <elementParameter field="DIRECTORY" name="TEMPORARY_DATA_DIRECTORY" value=""/>
@@ -484,20 +546,11 @@
         <mapperTableEntries expression="row4.AMOUNT " name="AMOUNT" type="id_Integer"/>
         <mapperTableEntries expression="row4.AMOUNT /  row4.QTY " name="PROD_AVG_PRICE" type="id_Integer"/>
       </outputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row4" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="FIRST_ORD_ID" type="id_Integer"/>
-        <mapperTableEntries name="FIRST_ORD_TIMESTAMP" type="id_Date"/>
-        <mapperTableEntries name="LAST_ORD_ID" type="id_Integer"/>
-        <mapperTableEntries name="LAST_ORD_TIMESTAMP" type="id_Date"/>
-        <mapperTableEntries name="CUST_ID" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="PRODUCT_ID" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="QTY" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="AMOUNT" nullable="true" type="id_Integer"/>
-      </inputTables>
     </nodeData>
   </node>
-  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="864" posY="128">
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="960" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
     <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
@@ -579,12 +632,13 @@
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row3"/>
   </connection>
-  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tMap_2">
+  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tLogRow_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row4"/>
   </connection>
   <connection connectorName="FLOW" label="zert" lineStyle="0" metaname="zert" offsetLabelX="0" offsetLabelY="0" source="tMap_2" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="zert"/>
   </connection>
   <subjob>
@@ -592,13 +646,18 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_6d1812c9-6dbb-4d6b-b1cf-e29296d8de2e"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>NtjnutjyafN1F5uNh1vrOYfSFaa2ztQPfSjLnbLbiuFUF0aqY+udVVGnZ9wC+bEa/OH5MBE+ef2s
-vTHW7F99pw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_4b86b066-a20f-4802-9761-4e0ba96af9a7"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>89uqph4cOkmEFJuBnYFE+hDCm2ySzLy0assP7eNPmQHhoOyt0rucFEUs7Np1q0/uq6AhE9sfC4rd
-HLOLEwrArQ==</DigestValue></Reference></SignedInfo><SignatureValue>MRihIh+ilSJHt61zKx7NA7X3HL2vDkO9JlhrmK9c1/hk/76eZ5Vs3FlULSNNyMWbpKnGYEuS8opA
-BO2gYd2FO4Uy+g0UDsx/WbHmNCvjXfOh3XgQeYlZuxp4GZ30XOrCK7qu+2FcOub5b8kAtiJSmn3p
-wXZB0Z5UdvBy6bb9BSoAg4bQMKi7W7rblYNmJl+6N+w6idblI+W73pqX7Ifn++RVomm7+QSHXiUl
-GU5RMDuiDD8ZvCXTW716NSboICU5dWt5i5J+FA/EPvyi+DUI/KTLtr8jipSEtmADgtbCvdcld1x1
-lX0fHM1olPt/VdYrklX3IqDdh9gD0BjgtmOZRA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_2"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_439248b1-666c-446a-bd23-ee22383f6f3e"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>pZeWMrEPlD3zDxh4hsAPQwCz0d+kOQVQD3RMPMIpbxhI7OQzcftQlHaQPbprMsmMc6NQC15RgmLp
+4+VeXcTLUA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_f3be72b2-82ab-493a-b139-16a329ac147a"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>veoB9Fu70N7fjHyJoZyejAF+D1q1BWlVZTIgaaO1vXwowTP04KvuJZolpE7l9w1MRaRdF5iZ+1HQ
+r3TRkZ4VQw==</DigestValue></Reference></SignedInfo><SignatureValue>M6CGZ9sO3uh++JpROuQQcH1q/1LGEyaQkCRy4xUomqPSrMoqYYi+s6iTozOm6bOW/Px3Hp5CKoRZ
+tQjyzkU4KxIosGcKfOOpKGDIy5UWEBYF846Bdf3UzEZd1qmHfZIl+OidfJXkoVLnNHxAx7dwoxoB
+snyKr7uumaliBImsuc17uloDsJiulL0RUGBHTtQq3zZi5n5VrErK2HL3/91gXYQJGf35XHSXhS3d
+TtZSJRMJg5RNt7RhnGgYfTmtodA9d1jCKgPwAkCeY5xJEfuykUTHgsiYcIVmnZxMpDmAE/2eKzpT
+rFowebS4DbKKcueVDKdZwk5CoeghwCFKkvhBAQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -622,4 +681,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_4b86b066-a20f-4802-9761-4e0ba96af9a7" Target="#_6d1812c9-6dbb-4d6b-b1cf-e29296d8de2e"><Timestamp>2021-07-09 12:48:03</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_f3be72b2-82ab-493a-b139-16a329ac147a" Target="#_439248b1-666c-446a-bd23-ee22383f6f3e"><Timestamp>2021-07-09 12:49:57</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
