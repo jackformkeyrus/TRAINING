@@ -259,14 +259,14 @@
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE"/>
       <outputTables name="sortie1" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="CUST_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row1.CUSTID " name="CUST_ID" type="id_Integer"/>
         <mapperTableEntries name="DEAR" nullable="true" type="id_String"/>
         <mapperTableEntries name="CUST_NAME" nullable="true" type="id_String"/>
-        <mapperTableEntries name="ADDRESS" nullable="true" type="id_String"/>
-        <mapperTableEntries name="CITY_ID" type="id_Integer"/>
-        <mapperTableEntries name="PHONE" nullable="true" type="id_String"/>
-        <mapperTableEntries name="AGE" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="AGE_RANGE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row1.ADDRESS " name="ADDRESS" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row1.CITY_ID " name="CITY_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row1.PHONE " name="PHONE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row1.AGE " name="AGE" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="row2.AGE_RANGE " name="AGE_RANGE" nullable="true" type="id_String"/>
         <mapperTableEntries name="SALES_PERS" nullable="true" type="id_String"/>
         <mapperTableEntries name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
         <mapperTableEntries name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
@@ -283,9 +283,9 @@
         <mapperTableEntries name="AGE" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="SALES_PERS_ID" nullable="true" type="id_Integer"/>
       </inputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="ALL_ROWS" name="row2" sizeState="INTERMEDIATE">
-        <mapperTableEntries name="AGE_MIN" nullable="true" type="id_Integer"/>
-        <mapperTableEntries name="AGE_MAX" nullable="true" type="id_Integer"/>
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row2" sizeState="INTERMEDIATE">
+        <mapperTableEntries expression="row1.AGE " name="AGE_MIN" nullable="true" operator="=" type="id_Integer"/>
+        <mapperTableEntries expression="row1.AGE " name="AGE_MAX" nullable="true" operator="=" type="id_Integer"/>
         <mapperTableEntries name="AGE_RANGE" nullable="true" type="id_String"/>
       </inputTables>
       <inputTables columnNameFilter="" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row3" sizeState="INTERMEDIATE">
@@ -612,7 +612,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tReplace" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="544" posY="128">
+  <node componentName="tReplace" componentVersion="0.101" offsetLabelX="12" offsetLabelY="37" posX="544" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplace_1"/>
     <elementParameter field="CHECK" name="SIMPLE_MODE" value="true"/>
     <elementParameter field="LABEL" name="SIMPLEMODE_OLDLABLE" show="false" value="Simple mode works with regex expression(in last version)"/>
@@ -622,17 +622,6 @@
     <elementParameter field="TABLE" name="ADVANCED_SUBST" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tReplace_1"/>
-  </node>
-  <node componentName="tReplace" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="128">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplace_2"/>
-    <elementParameter field="CHECK" name="SIMPLE_MODE" value="true"/>
-    <elementParameter field="LABEL" name="SIMPLEMODE_OLDLABLE" show="false" value="Simple mode works with regex expression(in last version)"/>
-    <elementParameter field="TABLE" name="SUBSTITUTIONS"/>
-    <elementParameter field="CHECK" name="STRICT_MATCH" show="false" value="true"/>
-    <elementParameter field="CHECK" name="ADVANCED_MODE" value="false"/>
-    <elementParameter field="TABLE" name="ADVANCED_SUBST" show="false"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tReplace_2"/>
   </node>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -660,18 +649,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-  <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplace_2"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4ffb77d3-4db8-4cb5-a30c-2dc47dc252e4"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>DhEzFUIgnIqQ1nNf8ifYqin7kPrWdh2L7toTjn1EyZx5EfMJfw+/46f5nmykiEm08OjuQ58NSbJf
-cnP+4MsmPA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_7bdca930-67fd-424f-83c8-92cd0b6c46a2"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>H6WOdrUwPO3Ov6OND9w4C75hhw/14iCpGIjgRJqCzYzclF33F64mPs2M9YHe2O48Jq81IjycEQ0N
-TPDSNaXIrg==</DigestValue></Reference></SignedInfo><SignatureValue>K1Yo3R72LAH95OhB1jJVWtl2WFFR4L8ki4lsmVdNYDwnQKZRUNIDZONbINqPA5n0f16/LcNbmrpu
-f9NO1nWbo1gnbAT+BGwwv3wSawuu+s8xqSaoBGlfTn61WUDHoSZXvND3YJJ1DfR/s/cZJXBwfJ6q
-EP9vNNrP7EnV6ETsnNKHJrasB/0f60XPqYmQfdi2VscvE7HpHJoA+ifENxxV2YBP2kppQ+WQs1ys
-wT+/lA4hzMeHGQPqD8idPWY/CIbrBo70RiGvpIkTTvkc3uxCOzSsKv1P5/vX9gOQNp64thZgCTZt
-eASDPEK7cACXbKEyaW/2ACdUoGGhquDuqMrRVA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_e90772a2-42ce-444a-bd69-984ff2fbb6a9"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>1DoGQj2mKD0DKTlKVCzPDliIvHy2xEDhqWac/7Yckti0uelwA7mj2+of2LVXwFN2Jqbz6nXkYTth
+5pP7DCqBqA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_094cbb2e-b379-445a-a784-20b8adbc5274"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>Fs3JahqafJkOZUtjW4Vu0wItpTGSqSllw7Dfl0rPXtoXNjWSvTxtCwDYEk2crInNa3Hgb1qI/Tor
+asDXSn/klQ==</DigestValue></Reference></SignedInfo><SignatureValue>Z2z3+jRjEadjL2TgsLdnj4roh2wH0m+xK0Q9ZfSDk6Fnfbsij8EHz52mokI7EBTFW5SOP5ZCrNca
+ty7lm15h6Yv8deE58BEHWgsOfaVxyrPXC798Gp/zVlb7xq9rYnOLN67JtghAdGjS9vjjUzawpSLs
+D/g90KwVXXpQYMt5wjVDxO38TEW71Eo8uKq3roWLLe2UPOZwRoNsMRGd7jgkIEEIkRuyxNXYtbjd
+obPaPfiVh40k3LtoAA6cG//R9mr7oSaovPn2cboqyBEgQhyhntcUo+tYiP8uMXxMLFazJEiIVf0t
+g2rWK5RDN7k5h83LRmSCsOYq7xJzNTZh74zfKA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -695,4 +679,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_7bdca930-67fd-424f-83c8-92cd0b6c46a2" Target="#_4ffb77d3-4db8-4cb5-a30c-2dc47dc252e4"><Timestamp>2021-07-09 08:24:20</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_094cbb2e-b379-445a-a784-20b8adbc5274" Target="#_e90772a2-42ce-444a-bd69-984ff2fbb6a9"><Timestamp>2021-07-09 08:34:50</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
