@@ -366,17 +366,17 @@
   </node>
   <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="832" posY="224">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
-    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
-    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="false"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="true"/>
     <elementParameter field="RADIO" name="VERTICAL" value="false"/>
     <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
     <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
     <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
-    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
-    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
-    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
-    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" show="false" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" show="false" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" show="false" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" show="false" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" show="false" value="false"/>
     <elementParameter field="TABLE" name="LENGTHS" show="false">
       <elementValue elementRef="SCHEMA_COLUMN" value="ORDER_ID"/>
       <elementValue elementRef="LENGTH" value="10"/>
@@ -420,40 +420,41 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="768" posY="96">
+  <node componentName="tAggregateRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="928" posY="96">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tAggregateRow_1"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:SCHEMA_TYPE" show="false" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="SCHEMA:REPOSITORY_SCHEMA_TYPE" show="false" value="_S2cWQN_UEeumtqswlgNj0Q - trg_sales"/>
     <elementParameter field="TABLE" name="GROUPBYS">
       <elementValue elementRef="OUTPUT_COLUMN" value="CUST_ID"/>
-      <elementValue elementRef="INPUT_COLUMN" value="CUST_ID"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
       <elementValue elementRef="OUTPUT_COLUMN" value="PRODUCT_ID"/>
-      <elementValue elementRef="INPUT_COLUMN" value="PRODUCT_ID"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
     </elementParameter>
     <elementParameter field="TABLE" name="OPERATIONS">
       <elementValue elementRef="OUTPUT_COLUMN" value="FIRST_ORD_ID"/>
       <elementValue elementRef="FUNCTION" value="min"/>
-      <elementValue elementRef="INPUT_COLUMN" value="ORDER_ID"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="FIRST_ORD_TIMESTAMP"/>
       <elementValue elementRef="FUNCTION" value="min"/>
-      <elementValue elementRef="INPUT_COLUMN" value="ORDER_DATETIME"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="LAST_ORD_ID"/>
       <elementValue elementRef="FUNCTION" value="max"/>
-      <elementValue elementRef="INPUT_COLUMN" value="ORDER_ID"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="LAST_ORD_TIMESTAMP"/>
       <elementValue elementRef="FUNCTION" value="max"/>
-      <elementValue elementRef="INPUT_COLUMN" value="ORDER_DATETIME"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="QTY"/>
       <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="QTY"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
       <elementValue elementRef="OUTPUT_COLUMN" value="AMOUNT"/>
       <elementValue elementRef="FUNCTION" value="sum"/>
-      <elementValue elementRef="INPUT_COLUMN" value="AMOUNT"/>
+      <elementValue elementRef="INPUT_COLUMN" value=""/>
       <elementValue elementRef="IGNORE_NULL" value="true"/>
     </elementParameter>
     <elementParameter field="TEXT" name="LIST_DELIMITER" value="&quot;,&quot;"/>
@@ -492,8 +493,9 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="960" posY="96">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="1120" posY="96">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_2"/>
+    <elementParameter field="CHECK" name="ACTIVATE" value="false"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_S2cWQN_UEeumtqswlgNj0Q"/>
     <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="MYSQL_5"/>
@@ -673,6 +675,7 @@
   </connection>
   <connection connectorName="FLOW" label="row3" lineStyle="0" metaname="tAggregateRow_1" offsetLabelX="0" offsetLabelY="0" source="tAggregateRow_1" target="tDBOutput_2">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="CHECK" name="ACTIVATE" show="false" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row3"/>
   </connection>
   <subjob>
@@ -685,13 +688,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_4b22bdd3-f2c4-438f-830a-8db3dd26a241"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>bDNWCLJFIeBnCGibplFfBjdSw5jMtgsuw8F5fc38TVWCFsISflCIG6l/XPk0NXtMR3/JUBu5aN1N
-l3XjfH9jGw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_fe13f849-4fe8-47d6-abff-63ff623bf7c7"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>3+MmD2pJ2c/uAoI9GUWzF8ywi9GOYwyJiRz3R/oNwDr8Oik1NY6usu7Dc5LyICbgfcI64DQquUOG
-pUaw4bhdkQ==</DigestValue></Reference></SignedInfo><SignatureValue>H7jTCa25f2H54zwOyLF4tGT6f+F257jTmXQ8g7XLmeuIKcUZUYfYSYuaUxIf3k6sQHntx6N1v99k
-XqB+Sa4AZjFkXoV5TWBR3Zq10QZkWzq9vNUdl1NJvqm/UsZ1CBuy+VjJ5fsiBZuK4blwvW76FVpx
-+ia7hsVq7oSzh4oDn0pUtivIKZnSXKzkIjlIwPCUAqoCkWQw4RE3Z1+BJ6WzhqTXrv+BSm5fzr6y
-G4o01JxQKMbPWlxkhu9tfs96kqnPXRlMLBWs3+Ete6PI/3TBX5mr5HRtu1Oiqbaq1HrhB2Potu+c
-J0BB8uiqJtXtm+BH5EdogEuOkRm5i2Ucied4JQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_92bcf1dc-a1a8-47e1-88ae-8268d2063694"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>IEDNQz01fomXvzJt7RMmZVz1ITHG/5DSPwS+zHYRUkI6hyB5ER9a1EQuYYFLx4ZuJEuOz/PIAfaW
+SxWxUALW0Q==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d99b7472-1932-4cd4-9e65-8c3ba5a73cfb"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>00Hke+DQQzWSgLKhAC0PsNmzOQUTiELtBoDcoXJC/QP3WsK4G3lWPD97fMSk3sYiQfWaoCm6V7iB
+Cf7Zr2O53A==</DigestValue></Reference></SignedInfo><SignatureValue>2KK3vbW4oIKQjyrMhcSey6P1+AmN2+AzzI7zHwpbrV/ZbbhG3Ngahbq3KKlY/u4ej7eWl9oXlRu8
+LO8Unezwqq1x+P5VSrbioNYOZlhcFcDm+AlgA1FpUY/mdaGfg1gvIfGofLzUJfHaG4MfBUnrL7ts
+30jkIWjUCm+QKkOH7t1wah1NFhzQcKUya0ZLMOHhA+/VeCv1yvmCIZkUodZAE2sb74v2jmZl0L6b
+JErCe7xzOzBB4iKZFzG1qUz1juGr3boVh+MB+ruTNvxTJTrhO/MS6/sSt+bCMq0eQuvFQuwbif34
+wYbW3fjCAzQJd7BHSTnjaN+uu+j1jSTeYzX3Pw==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -715,4 +718,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_fe13f849-4fe8-47d6-abff-63ff623bf7c7" Target="#_4b22bdd3-f2c4-438f-830a-8db3dd26a241"><Timestamp>2021-07-09 12:22:28</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d99b7472-1932-4cd4-9e65-8c3ba5a73cfb" Target="#_92bcf1dc-a1a8-47e1-88ae-8268d2063694"><Timestamp>2021-07-09 12:23:03</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
