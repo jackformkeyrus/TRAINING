@@ -247,7 +247,7 @@
       <column comment="" key="true" length="10" name="CUSTID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
-      <column comment="" key="false" length="10" name="DEAR" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
+      <column comment="" key="false" length="10" name="DEAR" nullable="true" pattern="" precision="0" sourceType="INT" type="id_String" usefulColumn="true">
         <additionalField key="Comment" value=""/>
       </column>
       <column comment="" key="false" length="50" name="LAST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
@@ -328,16 +328,16 @@
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row3.FIRST_NAME+&quot; &quot;+row3.LAST_NAME " name="salesPers" type="id_String"/>
-        <mapperTableEntries expression="row1.FIRST_NAME+&quot; &quot;+row1.LAST_NAME " name="custNAme" type="id_String"/>
+        <mapperTableEntries expression="row4.FIRST_NAME+&quot; &quot;+row4.LAST_NAME " name="custNAme" type="id_String"/>
       </varTables>
       <outputTables name="customer" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row1.CUSTID " name="CUST_ID" type="id_Integer"/>
-        <mapperTableEntries expression="row1.DEAR" name="DEAR" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row4.CUSTID " name="CUST_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row4.DEAR" name="DEAR" nullable="true" type="id_String"/>
         <mapperTableEntries expression="Var.custNAme " name="CUST_NAME" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="row1.ADDRESS" name="ADDRESS" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="row1.CITY_ID" name="CITY_ID" type="id_Integer"/>
-        <mapperTableEntries expression="row1.PHONE" name="PHONE" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="row1.AGE" name="AGE" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="row4.ADDRESS" name="ADDRESS" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row4.CITY_ID" name="CITY_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row4.PHONE" name="PHONE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row4.AGE" name="AGE" nullable="true" type="id_Integer"/>
         <mapperTableEntries expression="row2.AGE_RANGE" name="AGE_RANGE" nullable="true" type="id_String"/>
         <mapperTableEntries expression="Var.salesPers " name="SALES_PERS" nullable="true" type="id_String"/>
         <mapperTableEntries expression="" name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
@@ -345,7 +345,7 @@
       </outputTables>
       <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row4" sizeState="INTERMEDIATE">
         <mapperTableEntries name="CUSTID" type="id_Integer"/>
-        <mapperTableEntries name="DEAR" nullable="true" type="id_Integer"/>
+        <mapperTableEntries name="DEAR" nullable="true" type="id_String"/>
         <mapperTableEntries name="LAST_NAME" nullable="true" type="id_String"/>
         <mapperTableEntries name="FIRST_NAME" nullable="true" type="id_String"/>
         <mapperTableEntries name="ADDRESS" nullable="true" type="id_String"/>
@@ -708,13 +708,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_5890f08c-51b1-433c-bd1c-8dde6c64afaa"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>rmAC6vLjuKQQKKwgVH52kZXsvttoTqx1IhlLyokm2ILlhULpGyBwJLCNH/EHQ9+G2BzvxsvDyqyc
-KCXF6NA8EA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_d33b5ba4-86bb-4845-b1f4-8281e9526437"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>AEPBTXw+gE3/c4h/AiUpSnw4p32ptuHuDSSF1c9QmcKvWQeTJug+czjbTb9eh6W8/x35BvLwkpyv
-xTh6p0kVow==</DigestValue></Reference></SignedInfo><SignatureValue>q9IDCfh5IW5a1gkevjJu7gVK7hDji7tAgzpiA8WhhK13XVNXyguubx7M68dH0HXUhGkEBcBhu7PW
-p+dFwNIFOgUkXE6zVSUGyCYDGjzOBG7zGawyMExQMerqta1O0tSvIc20cvuy6yWzKDVlOSSmmtOc
-yFUql+xaMwLaUmexcr8M+imloShZ6R0gZ+cnvimztsDTq4RDOPAdMJF8d5WhRzfXFyyv7uxI5cuF
-eNKSTf6/MEdi2ReQkP0kSuuQ+CZ4TcGlgsLlKbjvGrTpKJWuhbtiBDBCfFDw3kUcM+WTajd05uEJ
-NzY1/pLOzystSnthwBS8nD6MDjWJEzijpLzqyA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_c81df5bb-6f5b-4bb3-8237-8f6189eb10c0"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>DyO5rIOdrEmqJe6EK4zmxdAx3BXAMEf3jCXnxiFZ/A5KnAqW0hYhGGz0JyKmw9SL+C+eg9FS4Gy4
+CJcRoN/yyQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_85205e9a-c381-4b92-abfa-c6f58c7b6f7b"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>c2oJVhGXprGBlDP73q53CG7tjfeXL74uwDaVH2Osb3nd75FKHyvffUDC+eZFSdQ4WzXZYMoETcgT
+nAasaMQQVw==</DigestValue></Reference></SignedInfo><SignatureValue>TuusnhCmsMf6aVrays1bdBczzexIOJCLweANFHvVtn+7B8rrBA8Hj737FCCJxnj7q6aL74EibCq4
+k8gyr3A+VeyPv6WeKkLCMCSqtu4WDtJx1AoHQnOeeRE423R+PnqeCVLehwMXka7Q4XVYtN77J0yR
+/1luunM+nSwnCH0po98cuP0flqbmYdJZklC4NNhhS+0tsptiJ8VVyGNybZEhAhqjwfzLAzj7T5F3
+W/mQCRHT9w+q4BOmZCcNQBStfnuqtx0I+l5KAKi7v8weuCzU0X/WJ4fL8CgWs0q2I2lQNFcd2ech
+oYmj11QBWelBi8lg6Rpi5wylj+DC9F1uk/IU/Q==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -738,4 +738,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_d33b5ba4-86bb-4845-b1f4-8281e9526437" Target="#_5890f08c-51b1-433c-bd1c-8dde6c64afaa"><Timestamp>2021-07-09 08:30:47</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_85205e9a-c381-4b92-abfa-c6f58c7b6f7b" Target="#_c81df5bb-6f5b-4bb3-8237-8f6189eb10c0"><Timestamp>2021-07-09 08:32:51</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
