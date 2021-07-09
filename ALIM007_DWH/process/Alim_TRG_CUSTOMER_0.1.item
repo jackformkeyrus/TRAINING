@@ -129,7 +129,7 @@
     <routinesParameter id="_zs32MN_TEeumtqswlgNj0Q" name="TalendStringUtil"/>
     <routinesParameter id="_zsuFOt_TEeumtqswlgNj0Q" name="TalendString"/>
   </parameters>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="128">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="192" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBInput_2"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_6PEicN_UEeumtqswlgNj0Q"/>
@@ -212,69 +212,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tReplace" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="352" posY="128">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplace_1"/>
-    <elementParameter field="CHECK" name="SIMPLE_MODE" value="true"/>
-    <elementParameter field="LABEL" name="SIMPLEMODE_OLDLABLE" show="false" value="Simple mode works with regex expression(in last version)"/>
-    <elementParameter field="TABLE" name="SUBSTITUTIONS">
-      <elementValue elementRef="INPUT_COLUMN" value="DEAR"/>
-      <elementValue elementRef="SEARCH_PATTERN" value="&quot;0&quot;"/>
-      <elementValue elementRef="REPLACE_STRING" value="&quot;Mr&quot;"/>
-      <elementValue elementRef="WHOLE_WORD" value="true"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="USE_GLOB" value="false"/>
-      <elementValue elementRef="COMMENT" value=""/>
-      <elementValue elementRef="INPUT_COLUMN" value="DEAR"/>
-      <elementValue elementRef="SEARCH_PATTERN" value="&quot;1&quot;"/>
-      <elementValue elementRef="REPLACE_STRING" value="&quot;Mme&quot;"/>
-      <elementValue elementRef="WHOLE_WORD" value="true"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="USE_GLOB" value="false"/>
-      <elementValue elementRef="COMMENT" value=""/>
-      <elementValue elementRef="INPUT_COLUMN" value="DEAR"/>
-      <elementValue elementRef="SEARCH_PATTERN" value="&quot;2&quot;"/>
-      <elementValue elementRef="REPLACE_STRING" value="&quot;Mlle&quot;"/>
-      <elementValue elementRef="WHOLE_WORD" value="true"/>
-      <elementValue elementRef="CASE_SENSITIVE" value="false"/>
-      <elementValue elementRef="USE_GLOB" value="false"/>
-      <elementValue elementRef="COMMENT" value=""/>
-    </elementParameter>
-    <elementParameter field="CHECK" name="STRICT_MATCH" show="false" value="true"/>
-    <elementParameter field="CHECK" name="ADVANCED_MODE" value="false"/>
-    <elementParameter field="TABLE" name="ADVANCED_SUBST" show="false"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" label="src_customer" name="tReplace_1">
-      <column comment="" key="true" length="10" name="CUSTID" nullable="false" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="10" name="DEAR" nullable="true" pattern="" precision="0" sourceType="INT" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="50" name="LAST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="50" name="FIRST_NAME" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="100" name="ADDRESS" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="10" name="CITY_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="50" name="PHONE" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="10" name="AGE" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <column comment="" key="false" length="10" name="SALES_PERS_ID" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" usefulColumn="true">
-        <additionalField key="Comment" value=""/>
-      </column>
-      <additionalProperties key="Comment" value=""/>
-    </metadata>
-  </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="128">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="448" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tMap_1"/>
     <elementParameter field="EXTERNAL" name="MAP" value=""/>
     <elementParameter field="CLOSED_LIST" name="LINK_STYLE" value="AUTO"/>
@@ -328,24 +266,24 @@
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
         <mapperTableEntries expression="row3.FIRST_NAME+&quot; &quot;+row3.LAST_NAME " name="salesPers" type="id_String"/>
-        <mapperTableEntries expression="row4.FIRST_NAME+&quot; &quot;+row4.LAST_NAME " name="custNAme" type="id_String"/>
+        <mapperTableEntries expression="row1.FIRST_NAME+&quot; &quot;+row1.LAST_NAME " name="custNAme" type="id_String"/>
       </varTables>
       <outputTables name="customer" sizeState="INTERMEDIATE">
-        <mapperTableEntries expression="row4.CUSTID " name="CUST_ID" type="id_Integer"/>
-        <mapperTableEntries expression="row4.DEAR" name="DEAR" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row1.CUSTID " name="CUST_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row1.DEAR.toString() " name="DEAR" nullable="true" type="id_String"/>
         <mapperTableEntries expression="Var.custNAme " name="CUST_NAME" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="row4.ADDRESS" name="ADDRESS" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="row4.CITY_ID" name="CITY_ID" type="id_Integer"/>
-        <mapperTableEntries expression="row4.PHONE" name="PHONE" nullable="true" type="id_String"/>
-        <mapperTableEntries expression="row4.AGE" name="AGE" nullable="true" type="id_Integer"/>
+        <mapperTableEntries expression="row1.ADDRESS" name="ADDRESS" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row1.CITY_ID" name="CITY_ID" type="id_Integer"/>
+        <mapperTableEntries expression="row1.PHONE" name="PHONE" nullable="true" type="id_String"/>
+        <mapperTableEntries expression="row1.AGE" name="AGE" nullable="true" type="id_Integer"/>
         <mapperTableEntries expression="row2.AGE_RANGE" name="AGE_RANGE" nullable="true" type="id_String"/>
         <mapperTableEntries expression="Var.salesPers " name="SALES_PERS" nullable="true" type="id_String"/>
         <mapperTableEntries expression="" name="CRE_TIMESTAMP" nullable="true" type="id_Date"/>
         <mapperTableEntries expression="" name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
       </outputTables>
-      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row4" sizeState="INTERMEDIATE">
+      <inputTables lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row1" sizeState="INTERMEDIATE">
         <mapperTableEntries name="CUSTID" type="id_Integer"/>
-        <mapperTableEntries name="DEAR" nullable="true" type="id_String"/>
+        <mapperTableEntries name="DEAR" nullable="true" type="id_Integer"/>
         <mapperTableEntries name="LAST_NAME" nullable="true" type="id_String"/>
         <mapperTableEntries name="FIRST_NAME" nullable="true" type="id_String"/>
         <mapperTableEntries name="ADDRESS" nullable="true" type="id_String"/>
@@ -367,7 +305,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="224">
+  <node componentName="tFileInputDelimited" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="224">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputDelimited_1"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_OGa1cN_XEeumtqswlgNj0Q"/>
@@ -435,7 +373,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tFileInputPositional" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="320">
+  <node componentName="tFileInputPositional" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="224" posY="320">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputPositional_1"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_qqrqsN_YEeumtqswlgNj0Q"/>
@@ -509,7 +447,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="832" posY="128">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="800" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_3"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
     <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" show="false" value="_S2cWQN_UEeumtqswlgNj0Q"/>
@@ -683,13 +621,9 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tReplace_1">
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
-  </connection>
-  <connection connectorName="FLOW" label="row4" lineStyle="0" metaname="tReplace_1" offsetLabelX="0" offsetLabelY="0" source="tReplace_1" target="tMap_1">
-    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row4"/>
   </connection>
   <connection connectorName="FLOW" label="customer" lineStyle="0" metaname="customer" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tDBOutput_3">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -708,13 +642,13 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_8dd86061-0567-4797-87bd-6e011a730318"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>2fBeU0yaIQJV3jvmrnidy+MZy107BUXyykZtP55JBESzcuTkPUz5faKZNvUBWNKURG7e35Pb1UP+
-zjQR00F4CQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_49f34041-2e5d-4d90-a9fe-da45d9359acd"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>XdbZ5AJdA5z4wp0Tll4xelgzpIPGTNYsuytmp13g08FOtzKcgCLW9pbeQFotMiWML0uhtYAvvIMg
-5GahXnTmqg==</DigestValue></Reference></SignedInfo><SignatureValue>nxIO376WQQ/y+QrXayuyc0z1Yt+TsGstxpELCnouosShWzJeRzbV2zEIQ44/seNmxTekohSxD+LX
-Cj2xBRJDtEB/4rtX69cIzh6JQvI5xqfkzngJmPHA7NjLsXXaLCQ3sEdgOBfLAKB9q4iW8g+QOCXS
-4pfyq2nk7M/uDckAOq4581UPr9770j4s/gupWJSLvkY++fZ0kT0AHSneMrfexjzQNWp5FiofTgSi
-//wOi6k0HScK9bQ1+J43mpjPjACXPt59cJjxuXwwqRQf1Wv8RwpPMqeGShGnOdg7s4Nbz3ptfNXL
-XWG97i2ECPx9AcWoyuALzgm6BzwniGCt852YTA==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_7018f1d9-69ee-4d81-9bc2-6a0899cc5420"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>c9auHf4U8HYs6C/VXiYUB+lrdldLi71dYenVjr0bZ6Xmaf4WAdQS2n+mlniVxENlFnkjp64LyfC5
+dny4dHdgDA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_ff1617eb-765b-4c7a-8885-091d8218125f"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>3PJIgtJUayUauVDKMMNmgaPJ1a9W5m6lOkQwASYcXrsCgMHzSaYnitATlLjNwKihASHIKzUPwuuh
+qm/i1aCPDg==</DigestValue></Reference></SignedInfo><SignatureValue>wm3JcWLBs3bwk7PwAPdLJEiaMR0T7wwUPR4mIkLxu9k0vYzitFTW1Fw6ETdPecGfTfItWDXC/uMf
+V/FQn0bMFnKjBUSL4gUmt3jSd6CDWVxDMCLa5hFM1szE4gMkHNVwKFYftzZ9ahI5Sap5NTBW0f7m
+66BwqQ8RvjzW4tqzcRDVgIH0z+FeMNkih5TuPCJOCtRYP6Kt0eGBQMQmhsWodQdY/whQlRVOrj51
++Y6HAjqpRpJEwpj6+T8uTtdMLZFmRsuuJkp3jn4945hcJMypuLKBDCN3zQcXu2MZh56WBqlNYMd1
+6oJgl9VNdomYS/8ZEpUq5SLtT3VhZilcaAu/ig==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -738,4 +672,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_49f34041-2e5d-4d90-a9fe-da45d9359acd" Target="#_8dd86061-0567-4797-87bd-6e011a730318"><Timestamp>2021-07-09 08:35:45</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_ff1617eb-765b-4c7a-8885-091d8218125f" Target="#_7018f1d9-69ee-4d81-9bc2-6a0899cc5420"><Timestamp>2021-07-09 08:41:03</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
