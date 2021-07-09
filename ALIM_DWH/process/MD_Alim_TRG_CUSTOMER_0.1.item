@@ -255,6 +255,7 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
     <metadata connector="FLOW" label="remplace1" name="remplace1"/>
+    <metadata connector="FLOW" label="sortie_log" name="sortie_log"/>
     <nodeData xsi:type="TalendMapper:MapperData">
       <uiProperties shellMaximized="true"/>
       <varTables name="Var" sizeState="INTERMEDIATE">
@@ -275,6 +276,7 @@
         <mapperTableEntries expression="TalendDate.getCurrentDate() " name="UPD_TIMESTAMP" nullable="true" type="id_Date"/>
       </outputTables>
       <outputTables name="remplace1" sizeState="INTERMEDIATE"/>
+      <outputTables name="sortie_log" sizeState="INTERMEDIATE"/>
       <inputTables activateExpressionFilter="true" expressionFilter="row1.AGE &lt;65" lookupMode="LOAD_ONCE" matchingMode="UNIQUE_MATCH" name="row1" sizeState="INTERMEDIATE">
         <mapperTableEntries name="CUSTID" type="id_Integer"/>
         <mapperTableEntries name="DEAR" nullable="true" type="id_Integer"/>
@@ -440,6 +442,36 @@
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
     </metadata>
+  </node>
+  <node componentName="tLogRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="576" posY="320">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tLogRow_1"/>
+    <elementParameter field="RADIO" name="BASIC_MODE" value="true"/>
+    <elementParameter field="RADIO" name="TABLE_PRINT" value="false"/>
+    <elementParameter field="RADIO" name="VERTICAL" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE" show="false" value="true"/>
+    <elementParameter field="RADIO" name="PRINT_LABEL" show="false" value="false"/>
+    <elementParameter field="RADIO" name="PRINT_UNIQUE_LABEL" show="false" value="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;|&quot;"/>
+    <elementParameter field="CHECK" name="PRINT_HEADER" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_UNIQUE_NAME" value="false"/>
+    <elementParameter field="CHECK" name="PRINT_COLNAMES" value="false"/>
+    <elementParameter field="CHECK" name="USE_FIXED_LENGTH" value="false"/>
+    <elementParameter field="TABLE" name="LENGTHS" show="false"/>
+    <elementParameter field="CHECK" name="PRINT_CONTENT_WITH_LOG4J" value="true"/>
+    <elementParameter field="TEXT" name="SCHEMA_OPT_NUM" show="false" value="100"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tLogRow_1"/>
+  </node>
+  <node componentName="tReplace" componentVersion="0.101" offsetLabelX="12" offsetLabelY="37" posX="736" posY="256">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplace_1"/>
+    <elementParameter field="CHECK" name="SIMPLE_MODE" value="true"/>
+    <elementParameter field="LABEL" name="SIMPLEMODE_OLDLABLE" show="false" value="Simple mode works with regex expression(in last version)"/>
+    <elementParameter field="TABLE" name="SUBSTITUTIONS"/>
+    <elementParameter field="CHECK" name="STRICT_MATCH" show="false" value="true"/>
+    <elementParameter field="CHECK" name="ADVANCED_MODE" value="false"/>
+    <elementParameter field="TABLE" name="ADVANCED_SUBST" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tReplace_1"/>
   </node>
   <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="736" posY="128">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_5"/>
@@ -615,24 +647,13 @@
       <additionalProperties key="Comment" value=""/>
     </metadata>
   </node>
-  <node componentName="tReplace" componentVersion="0.101" offsetLabelX="12" offsetLabelY="37" posX="544" posY="128">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tReplace_1"/>
-    <elementParameter field="CHECK" name="SIMPLE_MODE" value="true"/>
-    <elementParameter field="LABEL" name="SIMPLEMODE_OLDLABLE" show="false" value="Simple mode works with regex expression(in last version)"/>
-    <elementParameter field="TABLE" name="SUBSTITUTIONS"/>
-    <elementParameter field="CHECK" name="STRICT_MATCH" show="false" value="true"/>
-    <elementParameter field="CHECK" name="ADVANCED_MODE" value="false"/>
-    <elementParameter field="TABLE" name="ADVANCED_SUBST" show="false"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-    <metadata connector="FLOW" name="tReplace_1"/>
-  </node>
   <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tDBInput_2" offsetLabelX="0" offsetLabelY="0" source="tDBInput_2" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
   </connection>
-  <connection connectorName="FLOW" label="remplace1" lineStyle="0" metaname="remplace1" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tDBOutput_5">
+  <connection connectorName="FLOW" label="sortie_log" lineStyle="0" metaname="sortie_log" offsetLabelX="0" offsetLabelY="0" source="tMap_1" target="tLogRow_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="remplace1"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="sortie_log"/>
   </connection>
   <connection connectorName="FLOW" label="row2" lineStyle="8" metaname="tFileInputDelimited_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputDelimited_1" target="tMap_1">
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
@@ -652,13 +673,18 @@
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_bf4d8a33-1b96-40fc-bdf2-038a4674996f"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>vqiYsQVq0yKJ09mxv9rJf2zf6IwE2Qr9IVjDKJOr0y84DUgkb0b0W1xYnpm6+K50FkUZ+vgHrcpH
-33cu6xunDw==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_a5e4a21e-2bcd-4168-8d97-702b18211616"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>m9wpUS6cfs7buT4aOshX6LK+PJxQsTwUVWuVfXW+JmlDMoMlFzDTcoZimCFtx2690R2kgrcd+0H+
-h6GVGVZeIw==</DigestValue></Reference></SignedInfo><SignatureValue>2IPIaiFKzJPwFGYBsZidwCts4SS5AfOsLiriEGrdH+obADILSUbY+m/w9eRwSaxiaOrwdZB+ht7T
-FPE17Zaf2/MeFDHih74Ai5BXKfkPFSJTNb3csLCGYWLuDqsPNQ5BjiDv71D1y+xrN3mJcikbzvtf
-hjoARROKrzAw6RtDqrGS0gcGUMjBgH+QMdJB3b0dHq8IqLAziUfxxogdoNVle3kFydktsUZTWqmN
-JGrLu1pz7JoyJyUr/eedK8L0rbFAithqdkxHRxcDe/JlM8BvzeHiSexMGJxzLfJsWo3mgiQjO6Gf
-xmUBf/oX6l+SSXRm/dWFmwD95vGB87SYZVhBWQ==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tDBOutput_5"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_5a89bcde-5800-4866-9789-4590bbeb6afc"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>5IxMCPIMYJ+6OUlHpCfQsHDjIEsnGw1pOAN3i+2WY9XUueMWg8pmP/Mp0iQunHH1YoKGmc6dWnFG
+Lrtpe2ikbA==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_3caf89c2-e8c0-4ef5-a7d1-4d6eb3532df1"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>dAG4D6eRsnJgfqHQGlq64/es8qCbV1xG6Y8UxVnq6+xTjQHMy+uLcI+DfAWKjBz1/8OfBn6+q820
+9Xq67aFUbw==</DigestValue></Reference></SignedInfo><SignatureValue>Pk5S/G5PcpVFlMlvrCw5ZHtNrtNYzvaTdNeFwpcxJDg5srj2mG2hSOfGkMvtYmlsbzaIDLZfR92t
+7MerpiEUSO6RvOK5fVjf4w5Sh/yGTPXQmK2nZG1LacRjzmBl9bniCsSdrZ5Nf0CYqevDP42+sA5q
+c9Iy8tsKLud87LQ8BLCh7z55zMWZc6L95KHgF21pAR4tWUJ2zyfhbgi/aiFfAlxmuI7olROy6/ok
+XpgJd6Av1gOlqlUoIZXZ7S8UgqeexojRisH36bV7SyuvMEum4p04gGaTBD7D5HMnImOrETdXMoc+
+ffqIQXiKQHhaZq8mD2+zjZc+yha3RkFqVYIvdg==</SignatureValue><KeyInfo><X509Data><X509SubjectName>CN=Default code-signing certificate,OU=R&amp;D,O=Talend Inc.,ST=Paris,C=FR</X509SubjectName><X509Certificate>MIIFYzCCA0ugAwIBAgIBATANBgkqhkiG9w0BAQsFADCBjTELMAkGA1UEBhMCRlIxDjAMBgNVBAgM
 BVBhcmlzMQ4wDAYDVQQHDAVQYXJpczEUMBIGA1UECgwLVGFsZW5kIEluYy4xDDAKBgNVBAsMA1Im
 RDEWMBQGA1UEAwwNVGFsZW5kIFImRCBDQTEiMCAGCSqGSIb3DQEJARYTc2VjdXJpdHlAdGFsZW5k
 LmNvbTAeFw0xODAxMTgwMDA2MTJaFw0yMTAxMTcwMDA2MTJaMGwxCzAJBgNVBAYTAkZSMQ4wDAYD
@@ -682,4 +708,4 @@ r3/fbKJ02Ni9kCnkY8wQS1yn45UNl1woSjryza4f4uLKGkrrIsUPXK+Vy4A1Il8XgFfmrtgA8m9s
 EHyu0OyAJH/agWN+GLhF/ssp26oXhiYqTkG4sQtNRFQG0isaYf/JWSt3f8Q+7/pnZpz4mfEAFimI
 BBLzRwDA6x9qqOn0RXxBo9pH16EO3SXPLR64cJum8B/RI/i8H6OkQDO1tEiE6UeceZk++U7fnD3c
 6i9Km85GTgQi6REsVZGIL/tZNIzN//qPwi7cDo3Cf/xmPrIKQhHJaxCqmbjGDmC8AXOaqNfWotVX
-Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_a5e4a21e-2bcd-4168-8d97-702b18211616" Target="#_bf4d8a33-1b96-40fc-bdf2-038a4674996f"><Timestamp>2021-07-09 09:08:09</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+Wy2dcglW62PDszE/HKh9</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_3caf89c2-e8c0-4ef5-a7d1-4d6eb3532df1" Target="#_5a89bcde-5800-4866-9789-4590bbeb6afc"><Timestamp>2021-07-09 09:11:45</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
